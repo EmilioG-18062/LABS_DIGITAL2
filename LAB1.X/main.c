@@ -6,10 +6,11 @@
  */
 
 /*//////////////////////////////////////////////////////////////////////////////
- * Librerias
+ * LIBRERIAS
  */
 #include <xc.h>
 #include <stdint.h>
+
 /*//////////////////////////////////////////////////////////////////////////////
  * PIC16F887 Configuration Bit Settings
  */
@@ -31,9 +32,58 @@
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
 
 /*//////////////////////////////////////////////////////////////////////////////
+ * VARIABLES GLOBALES
+ */
+#define _XTAL_FREQ 8000000 //8MHz
+
+/*//////////////////////////////////////////////////////////////////////////////
+ * PROTOTIPOS DE FUNCIONES
+ */
+
+void setup(void){
+    
+    ANSEL = 0;  //Todos los pines A de I/O se configuran como digitales
+    TRISA = 0b00000111; //Configuro el PORTA como salida excepto el pin 0/1/2
+    PORTA = 0;  //Inicio el PORTA con todos en 0
+    
+    
+    ANSELH = 0; //Todos los pines B de I/O se configuran como digitales
+    TRISB = 0; ////Configuro el PORTB como salida
+    PORTB = 0;  //Inicio el PORTB con todos en 0
+    
+    TRISC = 0; ////Configuro el PORTC como salida
+    PORTC = 0;  //Inicio el PORTB con todos en 0
+    
+    TRISD = 0; ////Configuro el PORTD como salida
+    PORTD = 0;  //Inicio el PORTB con todos en 0
+    
+    TRISE = 0; ////Configuro el PORTE como salida
+    PORTE = 0;  //Inicio el PORTB con todos en 0
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////
  * CICLO PRINCIPAL
  */
 
-void main(void) {   
+void main(void) { 
+    setup();
+    while(1){
+        if (PORTAbits.RA2 == 0){
+            
+            PORTEbits.RE0 = 1;
+            __delay_ms(500);
+            PORTEbits.RE0 = 0;
+            
+            PORTEbits.RE1 = 1;
+            __delay_ms(500);
+            PORTEbits.RE1 = 0;
+            
+            PORTEbits.RE2 = 1;
+        }
+        else{
+            __delay_ms(50); 
+        }
+    }
     return;
 }
