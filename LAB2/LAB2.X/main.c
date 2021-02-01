@@ -2,7 +2,7 @@
  * File:   main.c
  * Author: Emilio Gordillo 18062
  *
- * LABORATORIO 1 - DIGITAL 1
+ * LABORATORIO 2 - DIGITAL 2
  */
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -39,24 +39,43 @@
 /*//////////////////////////////////////////////////////////////////////////////
  * VARIABLES
  */
-uint8_t game = 0;
-uint8_t J1_Count = 1;
-uint8_t J2_Count = 1;
+uint8_t Reference_Count = 0;
+
+/*//////////////////////////////////////////////////////////////////////////////
+ * INTERRUPCIONES
+ */
+void __interrupt () myISR(void){
+    //On-Change Interrupts
+    if (INTCONbits.RBIE == 1 && INTCONbits.RBIF == 1){
+        if (PORTBbits.RB0 == 0){
+            INTCONbits.RBIF=0;
+            if (Reference_Count > 0){
+                Reference_Count = Reference_Count * 2;
+            }
+            else{
+                Reference_Count++;
+            }
+        }
+        else{
+            INTCONbits.RBIF=0;
+        }
+    }
+}
 
 /*//////////////////////////////////////////////////////////////////////////////
  * PROTOTIPOS DE FUNCIONES
  */
-
 void setup(void) {
 
     ANSEL = 0; //Todos los pines A de I/O se configuran como digitales
-    TRISA = 0b00000111; //Configuro el PORTA como salida excepto el pin 0/1/2
+    TRISA = 0; //Configuro el PORTA como salida
     PORTA = 0; //Inicio el PORTA con todos en 0
 
 
-    ANSELH = 0; //Todos los pines B de I/O se configuran como digitales
-    TRISB = 0; ////Configuro el PORTB como salida
-    PORTB = 0; //Inicio el PORTB con todos en 0
+    ANSELH  = 0; //Todos los pines B de I/O se configuran como digitales
+    TRISB   = 0b00000011; ////Configuro el PORTB como salida excepto pin 0/1
+    PORTB   = 0; //Inicio el PORTB con todos en 0
+    IOCB    = 0b00000011; //Enciendo las Interrupciones On-Change del pin 0/1
 
     TRISC = 0; ////Configuro el PORTC como salida
     PORTC = 0; //Inicio el PORTB con todos en 0
@@ -66,62 +85,16 @@ void setup(void) {
 
     TRISE = 0; ////Configuro el PORTE como salida
     PORTE = 0; //Inicio el PORTB con todos en 0
-}
-
-void semaforo(void) {
-    PORTEbits.RE0 = 1;
-    __delay_ms(100);
-    PORTEbits.RE0 = 0;
-
-    PORTEbits.RE1 = 1;
-    __delay_ms(100);
-    PORTEbits.RE1 = 0;
-
-    PORTEbits.RE2 = 1;
-    game = 1;
-}
-
-void reset(void) {
-    J1_Count = 1;
-    J2_Count = 1;
-    PORTEbits.RE2 = 0;
-    PORTBbits.RB0 = 0;
-    PORTBbits.RB1 = 0;
-    PORTC = 0;
-    PORTD = 0;
+    
+    INTCON = 0b10001001; // Enable Global Interrupt
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
  * CICLO PRINCIPAL
  */
-
 void main(void) {
     setup();
-    while (1) {
-        if (PORTAbits.RA2 == 0) {
-            reset();
-            semaforo();
-        } else {
-            __delay_ms(50);
-        }
-        while (game == 1) {
-            __delay_ms(50);
-            if (PORTAbits.RA0 == 0) {
-                if (J1_Count == 0) {
-                    PORTBbits.RB0 = 1;
-                    game = 0;
-                }
-                PORTC = J1_Count;
-                J1_Count = J1_Count * 2;
-            } else if (PORTAbits.RA1 == 0) {
-                if (J2_Count == 0) {
-                    PORTBbits.RB1 = 1;
-                    game = 0;
-                }
-                PORTD = J2_Count;
-                J2_Count = J2_Count * 2;
-
-            }
-        }
+    while(1){
+        PORTC = Reference_Count;
     }
 }
