@@ -32,9 +32,17 @@
 #pragma config WRT = OFF        // Flash Program Memory Self Write Enable bits (Write protection off)
 
 /*//////////////////////////////////////////////////////////////////////////////
- * VARIABLES GLOBALES
+ * MACROS
  */
 #define _XTAL_FREQ 8000000 //8MHz
+
+/*//////////////////////////////////////////////////////////////////////////////
+ * VARIABLES
+ */
+uint8_t game = 0;
+uint8_t i = 1;
+uint8_t temp = 1;
+
 
 /*//////////////////////////////////////////////////////////////////////////////
  * PROTOTIPOS DE FUNCIONES
@@ -61,6 +69,20 @@ void setup(void){
     PORTE = 0;  //Inicio el PORTB con todos en 0
 }
 
+void semaforo(void){
+    PORTBbits.RB0 = 0;
+    
+    PORTEbits.RE0 = 1;
+    __delay_ms(100);
+    PORTEbits.RE0 = 0;
+            
+    PORTEbits.RE1 = 1;
+    __delay_ms(100);
+    PORTEbits.RE1 = 0;
+            
+    PORTEbits.RE2 = 1;
+    game = 1;
+}
 
 /*//////////////////////////////////////////////////////////////////////////////
  * CICLO PRINCIPAL
@@ -70,16 +92,27 @@ void main(void) {
     setup();
     while(1){
         if (PORTAbits.RA2 == 0){
-            
-            PORTEbits.RE0 = 1;
-            __delay_ms(500);
-            PORTEbits.RE0 = 0;
-            
-            PORTEbits.RE1 = 1;
-            __delay_ms(500);
-            PORTEbits.RE1 = 0;
-            
-            PORTEbits.RE2 = 1;
+            semaforo();
+            while(game == 1){
+                __delay_ms(50); 
+                if (PORTAbits.RA0 == 0){
+                    PORTC = temp;
+                    if (temp == 1){
+                        PORTEbits.RE2 = 0;
+                        temp = temp*2;
+                    }
+                    else if (temp == 0){
+                        PORTBbits.RB0 = 1;
+                        temp = 1;
+                        game =0;
+                    }
+                    else{
+                        temp = temp*2;
+                    }
+                }
+                else{
+                }
+            }
         }
         else{
             __delay_ms(50); 

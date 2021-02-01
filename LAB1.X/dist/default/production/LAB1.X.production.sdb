@@ -11,13 +11,15 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"43 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+"51 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
 [v _setup setup `(v  1 e 1 0 ]
-"69
+"72
+[v _semaforo semaforo `(v  1 e 1 0 ]
+"91
 [v _main main `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
-[s S34 . 1 `uc 1 RA0 1 0 :1:0 
+[s S74 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -27,10 +29,22 @@
 `uc 1 RA7 1 0 :1:7 
 ]
 "183
-[u S43 . 1 `S34 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES43  1 e 1 @5 ]
+[u S83 . 1 `S74 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES83  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
+[s S34 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"245
+[u S43 . 1 `S34 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES43  1 e 1 @6 ]
 "290
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "352
@@ -59,13 +73,22 @@
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"69 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+"42 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+[v _game game `uc  1 e 1 0 ]
+"44
+[v _temp temp `uc  1 e 1 0 ]
+"91
 [v _main main `(v  1 e 1 0 ]
 {
-"89
+"122
 } 0
-"43
+"51
 [v _setup setup `(v  1 e 1 0 ]
 {
-"62
+"70
+} 0
+"72
+[v _semaforo semaforo `(v  1 e 1 0 ]
+{
+"85
 } 0

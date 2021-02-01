@@ -2645,7 +2645,16 @@ typedef uint16_t uintptr_t;
 
 #pragma config BOR4V = BOR40V
 #pragma config WRT = OFF
-# 43 "main.c"
+# 42 "main.c"
+uint8_t game = 0;
+uint8_t i = 1;
+uint8_t temp = 1;
+
+
+
+
+
+
 void setup(void){
 
     ANSEL = 0;
@@ -2667,6 +2676,20 @@ void setup(void){
     PORTE = 0;
 }
 
+void semaforo(void){
+    PORTBbits.RB0 = 0;
+
+    PORTEbits.RE0 = 1;
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    PORTEbits.RE0 = 0;
+
+    PORTEbits.RE1 = 1;
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    PORTEbits.RE1 = 0;
+
+    PORTEbits.RE2 = 1;
+    game = 1;
+}
 
 
 
@@ -2676,16 +2699,27 @@ void main(void) {
     setup();
     while(1){
         if (PORTAbits.RA2 == 0){
-
-            PORTEbits.RE0 = 1;
-            _delay((unsigned long)((500)*(8000000/4000.0)));
-            PORTEbits.RE0 = 0;
-
-            PORTEbits.RE1 = 1;
-            _delay((unsigned long)((500)*(8000000/4000.0)));
-            PORTEbits.RE1 = 0;
-
-            PORTEbits.RE2 = 1;
+            semaforo();
+            while(game == 1){
+                _delay((unsigned long)((50)*(8000000/4000.0)));
+                if (PORTAbits.RA0 == 0){
+                    PORTC = temp;
+                    if (temp == 1){
+                        PORTEbits.RE2 = 0;
+                        temp = temp*2;
+                    }
+                    else if (temp == 0){
+                        PORTBbits.RB0 = 1;
+                        temp = 1;
+                        game =0;
+                    }
+                    else{
+                        temp = temp*2;
+                    }
+                }
+                else{
+                }
+            }
         }
         else{
             _delay((unsigned long)((50)*(8000000/4000.0)));

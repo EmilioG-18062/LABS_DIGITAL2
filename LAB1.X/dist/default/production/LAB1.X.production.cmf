@@ -11,14 +11,18 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\emili\AppData\Local\Temp\siko.o
+$C:\Users\emili\AppData\Local\Temp\smsg.o
 end_init CODE 0 0 0 3 2
 config CONFIG 4 2007 2007 2 2
 $dist/default/production\LAB1.X.production.o
-cinit CODE 0 7FC 7FC 4 2
-text1 CODE 0 79A 79A 26 2
-maintext CODE 0 7C0 7C0 3C 2
-cstackCOMMON COMMON 1 70 70 3 1
+cinit CODE 0 7EF 7EF 11 2
+text1 CODE 0 755 755 26 2
+text2 CODE 0 77B 77B 29 2
+idataCOMMON CODE 0 753 753 2 2
+maintext CODE 0 7A4 7A4 4B 2
+cstackCOMMON COMMON 1 70 70 5 1
+dataCOMMON COMMON 1 75 75 2 1
+bssCOMMON COMMON 1 77 77 1 1
 config CONFIG 4 2007 2007 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -34,23 +38,23 @@ BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 3-799 2
+CONST 3-752 2
 CONST 800-1FFF 2
-ENTRY 3-799 2
+ENTRY 3-752 2
 ENTRY 800-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
-CODE 3-799 2
+CODE 3-752 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
-COMMON 73-7D 1
+COMMON 78-7D 1
 EEDATA 2100-21FF 2
-STRCODE 3-799 2
+STRCODE 3-752 2
 STRCODE 800-1FFF 2
-STRING 3-799 2
+STRING 3-752 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -66,37 +70,59 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\LAB1.X.production.o
-7FC cinit CODE >452:C:\Users\emili\AppData\Local\Temp\siko.s
-7FC cinit CODE >455:C:\Users\emili\AppData\Local\Temp\siko.s
-7FC cinit CODE >461:C:\Users\emili\AppData\Local\Temp\siko.s
-7FC cinit CODE >463:C:\Users\emili\AppData\Local\Temp\siko.s
-7FD cinit CODE >464:C:\Users\emili\AppData\Local\Temp\siko.s
-79A text1 CODE >43:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-79A text1 CODE >45:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-79D text1 CODE >46:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7A1 text1 CODE >47:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7A4 text1 CODE >50:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7A7 text1 CODE >51:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7AA text1 CODE >52:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7AD text1 CODE >54:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7B0 text1 CODE >55:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7B3 text1 CODE >57:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7B6 text1 CODE >58:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7B9 text1 CODE >60:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7BC text1 CODE >61:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7BF text1 CODE >62:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7C0 maintext CODE >69:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7C0 maintext CODE >70:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7C5 maintext CODE >72:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7CB maintext CODE >74:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7CC maintext CODE >75:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7D9 maintext CODE >76:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7DC maintext CODE >78:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7DD maintext CODE >79:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7EA maintext CODE >80:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7ED maintext CODE >82:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7EE maintext CODE >83:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
-7EF maintext CODE >85:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7EF cinit CODE >469:C:\Users\emili\AppData\Local\Temp\smsg.s
+7EF cinit CODE >472:C:\Users\emili\AppData\Local\Temp\smsg.s
+7EF cinit CODE >498:C:\Users\emili\AppData\Local\Temp\smsg.s
+7F4 cinit CODE >499:C:\Users\emili\AppData\Local\Temp\smsg.s
+7F5 cinit CODE >500:C:\Users\emili\AppData\Local\Temp\smsg.s
+7FA cinit CODE >501:C:\Users\emili\AppData\Local\Temp\smsg.s
+7FB cinit CODE >505:C:\Users\emili\AppData\Local\Temp\smsg.s
+7FC cinit CODE >511:C:\Users\emili\AppData\Local\Temp\smsg.s
+7FC cinit CODE >513:C:\Users\emili\AppData\Local\Temp\smsg.s
+7FD cinit CODE >514:C:\Users\emili\AppData\Local\Temp\smsg.s
+77B text2 CODE >72:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+77B text2 CODE >73:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+77E text2 CODE >75:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+77F text2 CODE >76:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+78C text2 CODE >77:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+78F text2 CODE >79:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+790 text2 CODE >80:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+79D text2 CODE >81:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7A0 text2 CODE >83:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7A1 text2 CODE >84:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7A3 text2 CODE >85:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+755 text1 CODE >51:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+755 text1 CODE >53:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+758 text1 CODE >54:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+75C text1 CODE >55:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+75F text1 CODE >58:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+762 text1 CODE >59:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+765 text1 CODE >60:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+768 text1 CODE >62:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+76B text1 CODE >63:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+76E text1 CODE >65:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+771 text1 CODE >66:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+774 text1 CODE >68:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+777 text1 CODE >69:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+77A text1 CODE >70:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7A4 maintext CODE >91:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7A4 maintext CODE >92:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7A9 maintext CODE >94:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7AF maintext CODE >95:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7B4 maintext CODE >96:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7B5 maintext CODE >97:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7BE maintext CODE >98:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7C4 maintext CODE >99:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7C6 maintext CODE >100:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7CB maintext CODE >101:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7CC maintext CODE >102:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7D2 maintext CODE >103:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7D3 maintext CODE >104:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7D8 maintext CODE >105:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7D9 maintext CODE >106:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7DB maintext CODE >107:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7DC maintext CODE >96:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+7E2 maintext CODE >118:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -111,34 +137,42 @@ $dist/default/production\LAB1.X.production.o
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/production\LAB1.X.production.o
 __Hspace_0 800 0 ABS 0 - -
-__Hspace_1 73 0 ABS 0 - -
+__Hspace_1 78 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\siko.o
-_main F80 0 CODE 0 maintext dist/default/production\LAB1.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\smsg.o
+_game 77 0 COMMON 1 bssCOMMON dist/default/production\LAB1.X.production.o
+_main F48 0 CODE 0 maintext dist/default/production\LAB1.X.production.o
+_temp 75 0 COMMON 1 dataCOMMON dist/default/production\LAB1.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\LAB1.X.production.o
-start 0 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\siko.o
+start 0 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\smsg.o
 __size_of_main 0 0 ABS 0 - dist/default/production\LAB1.X.production.o
+__HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\siko.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\siko.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\siko.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\siko.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\siko.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\siko.o
+__HdataCOMMON 0 0 ABS 0 dataCOMMON -
+intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\smsg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\smsg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\smsg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\smsg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\smsg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\smsg.o
+__LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\LAB1.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
+__pidataCOMMON EA6 0 CODE 0 idataCOMMON dist/default/production\LAB1.X.production.o
 _ANSELH 189 0 ABS 0 - dist/default/production\LAB1.X.production.o
+__LdataCOMMON 0 0 ABS 0 dataCOMMON -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\siko.o
-___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\siko.o
+___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\smsg.o
+___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\smsg.o
+__LidataCOMMON 0 0 ABS 0 idataCOMMON -
 __size_of_setup 0 0 ABS 0 - dist/default/production\LAB1.X.production.o
-start_initialization FF8 0 CODE 0 cinit dist/default/production\LAB1.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\siko.o
+start_initialization FDE 0 CODE 0 cinit dist/default/production\LAB1.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\smsg.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -152,9 +186,10 @@ __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 ABS 0 bank3 -
-__Lcinit FF8 0 CODE 0 cinit -
+__Lcinit FDE 0 CODE 0 cinit -
 __Lstack 0 0 STACK 2 stack -
 _PORTAbits 5 0 ABS 0 - dist/default/production\LAB1.X.production.o
+_PORTBbits 6 0 ABS 0 - dist/default/production\LAB1.X.production.o
 _PORTEbits 9 0 ABS 0 - dist/default/production\LAB1.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
@@ -174,26 +209,32 @@ __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __S0 800 0 ABS 0 - -
-__S1 73 0 ABS 0 - -
+__S1 78 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
+__HidataCOMMON 0 0 ABS 0 idataCOMMON -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\siko.o
-__pmaintext F80 0 CODE 0 maintext dist/default/production\LAB1.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\smsg.o
+__size_of_semaforo 0 0 ABS 0 - dist/default/production\LAB1.X.production.o
+__pmaintext F48 0 CODE 0 maintext dist/default/production\LAB1.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
+_semaforo EF6 0 CODE 0 text2 dist/default/production\LAB1.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
+__pbssCOMMON 77 0 COMMON 1 bssCOMMON dist/default/production\LAB1.X.production.o
 __Lend_init 0 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
+__end_of_semaforo F48 0 CODE 0 text2 dist/default/production\LAB1.X.production.o
 end_of_initialization FF8 0 CODE 0 cinit dist/default/production\LAB1.X.production.o
 __Hintentry 0 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 F34 0 CODE 0 text1 dist/default/production\LAB1.X.production.o
+__ptext1 EAA 0 CODE 0 text1 dist/default/production\LAB1.X.production.o
+__ptext2 EF6 0 CODE 0 text2 dist/default/production\LAB1.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -202,7 +243,7 @@ __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\LAB1.X.production.o
 __Hend_init 6 0 CODE 0 end_init -
-__end_of_main FF8 0 CODE 0 maintext dist/default/production\LAB1.X.production.o
+__end_of_main FDE 0 CODE 0 maintext dist/default/production\LAB1.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\LAB1.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\LAB1.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\LAB1.X.production.o
@@ -214,11 +255,12 @@ _TRISB 86 0 ABS 0 - dist/default/production\LAB1.X.production.o
 _TRISC 87 0 ABS 0 - dist/default/production\LAB1.X.production.o
 _TRISD 88 0 ABS 0 - dist/default/production\LAB1.X.production.o
 _TRISE 89 0 ABS 0 - dist/default/production\LAB1.X.production.o
-__end_of_setup F80 0 CODE 0 text1 dist/default/production\LAB1.X.production.o
+__end_of_setup EF6 0 CODE 0 text1 dist/default/production\LAB1.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_setup F34 0 CODE 0 text1 dist/default/production\LAB1.X.production.o
-__initialization FF8 0 CODE 0 cinit dist/default/production\LAB1.X.production.o
+_setup EAA 0 CODE 0 text1 dist/default/production\LAB1.X.production.o
+__initialization FDE 0 CODE 0 cinit dist/default/production\LAB1.X.production.o
+__pdataCOMMON 75 0 COMMON 1 dataCOMMON dist/default/production\LAB1.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -244,10 +286,12 @@ __initialization FF8 0 CODE 0 cinit dist/default/production\LAB1.X.production.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7FC FF8 4 2
-text1 0 79A F34 26 2
-maintext 0 7C0 F80 3C 2
-cstackCOMMON 1 70 70 3 1
+cinit 0 7EF FDE 11 2
+text1 0 755 EAA 26 2
+text2 0 77B EF6 29 2
+idataCOMMON 0 753 EA6 2 2
+maintext 0 7A4 F48 4B 2
+cstackCOMMON 1 70 70 8 1
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
