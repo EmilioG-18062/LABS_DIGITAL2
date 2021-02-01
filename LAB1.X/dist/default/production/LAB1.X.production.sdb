@@ -15,7 +15,9 @@
 [v _setup setup `(v  1 e 1 0 ]
 "72
 [v _semaforo semaforo `(v  1 e 1 0 ]
-"91
+"85
+[v _reset reset `(v  1 e 1 0 ]
+"99
 [v _main main `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -33,7 +35,7 @@
 [v _PORTAbits PORTAbits `VES83  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
-[s S34 . 1 `uc 1 RB0 1 0 :1:0 
+[s S53 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -43,22 +45,22 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "245
-[u S43 . 1 `S34 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES43  1 e 1 @6 ]
+[u S62 . 1 `S53 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES62  1 e 1 @6 ]
 "290
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "414
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
-[s S55 . 1 `uc 1 RE0 1 0 :1:0 
+[s S34 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 `uc 1 RE3 1 0 :1:3 
 ]
 "427
-[u S60 . 1 `S55 1 . 1 0 ]
-[v _PORTEbits PORTEbits `VES60  1 e 1 @9 ]
+[u S39 . 1 `S34 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES39  1 e 1 @9 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1478
@@ -75,12 +77,14 @@
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
 "42 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
 [v _game game `uc  1 e 1 0 ]
+"43
+[v _J1_Count J1_Count `uc  1 e 1 0 ]
 "44
-[v _temp temp `uc  1 e 1 0 ]
-"91
+[v _J2_Count J2_Count `uc  1 e 1 0 ]
+"99
 [v _main main `(v  1 e 1 0 ]
 {
-"122
+"130
 } 0
 "51
 [v _setup setup `(v  1 e 1 0 ]
@@ -90,5 +94,10 @@
 "72
 [v _semaforo semaforo `(v  1 e 1 0 ]
 {
+"83
+} 0
 "85
+[v _reset reset `(v  1 e 1 0 ]
+{
+"93
 } 0
