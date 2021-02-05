@@ -2647,7 +2647,8 @@ typedef uint16_t uintptr_t;
 #pragma config BOR4V = BOR40V
 #pragma config WRT = OFF
 # 43 "main.c"
-uint8_t Reference_Count = 1;
+uint8_t Reference_Count = 0;
+uint8_t Display_Count = 0;
 
 
 
@@ -2655,16 +2656,19 @@ uint8_t Reference_Count = 1;
 void __attribute__((picinterrupt(("")))) myISR(void){
 
     if (INTCONbits.RBIE == 1 && INTCONbits.RBIF == 1){
-        INTCONbits.RBIF=0;
         if (PORTBbits.RB0 == 0){
             Reference_Count++;
         }
         if (PORTBbits.RB1 == 0){
             Reference_Count--;
         }
+        INTCONbits.RBIF=0;
     }
 
-    if (PIR1bits.ADIF == 1){
+    if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
+        Display_Count = ADRESH;
+        _delay((unsigned long)((20)*(8000000/4000000.0)));
+        ADCON0bits.GO_nDONE = 1;
         PIR1bits.ADIF = 0;
     }
 }
@@ -2701,6 +2705,7 @@ void setup(void) {
 
     TRISE = 0;
     PORTE = 0;
+
 }
 
 
@@ -2710,7 +2715,9 @@ void main(void) {
     setup();
     _delay((unsigned long)((20)*(8000000/4000000.0)));
     ADCON0bits.GO_nDONE = 1;
+    PORTEbits.RE0 = 1;
     while(1){
+        PORTD = Display_Count;
         PORTC = Reference_Count;
     }
 }

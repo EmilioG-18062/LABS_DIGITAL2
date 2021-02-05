@@ -40,7 +40,8 @@
 /*//////////////////////////////////////////////////////////////////////////////
  * VARIABLES
  */
-uint8_t Reference_Count = 1;
+uint8_t Reference_Count = 0;
+uint8_t Display_Count   = 0;
 
 /*//////////////////////////////////////////////////////////////////////////////
  * INTERRUPCIONES
@@ -48,16 +49,19 @@ uint8_t Reference_Count = 1;
 void __interrupt () myISR(void){
     //On-Change Interrupts
     if (INTCONbits.RBIE == 1 && INTCONbits.RBIF == 1){
-        INTCONbits.RBIF=0;
         if (PORTBbits.RB0 == 0){
             Reference_Count++;
         }
         if (PORTBbits.RB1 == 0){
             Reference_Count--;
         }
+        INTCONbits.RBIF=0;
     }
     //ADC Interrups
-    if (PIR1bits.ADIF == 1){
+    if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
+        Display_Count = ADRESH;
+        __delay_us(20);
+        ADCON0bits.GO_nDONE = 1;
         PIR1bits.ADIF = 0;
     }
 }
@@ -94,6 +98,7 @@ void setup(void) {
 
     TRISE   = 0; ////Configuro el PORTE como salida
     PORTE   = 0; //Inicio el PORTB con todos en 0 
+    
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -103,7 +108,9 @@ void main(void) {
     setup();
     __delay_us(20);
     ADCON0bits.GO_nDONE = 1;
+    PORTEbits.RE0 = 1;
     while(1){
+        PORTD = Display_Count;
         PORTC = Reference_Count;
     }
 }
