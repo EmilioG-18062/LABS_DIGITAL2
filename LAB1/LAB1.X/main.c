@@ -42,6 +42,9 @@
 uint8_t game = 0;
 uint8_t J1_Count = 1;
 uint8_t J2_Count = 1;
+uint8_t button1_state = 1;
+uint8_t button2_state = 1;
+
 
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -109,21 +112,24 @@ void main(void) {
         while(game == 1){
             __delay_ms(50); 
             if (PORTAbits.RA0 == 0){
-                if(J1_Count == 0){
-                    PORTBbits.RB0 = 1;
-                    game = 0;
+                if (PORTAbits.RA0 == 1){
+                    if(J1_Count == 0){
+                        PORTBbits.RB0 = 1;
+                        game = 0;
+                    }
+                    PORTC = J1_Count;
+                    J1_Count = J1_Count*2;
                 }
-                PORTC = J1_Count;
-                J1_Count = J1_Count*2;
             }
-            else if (PORTAbits.RA1 == 0){
-                if(J2_Count == 0){
-                    PORTBbits.RB1 = 1;
-                    game = 0;
-                }
-                PORTD = J2_Count;
-                J2_Count = J2_Count*2;
-                
+            if (PORTAbits.RA1 == 0){
+                if (PORTAbits.RA1  == 1){
+                    if(J2_Count == 0){
+                        PORTBbits.RB1 = 1;
+                        game = 0;
+                    }
+                    PORTD = J2_Count;
+                    J2_Count = J2_Count*2;
+                }  
             }
         }
     }

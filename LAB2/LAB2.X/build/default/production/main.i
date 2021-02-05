@@ -2631,6 +2631,7 @@ typedef uint16_t uintptr_t;
 
 
 
+
 #pragma config FOSC = XT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -2645,8 +2646,8 @@ typedef uint16_t uintptr_t;
 
 #pragma config BOR4V = BOR40V
 #pragma config WRT = OFF
-# 42 "main.c"
-uint8_t Reference_Count = 0;
+# 43 "main.c"
+uint8_t Reference_Count = 1;
 
 
 
@@ -2654,18 +2655,17 @@ uint8_t Reference_Count = 0;
 void __attribute__((picinterrupt(("")))) myISR(void){
 
     if (INTCONbits.RBIE == 1 && INTCONbits.RBIF == 1){
+        INTCONbits.RBIF=0;
         if (PORTBbits.RB0 == 0){
-            INTCONbits.RBIF=0;
-            if (Reference_Count > 0){
-                Reference_Count = Reference_Count * 2;
-            }
-            else{
-                Reference_Count++;
-            }
+            Reference_Count++;
         }
-        else{
-            INTCONbits.RBIF=0;
+        if (PORTBbits.RB1 == 0){
+            Reference_Count--;
         }
+    }
+
+    if (PIR1bits.ADIF == 1){
+        PIR1bits.ADIF = 0;
     }
 }
 
@@ -2674,8 +2674,17 @@ void __attribute__((picinterrupt(("")))) myISR(void){
 
 void setup(void) {
 
-    ANSEL = 0;
-    TRISA = 0;
+    INTCON = 0b11001001;
+    PIR1 = 0b01000000;
+    PIE1 = 0b01000000;
+    ADCON1 = 0;
+    ADCON0 = 0b10000001;
+
+    ADRESH = 0;
+    ADRESL = 0;
+
+    ANSEL = 0b00000001;
+    TRISA = 0b00000001;
     PORTA = 0;
 
 
@@ -2692,8 +2701,6 @@ void setup(void) {
 
     TRISE = 0;
     PORTE = 0;
-
-    INTCON = 0b10001001;
 }
 
 
@@ -2701,6 +2708,8 @@ void setup(void) {
 
 void main(void) {
     setup();
+    _delay((unsigned long)((20)*(8000000/4000000.0)));
+    ADCON0bits.GO_nDONE = 1;
     while(1){
         PORTC = Reference_Count;
     }

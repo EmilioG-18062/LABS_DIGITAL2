@@ -11,6 +11,7 @@
 #include <xc.h>
 #include <stdint.h>
 
+
 /*//////////////////////////////////////////////////////////////////////////////
  * PIC16F887 Configuration Bit Settings
  */
@@ -39,7 +40,7 @@
 /*//////////////////////////////////////////////////////////////////////////////
  * VARIABLES
  */
-uint8_t Reference_Count = 0;
+uint8_t Reference_Count = 1;
 
 /*//////////////////////////////////////////////////////////////////////////////
  * INTERRUPCIONES
@@ -47,18 +48,17 @@ uint8_t Reference_Count = 0;
 void __interrupt () myISR(void){
     //On-Change Interrupts
     if (INTCONbits.RBIE == 1 && INTCONbits.RBIF == 1){
+        INTCONbits.RBIF=0;
         if (PORTBbits.RB0 == 0){
-            INTCONbits.RBIF=0;
-            if (Reference_Count > 0){
-                Reference_Count = Reference_Count * 2;
-            }
-            else{
-                Reference_Count++;
-            }
+            Reference_Count++;
         }
-        else{
-            INTCONbits.RBIF=0;
+        if (PORTBbits.RB1 == 0){
+            Reference_Count--;
         }
+    }
+    //ADC Interrups
+    if (PIR1bits.ADIF == 1){
+        PIR1bits.ADIF = 0;
     }
 }
 
@@ -66,10 +66,19 @@ void __interrupt () myISR(void){
  * PROTOTIPOS DE FUNCIONES
  */
 void setup(void) {
+    
+    INTCON  = 0b11001001; // Enable Global Interrupt
+    PIR1    = 0b01000000;
+    PIE1    = 0b01000000;
+    ADCON1  = 0;
+    ADCON0  = 0b10000001;
+    
+    ADRESH  = 0; //Limpiar Registro del ADC
+    ADRESL  = 0;
 
-    ANSEL = 0; //Todos los pines A de I/O se configuran como digitales
-    TRISA = 0; //Configuro el PORTA como salida
-    PORTA = 0; //Inicio el PORTA con todos en 0
+    ANSEL   = 0b00000001; //Todos los pines A de I/O se configuran como digitales
+    TRISA   = 0b00000001; //Configuro el PORTA como salida
+    PORTA   = 0; //Inicio el PORTA con todos en 0
 
 
     ANSELH  = 0; //Todos los pines B de I/O se configuran como digitales
@@ -77,16 +86,14 @@ void setup(void) {
     PORTB   = 0; //Inicio el PORTB con todos en 0
     IOCB    = 0b00000011; //Enciendo las Interrupciones On-Change del pin 0/1
 
-    TRISC = 0; ////Configuro el PORTC como salida
-    PORTC = 0; //Inicio el PORTB con todos en 0
+    TRISC   = 0; ////Configuro el PORTC como salida
+    PORTC   = 0; //Inicio el PORTB con todos en 0
 
-    TRISD = 0; ////Configuro el PORTD como salida
-    PORTD = 0; //Inicio el PORTB con todos en 0
+    TRISD   = 0; ////Configuro el PORTD como salida
+    PORTD   = 0; //Inicio el PORTB con todos en 0
 
-    TRISE = 0; ////Configuro el PORTE como salida
-    PORTE = 0; //Inicio el PORTB con todos en 0
-    
-    INTCON = 0b10001001; // Enable Global Interrupt
+    TRISE   = 0; ////Configuro el PORTE como salida
+    PORTE   = 0; //Inicio el PORTB con todos en 0 
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -94,6 +101,8 @@ void setup(void) {
  */
 void main(void) {
     setup();
+    __delay_us(20);
+    ADCON0bits.GO_nDONE = 1;
     while(1){
         PORTC = Reference_Count;
     }
