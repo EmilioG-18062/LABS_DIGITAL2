@@ -39,9 +39,11 @@
 /*//////////////////////////////////////////////////////////////////////////////
  * VARIABLES
  */
-volatile uint8_t reference_count = 0; 
-volatile uint16_t display_count = 0;
-volatile uint8_t timer0_count = 0;
+volatile uint8_t reference_count    = 0; 
+volatile uint8_t display_count      = 0;
+volatile uint8_t timer0_count       = 0;
+volatile uint8_t second_display     = 0;
+volatile uint8_t first_display     = 0;
 
 char display_array[16] = {0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111, 0b01110111, 0b01111100, 0b00111001, 0b01011110, 0b01111001, 0b01110001};
 
@@ -61,16 +63,23 @@ void __interrupt () myISR(void){
     }
     //ADC Interrups
     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
-        display_count = ADRESH/16;
+        second_display = (ADRESH & 0xF0)>>4;
+        first_display = (ADRESH & 0x0F);
         __delay_us(25);
         ADCON0bits.GO_nDONE = 1;
         PIR1bits.ADIF = 0;
     }
     
-    if (INTCONbits.T0IE == 1 && INTCONbits.T0IF ==1){
-        timer0_count = 0;
+    if (INTCONbits.T0IE == 1 && INTCONbits.T0IF == 1){
         PORTEbits.RE1 = PORTEbits.RE0;
         PORTEbits.RE0 = !PORTEbits.RE1;
+        if (PORTEbits.RE0){
+            display_count = first_display;
+        }
+        if (PORTEbits.RE1){
+            display_count = second_display;
+        }
+        timer0_count = 0;
         INTCONbits.T0IF = 0;
     }
 }
@@ -119,9 +128,15 @@ void main(void) {
     __delay_us(25);
     ADCON0bits.GO_nDONE = 1;
     PORTEbits.RE0 = 1;
-    TMR0 = 22;
+    TMR0 = 212;
     while(1){
         PORTC = reference_count;
         PORTD = display_array[display_count];
+        if (reference_count < (second_display + first_display)){
+            PORTEbits.RE2 = 1;
+        }
+        else{
+           PORTEbits.RE2 = 0; 
+        }
     }
 }
