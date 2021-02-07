@@ -11,7 +11,6 @@
 #include <xc.h>
 #include <stdint.h>
 
-
 /*//////////////////////////////////////////////////////////////////////////////
  * PIC16F887 Configuration Bit Settings
  */
@@ -40,8 +39,11 @@
 /*//////////////////////////////////////////////////////////////////////////////
  * VARIABLES
  */
-uint8_t Reference_Count = 0;
-uint8_t Display_Count   = 0;
+volatile uint8_t reference_count = 0; 
+volatile uint16_t display_count = 0;
+volatile uint8_t timer0_count = 0;
+
+char display_array[16] = {0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111, 0b01110111, 0b01111100, 0b00111001, 0b01011110, 0b01111001, 0b01110001};
 
 /*//////////////////////////////////////////////////////////////////////////////
  * INTERRUPCIONES
@@ -50,19 +52,26 @@ void __interrupt () myISR(void){
     //On-Change Interrupts
     if (INTCONbits.RBIE == 1 && INTCONbits.RBIF == 1){
         if (PORTBbits.RB0 == 0){
-            Reference_Count++;
+            reference_count++;
         }
         if (PORTBbits.RB1 == 0){
-            Reference_Count--;
+            reference_count--;
         }
         INTCONbits.RBIF=0;
     }
     //ADC Interrups
     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
-        Display_Count = ADRESH;
-        __delay_us(20);
+        display_count = ADRESH/16;
+        __delay_us(25);
         ADCON0bits.GO_nDONE = 1;
         PIR1bits.ADIF = 0;
+    }
+    
+    if (INTCONbits.T0IE == 1 && INTCONbits.T0IF ==1){
+        timer0_count = 0;
+        PORTEbits.RE1 = PORTEbits.RE0;
+        PORTEbits.RE0 = !PORTEbits.RE1;
+        INTCONbits.T0IF = 0;
     }
 }
 
@@ -71,7 +80,7 @@ void __interrupt () myISR(void){
  */
 void setup(void) {
     
-    INTCON  = 0b11001001; // Enable Global Interrupt
+    INTCON  = 0b11101000; // Enable Global Interrupt
     PIR1    = 0b01000000;
     PIE1    = 0b01000000;
     ADCON1  = 0;
@@ -79,6 +88,8 @@ void setup(void) {
     
     ADRESH  = 0; //Limpiar Registro del ADC
     ADRESL  = 0;
+    
+    OPTION_REG = 0b00000110;
 
     ANSEL   = 0b00000001; //Todos los pines A de I/O se configuran como digitales
     TRISA   = 0b00000001; //Configuro el PORTA como salida
@@ -98,7 +109,6 @@ void setup(void) {
 
     TRISE   = 0; ////Configuro el PORTE como salida
     PORTE   = 0; //Inicio el PORTB con todos en 0 
-    
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -106,11 +116,12 @@ void setup(void) {
  */
 void main(void) {
     setup();
-    __delay_us(20);
+    __delay_us(25);
     ADCON0bits.GO_nDONE = 1;
     PORTEbits.RE0 = 1;
+    TMR0 = 22;
     while(1){
-        PORTD = Display_Count;
-        PORTC = Reference_Count;
+        PORTC = reference_count;
+        PORTD = display_array[display_count];
     }
 }

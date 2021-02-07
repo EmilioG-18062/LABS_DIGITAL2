@@ -11,13 +11,13 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"51 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+"54 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB1\LAB1.X\main.c
 [v _setup setup `(v  1 e 1 0 ]
-"72
+"75
 [v _semaforo semaforo `(v  1 e 1 0 ]
-"85
+"88
 [v _reset reset `(v  1 e 1 0 ]
-"99
+"102
 [v _main main `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -75,29 +75,29 @@
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"42 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL2\LAB1.X\main.c
+"42 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB1\LAB1.X\main.c
 [v _game game `uc  1 e 1 0 ]
 "43
 [v _J1_Count J1_Count `uc  1 e 1 0 ]
 "44
 [v _J2_Count J2_Count `uc  1 e 1 0 ]
-"99
+"102
 [v _main main `(v  1 e 1 0 ]
 {
-"130
+"136
 } 0
-"51
+"54
 [v _setup setup `(v  1 e 1 0 ]
 {
-"70
+"73
 } 0
-"72
+"75
 [v _semaforo semaforo `(v  1 e 1 0 ]
 {
-"83
+"86
 } 0
-"85
+"88
 [v _reset reset `(v  1 e 1 0 ]
 {
-"93
+"96
 } 0
