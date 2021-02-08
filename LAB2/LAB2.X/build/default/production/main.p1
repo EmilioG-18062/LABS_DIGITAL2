@@ -669,8 +669,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 134:         PORTD = display_array[display_count];
 [e = _PORTD -> *U + &U _display_array * -> _display_count `ux -> -> # *U &U _display_array `ui `ux `uc ]
 "135
-[; ;main.c: 135:         if (reference_count < (second_display + first_display)){
-[e $ ! < -> _reference_count `i + -> _second_display `i -> _first_display `i 151  ]
+[; ;main.c: 135:         if (reference_count < (second_display + (first_display << 4))){
+[e $ ! < -> _reference_count `i + -> _second_display `i << -> _first_display `i -> 4 `i 151  ]
 {
 "136
 [; ;main.c: 136:             PORTEbits.RE2 = 1;

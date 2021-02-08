@@ -2739,7 +2739,7 @@ void main(void) {
     while(1){
         PORTC = reference_count;
         PORTD = display_array[display_count];
-        if (reference_count < (second_display + first_display)){
+        if (reference_count < (second_display + (first_display << 4))){
             PORTEbits.RE2 = 1;
         }
         else{
