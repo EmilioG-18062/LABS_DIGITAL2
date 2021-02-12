@@ -2768,15 +2768,14 @@ extern int printf(const char *, ...);
 # 21 "main.c"
 uint8_t adc_value = 0;
 uint8_t adc_count = 0;
-uint8_t display_count = 0;
+uint8_t i = 0;
+
+uint16_t voltage_int = 0;
 
 float voltage = 0.00;
 
 char Buffer[20];
-
-char display_array[16] = {0b00111111, 0b00000110, 0b01011011, 0b01001111,
-0b01100110, 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111,
-0b01110111, 0b01111100, 0b00111001, 0b01011110, 0b01111001, 0b01110001};
+char digits[3];
 
 
 
@@ -2786,17 +2785,17 @@ void __attribute__((picinterrupt(("")))) myISR(void){
 
     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
         adc_value = ADRESH;
-        voltage = (adc_value*5)/255;
+        voltage = adc_value;
         adc_count++;
         do{ PIR1bits.ADIF = 0; } while(0);
     }
 
 }
-# 55 "main.c"
+# 54 "main.c"
 void main(void) {
     SYSTEM_Initialize();
     do{ ADCON0bits.GO_nDONE = 1; } while(0);
-    LCDGoto(1,0);
+    LCDGoto(0,0);
     LCDPutStr(" S1 ");
 
     LCDGoto(6,0);
@@ -2808,10 +2807,53 @@ void main(void) {
     while(1){
 
         if (!adc_count){
-            int i = (int)(voltage*100+ 0.5);
-            sprintf(Buffer, "%i", i);
-            LCDGoto(1,1);
+            voltage_int = (uint16_t)(((voltage*500)/255));
+            for (i = 0; i < 3; i++)
+            {
+               if (voltage_int == 0){
+                   digits[i] = (char)(0);
+               }
+               digits[i] = (char)(voltage_int % 10);
+               voltage_int /= 10;
+            }
+
+            sprintf(Buffer, "%i.", digits[2]);
+            LCDGoto(0,1);
             LCDPutStr(Buffer);
+
+            sprintf(Buffer, "%i", digits[1]);
+            LCDGoto(2,1);
+            LCDPutStr(Buffer);
+
+            sprintf(Buffer, "%iV", digits[0]);
+            LCDGoto(3,1);
+            LCDPutStr(Buffer);
+
+        }
+
+        if (adc_count){
+            voltage_int = (uint16_t)(((voltage*500)/255));
+            for (i = 0; i < 3; i++)
+            {
+               if (voltage_int == 0){
+                   digits[i] = (char)(0);
+               }
+               digits[i] = (char)(voltage_int % 10);
+               voltage_int /= 10;
+            }
+
+            sprintf(Buffer, "%i.", digits[2]);
+            LCDGoto(6,1);
+            LCDPutStr(Buffer);
+
+            sprintf(Buffer, "%i", digits[1]);
+            LCDGoto(8,1);
+            LCDPutStr(Buffer);
+
+            sprintf(Buffer, "%iV", digits[0]);
+            LCDGoto(9,1);
+            LCDPutStr(Buffer);
+
         }
 
         if( !ADCON0bits.GO_nDONE ){
