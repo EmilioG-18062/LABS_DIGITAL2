@@ -550,153 +550,150 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 145 ]
 "82
-[; ;main.c: 82:         timer0_count = 0;
-[e = _timer0_count -> -> 0 `i `uc ]
-"83
-[; ;main.c: 83:         INTCONbits.T0IF = 0;
+[; ;main.c: 82:         INTCONbits.T0IF = 0;
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"84
-[; ;main.c: 84:     }
+"83
+[; ;main.c: 83:     }
 }
 [e :U 143 ]
-"85
-[; ;main.c: 85: }
+"84
+[; ;main.c: 84: }
 [e :UE 138 ]
 }
-"90
-[; ;main.c: 90: void setup(void) {
+"89
+[; ;main.c: 89: void setup(void) {
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"92
-[; ;main.c: 92:     INTCON = 0b11101000;
+"91
+[; ;main.c: 91:     INTCON = 0b11101000;
 [e = _INTCON -> -> 232 `i `uc ]
-"93
-[; ;main.c: 93:     PIR1 = 0b01000000;
+"92
+[; ;main.c: 92:     PIR1 = 0b01000000;
 [e = _PIR1 -> -> 64 `i `uc ]
-"94
-[; ;main.c: 94:     PIE1 = 0b01000000;
+"93
+[; ;main.c: 93:     PIE1 = 0b01000000;
 [e = _PIE1 -> -> 64 `i `uc ]
-"95
-[; ;main.c: 95:     ADCON1 = 0;
+"94
+[; ;main.c: 94:     ADCON1 = 0;
 [e = _ADCON1 -> -> 0 `i `uc ]
-"96
-[; ;main.c: 96:     ADCON0 = 0b10000001;
+"95
+[; ;main.c: 95:     ADCON0 = 0b10000001;
 [e = _ADCON0 -> -> 129 `i `uc ]
-"98
-[; ;main.c: 98:     ADRESH = 0;
+"97
+[; ;main.c: 97:     ADRESH = 0;
 [e = _ADRESH -> -> 0 `i `uc ]
-"99
-[; ;main.c: 99:     ADRESL = 0;
+"98
+[; ;main.c: 98:     ADRESL = 0;
 [e = _ADRESL -> -> 0 `i `uc ]
-"101
-[; ;main.c: 101:     OPTION_REG = 0b00000110;
+"100
+[; ;main.c: 100:     OPTION_REG = 0b00000110;
 [e = _OPTION_REG -> -> 6 `i `uc ]
-"103
-[; ;main.c: 103:     ANSEL = 0b00000001;
+"102
+[; ;main.c: 102:     ANSEL = 0b00000001;
 [e = _ANSEL -> -> 1 `i `uc ]
-"104
-[; ;main.c: 104:     TRISA = 0b00000001;
+"103
+[; ;main.c: 103:     TRISA = 0b00000001;
 [e = _TRISA -> -> 1 `i `uc ]
-"105
-[; ;main.c: 105:     PORTA = 0;
+"104
+[; ;main.c: 104:     PORTA = 0;
 [e = _PORTA -> -> 0 `i `uc ]
-"108
-[; ;main.c: 108:     ANSELH = 0;
+"107
+[; ;main.c: 107:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"109
-[; ;main.c: 109:     TRISB = 0b00000011;
+"108
+[; ;main.c: 108:     TRISB = 0b00000011;
 [e = _TRISB -> -> 3 `i `uc ]
-"110
-[; ;main.c: 110:     PORTB = 0;
+"109
+[; ;main.c: 109:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"111
-[; ;main.c: 111:     IOCB = 0b00000011;
+"110
+[; ;main.c: 110:     IOCB = 0b00000011;
 [e = _IOCB -> -> 3 `i `uc ]
-"113
-[; ;main.c: 113:     TRISC = 0;
+"112
+[; ;main.c: 112:     TRISC = 0;
 [e = _TRISC -> -> 0 `i `uc ]
-"114
-[; ;main.c: 114:     PORTC = 0;
+"113
+[; ;main.c: 113:     PORTC = 0;
 [e = _PORTC -> -> 0 `i `uc ]
-"116
-[; ;main.c: 116:     TRISD = 0;
+"115
+[; ;main.c: 115:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"117
-[; ;main.c: 117:     PORTD = 0;
+"116
+[; ;main.c: 116:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"119
-[; ;main.c: 119:     TRISE = 0;
+"118
+[; ;main.c: 118:     TRISE = 0;
 [e = _TRISE -> -> 0 `i `uc ]
-"120
-[; ;main.c: 120:     PORTE = 0;
+"119
+[; ;main.c: 119:     PORTE = 0;
 [e = _PORTE -> -> 0 `i `uc ]
-"121
-[; ;main.c: 121: }
+"120
+[; ;main.c: 120: }
 [e :UE 146 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"126
-[; ;main.c: 126: void main(void) {
+"125
+[; ;main.c: 125: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"127
-[; ;main.c: 127:     setup();
+"126
+[; ;main.c: 126:     setup();
 [e ( _setup ..  ]
-"128
-[; ;main.c: 128:     _delay((unsigned long)((25)*(8000000/4000000.0)));
+"127
+[; ;main.c: 127:     _delay((unsigned long)((25)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 25 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"129
-[; ;main.c: 129:     ADCON0bits.GO_nDONE = 1;
+"128
+[; ;main.c: 128:     ADCON0bits.GO_nDONE = 1;
 [e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
-"130
-[; ;main.c: 130:     PORTEbits.RE0 = 1;
+"129
+[; ;main.c: 129:     PORTEbits.RE0 = 1;
 [e = . . _PORTEbits 0 0 -> -> 1 `i `uc ]
-"131
-[; ;main.c: 131:     TMR0 = 212;
+"130
+[; ;main.c: 130:     TMR0 = 212;
 [e = _TMR0 -> -> 212 `i `uc ]
-"132
-[; ;main.c: 132:     while(1){
+"131
+[; ;main.c: 131:     while(1){
 [e :U 149 ]
 {
-"133
-[; ;main.c: 133:         PORTC = reference_count;
+"132
+[; ;main.c: 132:         PORTC = reference_count;
 [e = _PORTC _reference_count ]
-"134
-[; ;main.c: 134:         PORTD = display_array[display_count];
+"133
+[; ;main.c: 133:         PORTD = display_array[display_count];
 [e = _PORTD -> *U + &U _display_array * -> _display_count `ux -> -> # *U &U _display_array `ui `ux `uc ]
-"135
-[; ;main.c: 135:         if (reference_count < (second_display + (first_display << 4))){
-[e $ ! < -> _reference_count `i + -> _second_display `i << -> _first_display `i -> 4 `i 151  ]
+"134
+[; ;main.c: 134:         if (reference_count < ((second_display<<4) + first_display)){
+[e $ ! < -> _reference_count `i + << -> _second_display `i -> 4 `i -> _first_display `i 151  ]
 {
-"136
-[; ;main.c: 136:             PORTEbits.RE2 = 1;
+"135
+[; ;main.c: 135:             PORTEbits.RE2 = 1;
 [e = . . _PORTEbits 0 2 -> -> 1 `i `uc ]
-"137
-[; ;main.c: 137:         }
+"136
+[; ;main.c: 136:         }
 }
 [e $U 152  ]
-"138
-[; ;main.c: 138:         else{
+"137
+[; ;main.c: 137:         else{
 [e :U 151 ]
 {
-"139
-[; ;main.c: 139:            PORTEbits.RE2 = 0;
+"138
+[; ;main.c: 138:            PORTEbits.RE2 = 0;
 [e = . . _PORTEbits 0 2 -> -> 0 `i `uc ]
-"140
-[; ;main.c: 140:         }
+"139
+[; ;main.c: 139:         }
 }
 [e :U 152 ]
-"141
-[; ;main.c: 141:     }
+"140
+[; ;main.c: 140:     }
 }
 [e :U 148 ]
 [e $U 149  ]
 [e :U 150 ]
-"142
-[; ;main.c: 142: }
+"141
+[; ;main.c: 141: }
 [e :UE 147 ]
 }

@@ -2686,7 +2686,6 @@ void __attribute__((picinterrupt(("")))) myISR(void){
         if (PORTEbits.RE1){
             display_count = second_display;
         }
-        timer0_count = 0;
         INTCONbits.T0IF = 0;
     }
 }
@@ -2739,7 +2738,7 @@ void main(void) {
     while(1){
         PORTC = reference_count;
         PORTD = display_array[display_count];
-        if (reference_count < (second_display + (first_display << 4))){
+        if (reference_count < ((second_display<<4) + first_display)){
             PORTEbits.RE2 = 1;
         }
         else{

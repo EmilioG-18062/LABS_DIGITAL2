@@ -79,7 +79,6 @@ void __interrupt () myISR(void){
         if (PORTEbits.RE1){
             display_count = second_display;
         }
-        timer0_count = 0;
         INTCONbits.T0IF = 0;
     }
 }
@@ -90,15 +89,15 @@ void __interrupt () myISR(void){
 void setup(void) {
     
     INTCON  = 0b11101000; // Enable Global Interrupt
-    PIR1    = 0b01000000;
+    PIR1    = 0b01000000; // Configuro las interrupciones en los puertos.
     PIE1    = 0b01000000;
-    ADCON1  = 0;
+    ADCON1  = 0;          // Configuro el ADC
     ADCON0  = 0b10000001;
     
     ADRESH  = 0; //Limpiar Registro del ADC
     ADRESL  = 0;
     
-    OPTION_REG = 0b00000110;
+    OPTION_REG = 0b00000110; //Configuro el Prescaler
 
     ANSEL   = 0b00000001; //Todos los pines A de I/O se configuran como digitales
     TRISA   = 0b00000001; //Configuro el PORTA como salida
@@ -132,7 +131,7 @@ void main(void) {
     while(1){
         PORTC = reference_count;
         PORTD = display_array[display_count];
-        if (reference_count < (second_display + (first_display << 4))){
+        if (reference_count < ((second_display<<4) + first_display)){
             PORTEbits.RE2 = 1;
         }
         else{
