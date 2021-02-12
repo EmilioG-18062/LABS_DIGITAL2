@@ -9,6 +9,7 @@
 #define	LCS_H
 
 #include <xc.h>
+#include <stdio.h>
 #include "device_config.h"
 #include "adc.h"
 #include "ports_manager.h"

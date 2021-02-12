@@ -9,7 +9,6 @@
  * LIBRERIAS
  */
 #include "lcs.h"
-#include <stdio.h>
 
 /*//////////////////////////////////////////////////////////////////////////////
  * MACROS
@@ -19,7 +18,7 @@
  * VARIABLES
  */
 uint8_t adc_value = 0;
-uint8_t adc_count = 0;
+uint8_t adc_channel_pointer = 0;
 uint8_t i = 0;
 
 uint16_t voltage_int = 0;
@@ -38,7 +37,7 @@ void __interrupt () myISR(void){
     if (PIR1bits.ADIF == HIGH && ADCON0bits.GO_nDONE == LOW){
         adc_value = ADRESH;
         voltage = adc_value;
-        adc_count++;
+        adc_channel_pointer++;
         ADC_FLAG_SetLow();
     }
     
@@ -65,13 +64,10 @@ void main(void) {
     
     while(HIGH){
         
-        if (!adc_count){
+        if (!adc_channel_pointer){
             voltage_int = (uint16_t)(((voltage*500)/255));
             for (i = 0; i < 3; i++)
             {
-               if (voltage_int == 0){
-                   digits[i] = (char)(0);
-               }
                digits[i] = (char)(voltage_int % 10);
                voltage_int /= 10;
             } 
@@ -90,13 +86,10 @@ void main(void) {
             
         }
         
-        if (adc_count){
+        if (adc_channel_pointer){
             voltage_int = (uint16_t)(((voltage*500)/255));
             for (i = 0; i < 3; i++)
             {
-               if (voltage_int == 0){
-                   digits[i] = (char)(0);
-               }
                digits[i] = (char)(voltage_int % 10);
                voltage_int /= 10;
             }  
@@ -116,9 +109,9 @@ void main(void) {
         }
 
         if( !ADCON0bits.GO_nDONE ){
-            ADCON0bits.CHS = adc_count;
-            if(adc_count){
-                adc_count = 255;
+            ADCON0bits.CHS = adc_channel_pointer;
+            if(adc_channel_pointer){
+                adc_channel_pointer = 255;
             }
             __delay_us(25);
             GOnDONE_SetHigh();

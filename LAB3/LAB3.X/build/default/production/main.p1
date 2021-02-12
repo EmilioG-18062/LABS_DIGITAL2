@@ -39,8 +39,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1238: extern volatile unsigned char ADRESH __attribute__((address(0x01E)));
 [v _ADRESH `Vuc ~T0 @X0 0 e@30 ]
 [p mainexit ]
-"18 ./lcs.h
-[; ;./lcs.h: 18: void SYSTEM_Initialize(void);
+"19 ./lcs.h
+[; ;./lcs.h: 19: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "210 ./lcd.h
 [; ;./lcd.h: 210: void LCDGoto(uint8_t pos, uint8_t ln);
@@ -288,300 +288,278 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"21 main.c
-[; ;main.c: 21: uint8_t adc_value = 0;
+"20 main.c
+[; ;main.c: 20: uint8_t adc_value = 0;
 [v _adc_value `uc ~T0 @X0 1 e ]
 [i _adc_value
 -> -> 0 `i `uc
 ]
-"22
-[; ;main.c: 22: uint8_t adc_count = 0;
-[v _adc_count `uc ~T0 @X0 1 e ]
-[i _adc_count
+"21
+[; ;main.c: 21: uint8_t adc_channel_pointer = 0;
+[v _adc_channel_pointer `uc ~T0 @X0 1 e ]
+[i _adc_channel_pointer
 -> -> 0 `i `uc
 ]
-"23
-[; ;main.c: 23: uint8_t i = 0;
+"22
+[; ;main.c: 22: uint8_t i = 0;
 [v _i `uc ~T0 @X0 1 e ]
 [i _i
 -> -> 0 `i `uc
 ]
-"25
-[; ;main.c: 25: uint16_t voltage_int = 0;
+"24
+[; ;main.c: 24: uint16_t voltage_int = 0;
 [v _voltage_int `ui ~T0 @X0 1 e ]
 [i _voltage_int
 -> -> 0 `i `ui
 ]
-"27
-[; ;main.c: 27: float voltage = 0.00;
+"26
+[; ;main.c: 26: float voltage = 0.00;
 [v _voltage `f ~T0 @X0 1 e ]
 [i _voltage
 -> .0.00 `f
 ]
-"29
-[; ;main.c: 29: char Buffer[20];
+"28
+[; ;main.c: 28: char Buffer[20];
 [v _Buffer `uc ~T0 @X0 -> 20 `i e ]
-"30
-[; ;main.c: 30: char digits[3];
+"29
+[; ;main.c: 29: char digits[3];
 [v _digits `uc ~T0 @X0 -> 3 `i e ]
 [v $root$_myISR `(v ~T0 @X0 0 e ]
-"35
-[; ;main.c: 35: void __attribute__((picinterrupt(("")))) myISR(void){
+"34
+[; ;main.c: 34: void __attribute__((picinterrupt(("")))) myISR(void){
 [v _myISR `(v ~T1 @X0 1 ef ]
 {
 [e :U _myISR ]
 [f ]
-"38
-[; ;main.c: 38:     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
+"37
+[; ;main.c: 37:     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
 [e $ ! && == -> . . _PIR1bits 0 6 `i -> 1 `i == -> . . _ADCON0bits 0 1 `i -> 0 `i 140  ]
 {
-"39
-[; ;main.c: 39:         adc_value = ADRESH;
+"38
+[; ;main.c: 38:         adc_value = ADRESH;
 [e = _adc_value _ADRESH ]
-"40
-[; ;main.c: 40:         voltage = adc_value;
+"39
+[; ;main.c: 39:         voltage = adc_value;
 [e = _voltage -> _adc_value `f ]
+"40
+[; ;main.c: 40:         adc_channel_pointer++;
+[e ++ _adc_channel_pointer -> -> 1 `i `uc ]
 "41
-[; ;main.c: 41:         adc_count++;
-[e ++ _adc_count -> -> 1 `i `uc ]
-"42
-[; ;main.c: 42:         do{ PIR1bits.ADIF = 0; } while(0);
+[; ;main.c: 41:         do{ PIR1bits.ADIF = 0; } while(0);
 [e :U 143 ]
 {
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 142 ]
-"43
-[; ;main.c: 43:     }
+"42
+[; ;main.c: 42:     }
 }
 [e :U 140 ]
-"45
-[; ;main.c: 45: }
+"44
+[; ;main.c: 44: }
 [e :UE 139 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"54
-[; ;main.c: 54: void main(void) {
+"53
+[; ;main.c: 53: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"55
-[; ;main.c: 55:     SYSTEM_Initialize();
+"54
+[; ;main.c: 54:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"56
-[; ;main.c: 56:     do{ ADCON0bits.GO_nDONE = 1; } while(0);
+"55
+[; ;main.c: 55:     do{ ADCON0bits.GO_nDONE = 1; } while(0);
 [e :U 147 ]
 {
 [e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
 }
 [e :U 146 ]
-"57
-[; ;main.c: 57:     LCDGoto(0,0);
+"56
+[; ;main.c: 56:     LCDGoto(0,0);
 [e ( _LCDGoto (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"58
-[; ;main.c: 58:     LCDPutStr(" S1 ");
+"57
+[; ;main.c: 57:     LCDPutStr(" S1 ");
 [e ( _LCDPutStr (1 :s 1C ]
-"60
-[; ;main.c: 60:     LCDGoto(6,0);
+"59
+[; ;main.c: 59:     LCDGoto(6,0);
 [e ( _LCDGoto (2 , -> -> 6 `i `uc -> -> 0 `i `uc ]
-"61
-[; ;main.c: 61:     LCDPutStr(" S2 ");
+"60
+[; ;main.c: 60:     LCDPutStr(" S2 ");
 [e ( _LCDPutStr (1 :s 2C ]
-"63
-[; ;main.c: 63:     LCDGoto(11,0);
+"62
+[; ;main.c: 62:     LCDGoto(11,0);
 [e ( _LCDGoto (2 , -> -> 11 `i `uc -> -> 0 `i `uc ]
-"64
-[; ;main.c: 64:     LCDPutStr(" S3 ");
+"63
+[; ;main.c: 63:     LCDPutStr(" S3 ");
 [e ( _LCDPutStr (1 :s 3C ]
-"66
-[; ;main.c: 66:     while(1){
+"65
+[; ;main.c: 65:     while(1){
 [e :U 149 ]
 {
-"68
-[; ;main.c: 68:         if (!adc_count){
-[e $ ! ! != -> _adc_count `i -> 0 `i 151  ]
+"67
+[; ;main.c: 67:         if (!adc_channel_pointer){
+[e $ ! ! != -> _adc_channel_pointer `i -> 0 `i 151  ]
 {
-"69
-[; ;main.c: 69:             voltage_int = (uint16_t)(((voltage*500)/255));
+"68
+[; ;main.c: 68:             voltage_int = (uint16_t)(((voltage*500)/255));
 [e = _voltage_int -> / * _voltage -> -> 500 `i `f -> -> 255 `i `f `ui ]
-"70
-[; ;main.c: 70:             for (i = 0; i < 3; i++)
+"69
+[; ;main.c: 69:             for (i = 0; i < 3; i++)
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 3 `i 152  ]
 [e $U 153  ]
 [e :U 152 ]
+"70
+[; ;main.c: 70:             {
+{
 "71
-[; ;main.c: 71:             {
-{
-"72
-[; ;main.c: 72:                if (voltage_int == 0){
-[e $ ! == _voltage_int -> -> 0 `i `ui 155  ]
-{
-"73
-[; ;main.c: 73:                    digits[i] = (char)(0);
-[e = *U + &U _digits * -> _i `ux -> -> # *U &U _digits `ui `ux -> -> 0 `i `uc ]
-"74
-[; ;main.c: 74:                }
-}
-[e :U 155 ]
-"75
-[; ;main.c: 75:                digits[i] = (char)(voltage_int % 10);
+[; ;main.c: 71:                digits[i] = (char)(voltage_int % 10);
 [e = *U + &U _digits * -> _i `ux -> -> # *U &U _digits `ui `ux -> % _voltage_int -> -> 10 `i `ui `uc ]
-"76
-[; ;main.c: 76:                voltage_int /= 10;
+"72
+[; ;main.c: 72:                voltage_int /= 10;
 [e =/ _voltage_int -> -> 10 `i `ui ]
-"77
-[; ;main.c: 77:             }
+"73
+[; ;main.c: 73:             }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 3 `i 152  ]
 [e :U 153 ]
 }
-"79
-[; ;main.c: 79:             sprintf(Buffer, "%i.", digits[2]);
+"75
+[; ;main.c: 75:             sprintf(Buffer, "%i.", digits[2]);
 [e ( _sprintf (1 , (. , &U _Buffer :s 4C -> *U + &U _digits * -> -> -> 2 `i `ui `ux -> -> # *U &U _digits `ui `ux `i ]
-"80
-[; ;main.c: 80:             LCDGoto(0,1);
+"76
+[; ;main.c: 76:             LCDGoto(0,1);
 [e ( _LCDGoto (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+"77
+[; ;main.c: 77:             LCDPutStr(Buffer);
+[e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
+"79
+[; ;main.c: 79:             sprintf(Buffer, "%i", digits[1]);
+[e ( _sprintf (1 , (. , &U _Buffer :s 5C -> *U + &U _digits * -> -> -> 1 `i `ui `ux -> -> # *U &U _digits `ui `ux `i ]
+"80
+[; ;main.c: 80:             LCDGoto(2,1);
+[e ( _LCDGoto (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
 "81
 [; ;main.c: 81:             LCDPutStr(Buffer);
 [e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
 "83
-[; ;main.c: 83:             sprintf(Buffer, "%i", digits[1]);
-[e ( _sprintf (1 , (. , &U _Buffer :s 5C -> *U + &U _digits * -> -> -> 1 `i `ui `ux -> -> # *U &U _digits `ui `ux `i ]
+[; ;main.c: 83:             sprintf(Buffer, "%iV", digits[0]);
+[e ( _sprintf (1 , (. , &U _Buffer :s 6C -> *U + &U _digits * -> -> -> 0 `i `ui `ux -> -> # *U &U _digits `ui `ux `i ]
 "84
-[; ;main.c: 84:             LCDGoto(2,1);
-[e ( _LCDGoto (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;main.c: 84:             LCDGoto(3,1);
+[e ( _LCDGoto (2 , -> -> 3 `i `uc -> -> 1 `i `uc ]
 "85
 [; ;main.c: 85:             LCDPutStr(Buffer);
 [e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
 "87
-[; ;main.c: 87:             sprintf(Buffer, "%iV", digits[0]);
-[e ( _sprintf (1 , (. , &U _Buffer :s 6C -> *U + &U _digits * -> -> -> 0 `i `ui `ux -> -> # *U &U _digits `ui `ux `i ]
-"88
-[; ;main.c: 88:             LCDGoto(3,1);
-[e ( _LCDGoto (2 , -> -> 3 `i `uc -> -> 1 `i `uc ]
-"89
-[; ;main.c: 89:             LCDPutStr(Buffer);
-[e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
-"91
-[; ;main.c: 91:         }
+[; ;main.c: 87:         }
 }
 [e :U 151 ]
-"93
-[; ;main.c: 93:         if (adc_count){
-[e $ ! != -> _adc_count `i -> 0 `i 156  ]
+"89
+[; ;main.c: 89:         if (adc_channel_pointer){
+[e $ ! != -> _adc_channel_pointer `i -> 0 `i 155  ]
 {
-"94
-[; ;main.c: 94:             voltage_int = (uint16_t)(((voltage*500)/255));
+"90
+[; ;main.c: 90:             voltage_int = (uint16_t)(((voltage*500)/255));
 [e = _voltage_int -> / * _voltage -> -> 500 `i `f -> -> 255 `i `f `ui ]
-"95
-[; ;main.c: 95:             for (i = 0; i < 3; i++)
+"91
+[; ;main.c: 91:             for (i = 0; i < 3; i++)
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 3 `i 157  ]
-[e $U 158  ]
-[e :U 157 ]
-"96
-[; ;main.c: 96:             {
+[e $ < -> _i `i -> 3 `i 156  ]
+[e $U 157  ]
+[e :U 156 ]
+"92
+[; ;main.c: 92:             {
 {
-"97
-[; ;main.c: 97:                if (voltage_int == 0){
-[e $ ! == _voltage_int -> -> 0 `i `ui 160  ]
-{
-"98
-[; ;main.c: 98:                    digits[i] = (char)(0);
-[e = *U + &U _digits * -> _i `ux -> -> # *U &U _digits `ui `ux -> -> 0 `i `uc ]
-"99
-[; ;main.c: 99:                }
-}
-[e :U 160 ]
-"100
-[; ;main.c: 100:                digits[i] = (char)(voltage_int % 10);
+"93
+[; ;main.c: 93:                digits[i] = (char)(voltage_int % 10);
 [e = *U + &U _digits * -> _i `ux -> -> # *U &U _digits `ui `ux -> % _voltage_int -> -> 10 `i `ui `uc ]
-"101
-[; ;main.c: 101:                voltage_int /= 10;
+"94
+[; ;main.c: 94:                voltage_int /= 10;
 [e =/ _voltage_int -> -> 10 `i `ui ]
-"102
-[; ;main.c: 102:             }
+"95
+[; ;main.c: 95:             }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 3 `i 157  ]
-[e :U 158 ]
+[e $ < -> _i `i -> 3 `i 156  ]
+[e :U 157 ]
 }
-"104
-[; ;main.c: 104:             sprintf(Buffer, "%i.", digits[2]);
+"97
+[; ;main.c: 97:             sprintf(Buffer, "%i.", digits[2]);
 [e ( _sprintf (1 , (. , &U _Buffer :s 7C -> *U + &U _digits * -> -> -> 2 `i `ui `ux -> -> # *U &U _digits `ui `ux `i ]
-"105
-[; ;main.c: 105:             LCDGoto(6,1);
+"98
+[; ;main.c: 98:             LCDGoto(6,1);
 [e ( _LCDGoto (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
-"106
-[; ;main.c: 106:             LCDPutStr(Buffer);
+"99
+[; ;main.c: 99:             LCDPutStr(Buffer);
 [e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
-"108
-[; ;main.c: 108:             sprintf(Buffer, "%i", digits[1]);
+"101
+[; ;main.c: 101:             sprintf(Buffer, "%i", digits[1]);
 [e ( _sprintf (1 , (. , &U _Buffer :s 8C -> *U + &U _digits * -> -> -> 1 `i `ui `ux -> -> # *U &U _digits `ui `ux `i ]
-"109
-[; ;main.c: 109:             LCDGoto(8,1);
+"102
+[; ;main.c: 102:             LCDGoto(8,1);
 [e ( _LCDGoto (2 , -> -> 8 `i `uc -> -> 1 `i `uc ]
-"110
-[; ;main.c: 110:             LCDPutStr(Buffer);
+"103
+[; ;main.c: 103:             LCDPutStr(Buffer);
 [e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
-"112
-[; ;main.c: 112:             sprintf(Buffer, "%iV", digits[0]);
+"105
+[; ;main.c: 105:             sprintf(Buffer, "%iV", digits[0]);
 [e ( _sprintf (1 , (. , &U _Buffer :s 9C -> *U + &U _digits * -> -> -> 0 `i `ui `ux -> -> # *U &U _digits `ui `ux `i ]
-"113
-[; ;main.c: 113:             LCDGoto(9,1);
+"106
+[; ;main.c: 106:             LCDGoto(9,1);
 [e ( _LCDGoto (2 , -> -> 9 `i `uc -> -> 1 `i `uc ]
-"114
-[; ;main.c: 114:             LCDPutStr(Buffer);
+"107
+[; ;main.c: 107:             LCDPutStr(Buffer);
 [e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
+"109
+[; ;main.c: 109:         }
+}
+[e :U 155 ]
+"111
+[; ;main.c: 111:         if( !ADCON0bits.GO_nDONE ){
+[e $ ! ! != -> . . _ADCON0bits 0 1 `i -> 0 `i 159  ]
+{
+"112
+[; ;main.c: 112:             ADCON0bits.CHS = adc_channel_pointer;
+[e = . . _ADCON0bits 0 2 _adc_channel_pointer ]
+"113
+[; ;main.c: 113:             if(adc_channel_pointer){
+[e $ ! != -> _adc_channel_pointer `i -> 0 `i 160  ]
+{
+"114
+[; ;main.c: 114:                 adc_channel_pointer = 255;
+[e = _adc_channel_pointer -> -> 255 `i `uc ]
+"115
+[; ;main.c: 115:             }
+}
+[e :U 160 ]
 "116
-[; ;main.c: 116:         }
-}
-[e :U 156 ]
-"118
-[; ;main.c: 118:         if( !ADCON0bits.GO_nDONE ){
-[e $ ! ! != -> . . _ADCON0bits 0 1 `i -> 0 `i 161  ]
-{
-"119
-[; ;main.c: 119:             ADCON0bits.CHS = adc_count;
-[e = . . _ADCON0bits 0 2 _adc_count ]
-"120
-[; ;main.c: 120:             if(adc_count){
-[e $ ! != -> _adc_count `i -> 0 `i 162  ]
-{
-"121
-[; ;main.c: 121:                 adc_count = 255;
-[e = _adc_count -> -> 255 `i `uc ]
-"122
-[; ;main.c: 122:             }
-}
-[e :U 162 ]
-"123
-[; ;main.c: 123:             _delay((unsigned long)((25)*(8000000/4000000.0)));
+[; ;main.c: 116:             _delay((unsigned long)((25)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 25 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"124
-[; ;main.c: 124:             do{ ADCON0bits.GO_nDONE = 1; } while(0);
-[e :U 165 ]
+"117
+[; ;main.c: 117:             do{ ADCON0bits.GO_nDONE = 1; } while(0);
+[e :U 163 ]
 {
 [e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
 }
-[e :U 164 ]
-"125
-[; ;main.c: 125:         }
+[e :U 162 ]
+"118
+[; ;main.c: 118:         }
 }
-[e :U 161 ]
-"126
-[; ;main.c: 126:     }
+[e :U 159 ]
+"119
+[; ;main.c: 119:     }
 }
 [e :U 148 ]
 [e $U 149  ]
 [e :U 150 ]
-"127
-[; ;main.c: 127: }
+"120
+[; ;main.c: 120: }
 [e :UE 144 ]
 }
 [p f _sprintf 8388736 ]
