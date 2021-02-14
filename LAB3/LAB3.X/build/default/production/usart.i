@@ -1,4 +1,4 @@
-# 1 "adc.c"
+# 1 "usart.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,14 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "adc.c" 2
-
-
-
-
-
-
-
+# 1 "usart.c" 2
+# 11 "usart.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2494,10 +2488,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 8 "adc.c" 2
+# 11 "usart.c" 2
 
-# 1 "./adc.h" 1
-# 12 "./adc.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -2631,18 +2623,47 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 12 "./adc.h" 2
+# 12 "usart.c" 2
+
+# 1 "./usart.h" 1
+# 13 "./usart.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "./usart.h" 2
 
 
-void ADC_Initialize(void);
-# 9 "adc.c" 2
+void USART_Initialize(const long int baudrate);
+# 13 "usart.c" 2
 
 
-void ADC_Initialize(void){
 
-    ADCON0 = 0b10000001;
-    ADCON1 = 0x00;
-    ADRESL = 0x00;
-    ADRESH = 0x00;
+void USART_Initialize(const long int baudrate){
+    long int x;
 
+
+    TXSTAbits.TX9 = 0;
+
+    TXSTAbits.TXEN = 1;
+
+    TXSTAbits.SYNC = 0;
+
+    TXSTAbits.BRGH = 0;
+    BAUDCTLbits.BRG16 = 0;
+
+
+    RCSTAbits.SPEN = 1;
+
+    RCSTAbits.CREN = 1;
+
+    x = (8000000 - baudrate*64)/(baudrate*64);
+    SPBRG = x;
+
+
+    INTCONbits.GIE = 1;
+
+    INTCONbits.PEIE = 1;
+
+
+    PIE1bits.RCIE = 1;
+
+    PIE1bits.TXIE = 1;
 }

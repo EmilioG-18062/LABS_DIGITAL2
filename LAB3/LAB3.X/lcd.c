@@ -102,7 +102,6 @@ void LCDPutChar(uint8_t ch){
 void LCDPutCmd(uint8_t ch){
     __delay_ms(LCD_delay);
 
-    //Send the higher nibble
     LCDWrite(ch,instr);
     
 }

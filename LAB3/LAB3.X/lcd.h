@@ -185,7 +185,7 @@ void LCDPutStr(const char *);
   @Returns
     None
 */
-void LCDWriteNibble(uint8_t ch,uint8_t rs);
+void LCDWrite(uint8_t ch,uint8_t rs);
 
 /**
   @Summary

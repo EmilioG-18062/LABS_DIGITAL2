@@ -2514,9 +2514,6 @@ void PORTS_MANAGER_Initialize(void) {
     PORTB = 0;
     IOCB = 0;
 
-    TRISC = 0;
-    PORTC = 0;
-
     TRISD = 0;
     PORTD = 0;
 

@@ -19,9 +19,6 @@ void PORTS_MANAGER_Initialize(void) {
     PORTB   = 0; //Inicio el PORTB con todos en 0
     IOCB    = 0; //Enciendo las Interrupciones On-Change del pin 0/1
 
-    TRISC   = 0; ////Configuro el PORTC como salida
-    PORTC   = 0; //Inicio el PORTB con todos en 0
-
     TRISD   = 0; ////Configuro el PORTD como salida
     PORTD   = 0; //Inicio el PORTB con todos en 0
 

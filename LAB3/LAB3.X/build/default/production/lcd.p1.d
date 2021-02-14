@@ -5,4 +5,5 @@ lcs.h  \
 device_config.h  \
 adc.h  \
 ports_manager.h  \
-interrupt_manager.h 
+interrupt_manager.h  \
+usart.h 

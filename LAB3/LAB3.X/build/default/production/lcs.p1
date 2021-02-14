@@ -11,6 +11,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "116 ./lcd.h
 [; ;./lcd.h: 116: void LCD_Initialize(void);
 [v _LCD_Initialize `(v ~T0 @X0 0 ef ]
+"15 ./usart.h
+[; ;./usart.h: 15: void USART_Initialize(const long int baudrate);
+[v _USART_Initialize `(v ~T0 @X0 0 ef1`Cl ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -264,6 +267,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lcs.c: 14:     LCD_Initialize();
 [e ( _LCD_Initialize ..  ]
 "15
-[; ;lcs.c: 15: }
+[; ;lcs.c: 15:     USART_Initialize(9600);
+[e ( _USART_Initialize (1 -> -> 9600 `i `l ]
+"16
+[; ;lcs.c: 16: }
 [e :UE 139 ]
 }

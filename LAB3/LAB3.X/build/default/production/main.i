@@ -2492,110 +2492,6 @@ extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
 # 11 "./lcs.h" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
-
-
-
-# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
-
-
-
-typedef unsigned size_t;
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-
-# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdarg.h" 1 3
-
-
-
-
-
-
-typedef void * va_list[1];
-
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-# 11 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-# 43 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
-struct __prbuf
-{
- char * ptr;
- void (* func)(char);
-};
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 1 3
-
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 1 3
-# 29 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 3
-extern int errno;
-# 8 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 2 3
-
-
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-
-
-extern char * cgets(char *);
-extern void cputs(const char *);
-# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
-
-
-
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-# 180 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-# 12 "./lcs.h" 2
-
-# 1 "./device_config.h" 1
-# 13 "./lcs.h" 2
-
-# 1 "./adc.h" 1
-# 12 "./adc.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -2729,20 +2625,127 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
+# 12 "./lcs.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdarg.h" 1 3
+
+
+
+
+
+
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
+{
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 8 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 13 "./lcs.h" 2
+
+# 1 "./device_config.h" 1
+# 14 "./lcs.h" 2
+
+# 1 "./adc.h" 1
+# 12 "./adc.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 12 "./adc.h" 2
 # 25 "./adc.h"
 void ADC_Initialize(void);
-# 14 "./lcs.h" 2
+# 15 "./lcs.h" 2
 
 # 1 "./ports_manager.h" 1
 # 25 "./ports_manager.h"
 void PORTS_MANAGER_Initialize(void);
-# 15 "./lcs.h" 2
+# 16 "./lcs.h" 2
 
 # 1 "./interrupt_manager.h" 1
 # 13 "./interrupt_manager.h"
 void INTERRUPT_MANAGER_Initialize(void);
-# 16 "./lcs.h" 2
+# 17 "./lcs.h" 2
 
 # 1 "./lcd.h" 1
 # 46 "./lcd.h"
@@ -2757,25 +2760,39 @@ void LCDPutCmd(uint8_t ch);
 # 170 "./lcd.h"
 void LCDPutStr(const char *);
 # 188 "./lcd.h"
-void LCDWriteNibble(uint8_t ch,uint8_t rs);
+void LCDWrite(uint8_t ch,uint8_t rs);
 # 210 "./lcd.h"
 void LCDGoto(uint8_t pos, uint8_t ln);
-# 17 "./lcs.h" 2
+# 18 "./lcs.h" 2
+
+# 1 "./usart.h" 1
+# 13 "./usart.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "./usart.h" 2
+
+
+void USART_Initialize(const long int baudrate);
+# 19 "./lcs.h" 2
 
 
 void SYSTEM_Initialize(void);
 # 11 "main.c" 2
 # 20 "main.c"
+int cont = 0;
 uint8_t adc_value = 0;
 uint8_t adc_channel_pointer = 0;
 uint8_t i = 0;
-
 uint16_t voltage_int = 0;
 
 float voltage = 0.00;
 
+char read_value;
 char Buffer[20];
-char digits[3];
+char Buffer1[20];
+char Buffer2[20];
+char digits1[3];
+char digits2[3];
+unsigned char contador=0;
 
 
 
@@ -2784,71 +2801,71 @@ void __attribute__((picinterrupt(("")))) myISR(void){
 
 
     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
-        adc_value = ADRESH;
-        voltage = adc_value;
+        voltage = ADRESH;
         adc_channel_pointer++;
         do{ PIR1bits.ADIF = 0; } while(0);
     }
 
+    if(PIR1bits.RCIF == 1){
+        read_value = RCREG;
+        if(read_value == '+'){
+            contador++;
+        }
+        else if(read_value == '-'){
+            contador--;
+        }
+    }
+
+    if(PIR1bits.TXIF == 1){
+        TXREG = Buffer2[cont];
+        if (cont == 16){
+            cont = 0;
+        }
+        else{
+            cont++;
+        }
+    }
 }
-# 53 "main.c"
+# 76 "main.c"
 void main(void) {
     SYSTEM_Initialize();
     do{ ADCON0bits.GO_nDONE = 1; } while(0);
+
     LCDGoto(0,0);
-    LCDPutStr(" S1 ");
-
-    LCDGoto(6,0);
-    LCDPutStr(" S2 ");
-
-    LCDGoto(11,0);
-    LCDPutStr(" S3 ");
+    LCDPutStr(" S1    S2    S3 ");
 
     while(1){
+        voltage_int = (uint16_t)(((voltage*500)/255));
 
         if (!adc_channel_pointer){
-            voltage_int = (uint16_t)(((voltage*500)/255));
             for (i = 0; i < 3; i++)
             {
-               digits[i] = (char)(voltage_int % 10);
+               digits1[i] = (char)(voltage_int % 10);
                voltage_int /= 10;
             }
-
-            sprintf(Buffer, "%i.", digits[2]);
+            sprintf(Buffer, "%i.%i%iV", digits1[2],digits1[1],digits1[0]);
             LCDGoto(0,1);
-            LCDPutStr(Buffer);
-
-            sprintf(Buffer, "%i", digits[1]);
-            LCDGoto(2,1);
-            LCDPutStr(Buffer);
-
-            sprintf(Buffer, "%iV", digits[0]);
-            LCDGoto(3,1);
             LCDPutStr(Buffer);
 
         }
 
         if (adc_channel_pointer){
-            voltage_int = (uint16_t)(((voltage*500)/255));
             for (i = 0; i < 3; i++)
             {
-               digits[i] = (char)(voltage_int % 10);
+               digits2[i] = (char)(voltage_int % 10);
                voltage_int /= 10;
             }
-
-            sprintf(Buffer, "%i.", digits[2]);
+            sprintf(Buffer, "%i.%i%iV", digits2[2],digits2[1],digits2[0]);
             LCDGoto(6,1);
             LCDPutStr(Buffer);
 
-            sprintf(Buffer, "%i", digits[1]);
-            LCDGoto(8,1);
-            LCDPutStr(Buffer);
-
-            sprintf(Buffer, "%iV", digits[0]);
-            LCDGoto(9,1);
-            LCDPutStr(Buffer);
-
         }
+        sprintf(Buffer1, "%3i", contador);
+        LCDGoto(12,1);
+        LCDPutStr(Buffer1);
+
+        sprintf(Buffer2, "%i.%i%iV %i.%i%iV %iC\r\n",digits1[2],digits1[1],
+                digits1[0],digits2[2],digits2[1],digits2[0],contador);
 
         if( !ADCON0bits.GO_nDONE ){
             ADCON0bits.CHS = adc_channel_pointer;

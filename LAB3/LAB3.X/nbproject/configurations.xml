@@ -10,6 +10,7 @@
       <itemPath>ports_manager.h</itemPath>
       <itemPath>interrupt_manager.h</itemPath>
       <itemPath>lcd.h</itemPath>
+      <itemPath>usart.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -25,6 +26,7 @@
         <itemPath>ports_manager.c</itemPath>
         <itemPath>interrupt_manager.c</itemPath>
         <itemPath>lcd.c</itemPath>
+        <itemPath>usart.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>

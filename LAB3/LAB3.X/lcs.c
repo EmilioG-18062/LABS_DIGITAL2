@@ -12,4 +12,5 @@ void SYSTEM_Initialize(void) {
     PORTS_MANAGER_Initialize();
     INTERRUPT_MANAGER_Initialize();
     LCD_Initialize();
+    USART_Initialize(9600);
 }

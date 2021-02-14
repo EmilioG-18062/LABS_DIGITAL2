@@ -9,12 +9,14 @@
 #define	LCS_H
 
 #include <xc.h>
+#include <stdint.h>
 #include <stdio.h>
 #include "device_config.h"
 #include "adc.h"
 #include "ports_manager.h"
 #include "interrupt_manager.h"
 #include "lcd.h"
+#include "usart.h"
 
 void SYSTEM_Initialize(void);
 
