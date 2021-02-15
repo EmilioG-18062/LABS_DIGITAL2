@@ -41,6 +41,6 @@ void USART_Initialize(const long int baudrate){
 
     //Enable receive interrupt
     PIE1bits.RCIE = 1;
-    
+    //Enable transmitive interrupt
     PIE1bits.TXIE = 1;
 }

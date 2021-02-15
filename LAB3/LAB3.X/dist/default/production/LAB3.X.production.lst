@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Sun Feb 14 17:14:56 2021
+                                                                                               Sun Feb 14 21:52:55 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -1319,7 +1319,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1305 ;;
   1306 ;; *************** function _main *****************
   1307 ;; Defined at:
-  1308 ;;		line 76 in file "main.c"
+  1308 ;;		line 78 in file "main.c"
   1309 ;; Parameters:    Size  Location     Type
   1310 ;;		None
   1311 ;; Auto vars:     Size  Location     Type
@@ -1362,7 +1362,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1348                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
   1349                           
   1350                           
-  1351                           ;main.c: 77:     SYSTEM_Initialize();
+  1351                           ;main.c: 79:     SYSTEM_Initialize();
   1352  0D7C  120A  158A  2172  120A  158A  	fcall	_SYSTEM_Initialize
   1353  0D81                     l2616:
   1354  0D81  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1370,13 +1370,13 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1356  0D83  149F               	bsf	31,1	;volatile
   1357  0D84                     l163:
   1358                           
-  1359                           ;main.c: 80:     LCDGoto(0,0);
+  1359                           ;main.c: 82:     LCDGoto(0,0);
   1360  0D84  01AC               	clrf	LCDGoto@ln
   1361  0D85  3000               	movlw	0
   1362  0D86  120A  118A  27CC  120A  158A  	fcall	_LCDGoto
   1363  0D8B                     l2618:
   1364                           
-  1365                           ;main.c: 81:     LCDPutStr(" S1    S2    S3 ");
+  1365                           ;main.c: 83:     LCDPutStr(" S1    S2    S3 ");
   1366  0D8B  3023               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
   1367  0D8C  1283               	bcf	3,5	;RP0=0, select bank0
   1368  0D8D  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1386,7 +1386,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1372  0D91  120A  158A  21E6  120A  158A  	fcall	_LCDPutStr
   1373  0D96                     l2620:
   1374                           
-  1375                           ;main.c: 84:         voltage_int = (uint16_t)(((voltage*500)/255));
+  1375                           ;main.c: 86:         voltage_int = (uint16_t)(((voltage*500)/255));
   1376  0D96  1683               	bsf	3,5	;RP0=1, select bank1
   1377  0D97  1303               	bcf	3,6	;RP1=0, select bank1
   1378  0D98  0823               	movf	(_voltage+3)^(0+128),w
@@ -1458,7 +1458,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1444  0DE6  00E2               	movwf	_voltage_int
   1445  0DE7                     l2622:
   1446                           
-  1447                           ;main.c: 86:         if (!adc_channel_pointer){
+  1447                           ;main.c: 88:         if (!adc_channel_pointer){
   1448  0DE7  0867               	movf	_adc_channel_pointer,w
   1449  0DE8  1D03               	btfss	3,2
   1450  0DE9  2DEB               	goto	u3531
@@ -1468,11 +1468,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1454  0DEC                     u3530:
   1455  0DEC                     l2624:
   1456                           
-  1457                           ;main.c: 87:             for (i = 0; i < 3; i++)
+  1457                           ;main.c: 89:             for (i = 0; i < 3; i++)
   1458  0DEC  01E6               	clrf	_i
   1459  0DED                     l2630:
   1460                           
-  1461                           ;main.c: 88:             {;main.c: 89:                digits1[i] = (char)(voltage_int % 
+  1461                           ;main.c: 90:             {;main.c: 91:                digits1[i] = (char)(voltage_int % 
       +                          10);
   1462  0DED  300A               	movlw	10
   1463  0DEE  00AF               	movwf	___lwmod@divisor
@@ -1501,7 +1501,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1486  0E09  0080               	movwf	0
   1487  0E0A                     l2632:
   1488                           
-  1489                           ;main.c: 90:                voltage_int /= 10;
+  1489                           ;main.c: 92:                voltage_int /= 10;
   1490  0E0A  300A               	movlw	10
   1491  0E0B  1283               	bcf	3,5	;RP0=0, select bank0
   1492  0E0C  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1521,7 +1521,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1506  0E1E  00E2               	movwf	_voltage_int
   1507  0E1F                     l2634:
   1508                           
-  1509                           ;main.c: 91:             }
+  1509                           ;main.c: 93:             }
   1510  0E1F  3001               	movlw	1
   1511  0E20  1683               	bsf	3,5	;RP0=1, select bank1
   1512  0E21  1303               	bcf	3,6	;RP1=0, select bank1
@@ -1541,7 +1541,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1526  0E2D                     u3540:
   1527  0E2D                     l2638:
   1528                           
-  1529                           ;main.c: 92:             sprintf(Buffer, "%i.%i%iV", digits1[2],digits1[1],digits1[0]);
+  1529                           ;main.c: 94:             sprintf(Buffer, "%i.%i%iV", digits1[2],digits1[1],digits1[0]);
   1530  0E2D  30C0               	movlw	(low (_Buffer| 0))& (0+255)
   1531  0E2E  00B5               	movwf	sprintf@sp
   1532  0E2F  3000               	movlw	0
@@ -1602,7 +1602,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1587  0E66  120A  118A  2633  120A  158A  	fcall	_sprintf
   1588  0E6B                     l2640:
   1589                           
-  1590                           ;main.c: 93:             LCDGoto(0,1);
+  1590                           ;main.c: 95:             LCDGoto(0,1);
   1591  0E6B  1283               	bcf	3,5	;RP0=0, select bank0
   1592  0E6C  1303               	bcf	3,6	;RP1=0, select bank0
   1593  0E6D  01AC               	clrf	LCDGoto@ln
@@ -1611,7 +1611,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1596  0E70  120A  118A  27CC  120A  158A  	fcall	_LCDGoto
   1597  0E75                     l2642:
   1598                           
-  1599                           ;main.c: 94:             LCDPutStr(Buffer);
+  1599                           ;main.c: 96:             LCDPutStr(Buffer);
   1600  0E75  30C0               	movlw	(low (_Buffer| 0))& (0+255)
   1601  0E76  1283               	bcf	3,5	;RP0=0, select bank0
   1602  0E77  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1621,7 +1621,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1606  0E7B  120A  158A  21E6  120A  158A  	fcall	_LCDPutStr
   1607  0E80                     l2644:
   1608                           
-  1609                           ;main.c: 98:         if (adc_channel_pointer){
+  1609                           ;main.c: 100:         if (adc_channel_pointer){
   1610  0E80  1283               	bcf	3,5	;RP0=0, select bank0
   1611  0E81  1303               	bcf	3,6	;RP1=0, select bank0
   1612  0E82  0867               	movf	_adc_channel_pointer,w
@@ -1633,11 +1633,11 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1618  0E87                     u3550:
   1619  0E87                     l2646:
   1620                           
-  1621                           ;main.c: 99:             for (i = 0; i < 3; i++)
+  1621                           ;main.c: 101:             for (i = 0; i < 3; i++)
   1622  0E87  01E6               	clrf	_i
   1623  0E88                     l2652:
   1624                           
-  1625                           ;main.c: 100:             {;main.c: 101:                digits2[i] = (char)(voltage_int 
+  1625                           ;main.c: 102:             {;main.c: 103:                digits2[i] = (char)(voltage_int 
       +                          % 10);
   1626  0E88  300A               	movlw	10
   1627  0E89  00AF               	movwf	___lwmod@divisor
@@ -1666,7 +1666,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1650  0EA4  0080               	movwf	0
   1651  0EA5                     l2654:
   1652                           
-  1653                           ;main.c: 102:                voltage_int /= 10;
+  1653                           ;main.c: 104:                voltage_int /= 10;
   1654  0EA5  300A               	movlw	10
   1655  0EA6  1283               	bcf	3,5	;RP0=0, select bank0
   1656  0EA7  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1686,7 +1686,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1670  0EB9  00E2               	movwf	_voltage_int
   1671  0EBA                     l2656:
   1672                           
-  1673                           ;main.c: 103:             }
+  1673                           ;main.c: 105:             }
   1674  0EBA  3001               	movlw	1
   1675  0EBB  1683               	bsf	3,5	;RP0=1, select bank1
   1676  0EBC  1303               	bcf	3,6	;RP1=0, select bank1
@@ -1706,7 +1706,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1690  0EC8                     u3560:
   1691  0EC8                     l2660:
   1692                           
-  1693                           ;main.c: 104:             sprintf(Buffer, "%i.%i%iV", digits2[2],digits2[1],digits2[0]);
+  1693                           ;main.c: 106:             sprintf(Buffer, "%i.%i%iV", digits2[2],digits2[1],digits2[0]);
   1694  0EC8  30C0               	movlw	(low (_Buffer| 0))& (0+255)
   1695  0EC9  00B5               	movwf	sprintf@sp
   1696  0ECA  3000               	movlw	0
@@ -1767,7 +1767,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1751  0F01  120A  118A  2633  120A  158A  	fcall	_sprintf
   1752  0F06                     l2662:
   1753                           
-  1754                           ;main.c: 105:             LCDGoto(6,1);
+  1754                           ;main.c: 107:             LCDGoto(6,1);
   1755  0F06  1283               	bcf	3,5	;RP0=0, select bank0
   1756  0F07  1303               	bcf	3,6	;RP1=0, select bank0
   1757  0F08  01AC               	clrf	LCDGoto@ln
@@ -1776,7 +1776,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1760  0F0B  120A  118A  27CC  120A  158A  	fcall	_LCDGoto
   1761  0F10                     l2664:
   1762                           
-  1763                           ;main.c: 106:             LCDPutStr(Buffer);
+  1763                           ;main.c: 108:             LCDPutStr(Buffer);
   1764  0F10  30C0               	movlw	(low (_Buffer| 0))& (0+255)
   1765  0F11  1283               	bcf	3,5	;RP0=0, select bank0
   1766  0F12  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1786,7 +1786,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1770  0F16  120A  158A  21E6  120A  158A  	fcall	_LCDPutStr
   1771  0F1B                     l2666:
   1772                           
-  1773                           ;main.c: 109:         sprintf(Buffer1, "%3i", contador);
+  1773                           ;main.c: 111:         sprintf(Buffer1, "%3i", contador);
   1774  0F1B  30AC               	movlw	(low (_Buffer1| 0))& (0+255)
   1775  0F1C  1283               	bcf	3,5	;RP0=0, select bank0
   1776  0F1D  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1819,7 +1819,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1803  0F38  120A  118A  2633  120A  158A  	fcall	_sprintf
   1804  0F3D                     l2668:
   1805                           
-  1806                           ;main.c: 110:         LCDGoto(12,1);
+  1806                           ;main.c: 112:         LCDGoto(12,1);
   1807  0F3D  1283               	bcf	3,5	;RP0=0, select bank0
   1808  0F3E  1303               	bcf	3,6	;RP1=0, select bank0
   1809  0F3F  01AC               	clrf	LCDGoto@ln
@@ -1827,7 +1827,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1811  0F41  300C               	movlw	12
   1812  0F42  120A  118A  27CC  120A  158A  	fcall	_LCDGoto
   1813                           
-  1814                           ;main.c: 111:         LCDPutStr(Buffer1);
+  1814                           ;main.c: 113:         LCDPutStr(Buffer1);
   1815  0F47  30AC               	movlw	(low (_Buffer1| 0))& (0+255)
   1816  0F48  1283               	bcf	3,5	;RP0=0, select bank0
   1817  0F49  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1836,7 +1836,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1820  0F4C  00AD               	movwf	LCDPutStr@str+1
   1821  0F4D  120A  158A  21E6  120A  158A  	fcall	_LCDPutStr
   1822                           
-  1823                           ;main.c: 113:         sprintf(Buffer2, "%i.%i%iV %i.%i%iV %iC\r\n",digits1[2],digits1[1]
+  1823                           ;main.c: 115:         sprintf(Buffer2, "%i.%i%iV %i.%i%iV %iC\r\n",digits1[2],digits1[1]
       +                          ,
   1824  0F52  3090               	movlw	(low (_Buffer2| (0+256)))& (0+255)
   1825  0F53  1283               	bcf	3,5	;RP0=0, select bank0
@@ -1960,7 +1960,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1943  0FC9  120A  118A  2633  120A  158A  	fcall	_sprintf
   1944  0FCE                     l2670:
   1945                           
-  1946                           ;main.c: 116:         if( !ADCON0bits.GO_nDONE ){
+  1946                           ;main.c: 118:         if( !ADCON0bits.GO_nDONE ){
   1947  0FCE  1283               	bcf	3,5	;RP0=0, select bank0
   1948  0FCF  1303               	bcf	3,6	;RP1=0, select bank0
   1949  0FD0  189F               	btfsc	31,1	;volatile
@@ -1971,7 +1971,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1954  0FD4                     u3570:
   1955  0FD4                     l2672:
   1956                           
-  1957                           ;main.c: 117:             ADCON0bits.CHS = adc_channel_pointer;
+  1957                           ;main.c: 119:             ADCON0bits.CHS = adc_channel_pointer;
   1958  0FD4  0867               	movf	_adc_channel_pointer,w
   1959  0FD5  1683               	bsf	3,5	;RP0=1, select bank1
   1960  0FD6  1303               	bcf	3,6	;RP1=0, select bank1
@@ -1990,7 +1990,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1973  0FE3  1303               	bcf	3,6	;RP1=0, select bank0
   1974  0FE4  009F               	movwf	31	;volatile
   1975                           
-  1976                           ;main.c: 118:             if(adc_channel_pointer){
+  1976                           ;main.c: 120:             if(adc_channel_pointer){
   1977  0FE5  0867               	movf	_adc_channel_pointer,w
   1978  0FE6  1903               	btfsc	3,2
   1979  0FE7  2FE9               	goto	u3581
@@ -2000,7 +2000,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1983  0FEA                     u3580:
   1984  0FEA                     l2674:
   1985                           
-  1986                           ;main.c: 119:                 adc_channel_pointer = 255;
+  1986                           ;main.c: 121:                 adc_channel_pointer = 255;
   1987  0FEA  30FF               	movlw	255
   1988  0FEB  1683               	bsf	3,5	;RP0=1, select bank1
   1989  0FEC  1303               	bcf	3,6	;RP1=0, select bank1
@@ -2010,10 +2010,10 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1993  0FF0  1303               	bcf	3,6	;RP1=0, select bank0
   1994  0FF1  00E7               	movwf	_adc_channel_pointer
   1995  0FF2                     l172:	
-  1996                           ;main.c: 120:             }
+  1996                           ;main.c: 122:             }
   1997                           
   1998                           
-  1999                           ;main.c: 121:             _delay((unsigned long)((25)*(8000000/4000000.0)));
+  1999                           ;main.c: 123:             _delay((unsigned long)((25)*(8000000/4000000.0)));
   2000  0FF2  300F               	movlw	15
   2001  0FF3  1683               	bsf	3,5	;RP0=1, select bank1
   2002  0FF4  1303               	bcf	3,6	;RP1=0, select bank1
@@ -6492,7 +6492,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6436  0AC5                     __ptext22:	
   6437 ;; *************** function _myISR *****************
   6438 ;; Defined at:
-  6439 ;;		line 39 in file "main.c"
+  6439 ;;		line 41 in file "main.c"
   6440 ;; Parameters:    Size  Location     Type
   6441 ;;		None
   6442 ;; Auto vars:     Size  Location     Type
@@ -6525,7 +6525,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6469  0AC5                     _myISR:
   6470  0AC5                     i1l2320:
   6471                           
-  6472                           ;main.c: 42:     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
+  6472                           ;main.c: 44:     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
   6473  0AC5  1F0C               	btfss	12,6	;volatile
   6474  0AC6  2AC8               	goto	u300_21
   6475  0AC7  2AC9               	goto	u300_20
@@ -6541,7 +6541,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6485  0ACD                     u301_20:
   6486  0ACD                     i1l2324:
   6487                           
-  6488                           ;main.c: 43:         voltage = ADRESH;
+  6488                           ;main.c: 45:         voltage = ADRESH;
   6489  0ACD  081E               	movf	30,w	;volatile
   6490  0ACE  00A0               	movwf	??_myISR
   6491  0ACF  01A1               	clrf	??_myISR+1
@@ -6569,7 +6569,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6513  0AE9  00A0               	movwf	_voltage^(0+128)
   6514  0AEA                     i1l2326:
   6515                           
-  6516                           ;main.c: 44:         adc_channel_pointer++;
+  6516                           ;main.c: 46:         adc_channel_pointer++;
   6517  0AEA  3001               	movlw	1
   6518  0AEB  1283               	bcf	3,5	;RP0=0, select bank0
   6519  0AEC  1303               	bcf	3,6	;RP1=0, select bank0
@@ -6580,7 +6580,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6524  0AF0  130C               	bcf	12,6	;volatile
   6525  0AF1                     i1l2330:
   6526                           
-  6527                           ;main.c: 48:     if(PIR1bits.RCIF == 1){
+  6527                           ;main.c: 50:     if(PIR1bits.RCIF == 1){
   6528  0AF1  1E8C               	btfss	12,5	;volatile
   6529  0AF2  2AF4               	goto	u302_21
   6530  0AF3  2AF5               	goto	u302_20
@@ -6589,14 +6589,14 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6533  0AF5                     u302_20:
   6534  0AF5                     i1l2332:
   6535                           
-  6536                           ;main.c: 49:         read_value = RCREG;
+  6536                           ;main.c: 51:         read_value = RCREG;
   6537  0AF5  081A               	movf	26,w	;volatile
   6538  0AF6  00A0               	movwf	??_myISR
   6539  0AF7  0820               	movf	??_myISR,w
   6540  0AF8  00E5               	movwf	_read_value
   6541  0AF9                     i1l2334:
   6542                           
-  6543                           ;main.c: 50:         if(read_value == '+'){
+  6543                           ;main.c: 52:         if(read_value == '+'){
   6544  0AF9  302B               	movlw	43
   6545  0AFA  0665               	xorwf	_read_value,w
   6546  0AFB  1D03               	btfss	3,2
@@ -6607,13 +6607,13 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6551  0AFF                     u303_20:
   6552  0AFF                     i1l2336:
   6553                           
-  6554                           ;main.c: 51:             contador++;
+  6554                           ;main.c: 53:             contador++;
   6555  0AFF  3001               	movlw	1
   6556  0B00  00A0               	movwf	??_myISR
   6557  0B01  0820               	movf	??_myISR,w
   6558  0B02  07E4               	addwf	_contador,f
   6559                           
-  6560                           ;main.c: 52:         }
+  6560                           ;main.c: 54:         }
   6561  0B03  2B0C               	goto	i1l2342
   6562  0B04                     i1l2338:
   6563  0B04  302D               	movlw	45
@@ -6626,12 +6626,12 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6570  0B0A                     u304_20:
   6571  0B0A                     i1l2340:
   6572                           
-  6573                           ;main.c: 54:             contador--;
+  6573                           ;main.c: 56:             contador--;
   6574  0B0A  3001               	movlw	1
   6575  0B0B  02E4               	subwf	_contador,f
   6576  0B0C                     i1l2342:
   6577                           
-  6578                           ;main.c: 58:     if(PIR1bits.TXIF == 1){
+  6578                           ;main.c: 60:     if(PIR1bits.TXIF == 1){
   6579  0B0C  1E0C               	btfss	12,4	;volatile
   6580  0B0D  2B0F               	goto	u305_21
   6581  0B0E  2B10               	goto	u305_20
@@ -6640,7 +6640,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6584  0B10                     u305_20:
   6585  0B10                     i1l2344:
   6586                           
-  6587                           ;main.c: 59:         TXREG = Buffer2[cont];
+  6587                           ;main.c: 61:         TXREG = Buffer2[cont];
   6588  0B10  1683               	bsf	3,5	;RP0=1, select bank1
   6589  0B11  1303               	bcf	3,6	;RP1=0, select bank1
   6590  0B12  082A               	movf	_cont^(0+128),w
@@ -6653,7 +6653,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6597  0B19  0099               	movwf	25	;volatile
   6598  0B1A                     i1l2346:
   6599                           
-  6600                           ;main.c: 60:         if (cont == 16){
+  6600                           ;main.c: 62:         if (cont == 16){
   6601  0B1A  3010               	movlw	16
   6602  0B1B  1683               	bsf	3,5	;RP0=1, select bank1
   6603  0B1C  1303               	bcf	3,6	;RP1=0, select bank1
@@ -6667,15 +6667,15 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   6611  0B23                     u306_20:
   6612  0B23                     i1l2348:
   6613                           
-  6614                           ;main.c: 61:             cont = 0;
+  6614                           ;main.c: 63:             cont = 0;
   6615  0B23  01AA               	clrf	_cont^(0+128)
   6616  0B24  01AB               	clrf	(_cont+1)^(0+128)
   6617                           
-  6618                           ;main.c: 62:         }
+  6618                           ;main.c: 64:         }
   6619  0B25  2B2C               	goto	i1l157
   6620  0B26                     i1l2350:
   6621                           
-  6622                           ;main.c: 64:             cont++;
+  6622                           ;main.c: 66:             cont++;
   6623  0B26  3001               	movlw	1
   6624  0B27  07AA               	addwf	_cont^(0+128),f
   6625  0B28  1803               	skipnc
@@ -7296,7 +7296,7 @@ DATA                 0      0      BB      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Sun Feb 14 17:14:56 2021
+Symbol Table                                                                                   Sun Feb 14 21:52:55 2021
 
                          ___fldiv@aexp 00E0                           ___fldiv@bexp 00DF  
                                     _i 0066                         _LCD_Initialize 0A13  

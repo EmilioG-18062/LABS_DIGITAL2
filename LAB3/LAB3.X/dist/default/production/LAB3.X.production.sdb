@@ -49,9 +49,9 @@
 [v _LCDGoto LCDGoto `(v  1 e 1 0 ]
 "10 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB3\LAB3.X\lcs.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"39 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB3\LAB3.X\main.c
+"41 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB3\LAB3.X\main.c
 [v _myISR myISR `II(v  1 e 1 0 ]
-"76
+"78
 [v _main main `(v  1 e 1 0 ]
 "10 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB3\LAB3.X\ports_manager.c
 [v _PORTS_MANAGER_Initialize PORTS_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -238,18 +238,18 @@
 [v _Buffer Buffer `[20]uc  1 e 20 0 ]
 "30
 [v _Buffer1 Buffer1 `[20]uc  1 e 20 0 ]
-"31
-[v _Buffer2 Buffer2 `[20]uc  1 e 20 0 ]
 "32
-[v _digits1 digits1 `[3]uc  1 e 3 0 ]
-"33
-[v _digits2 digits2 `[3]uc  1 e 3 0 ]
+[v _Buffer2 Buffer2 `[20]uc  1 e 20 0 ]
 "34
+[v _digits1 digits1 `[3]uc  1 e 3 0 ]
+"35
+[v _digits2 digits2 `[3]uc  1 e 3 0 ]
+"36
 [v _contador contador `uc  1 e 1 0 ]
-"76
+"78
 [v _main main `(v  1 e 1 0 ]
 {
-"125
+"127
 } 0
 "505 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -473,10 +473,10 @@
 [v LCDWrite@ch ch `uc  1 a 1 8 ]
 "92
 } 0
-"39 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB3\LAB3.X\main.c
+"41 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB3\LAB3.X\main.c
 [v _myISR myISR `II(v  1 e 1 0 ]
 {
-"67
+"69
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]

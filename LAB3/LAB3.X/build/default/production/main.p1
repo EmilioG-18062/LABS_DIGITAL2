@@ -339,283 +339,283 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30
 [; ;main.c: 30: char Buffer1[20];
 [v _Buffer1 `uc ~T0 @X0 -> 20 `i e ]
-"31
-[; ;main.c: 31: char Buffer2[20];
-[v _Buffer2 `uc ~T0 @X0 -> 20 `i e ]
 "32
-[; ;main.c: 32: char digits1[3];
-[v _digits1 `uc ~T0 @X0 -> 3 `i e ]
-"33
-[; ;main.c: 33: char digits2[3];
-[v _digits2 `uc ~T0 @X0 -> 3 `i e ]
+[; ;main.c: 32: char Buffer2[20];
+[v _Buffer2 `uc ~T0 @X0 -> 20 `i e ]
 "34
-[; ;main.c: 34: unsigned char contador=0;
+[; ;main.c: 34: char digits1[3];
+[v _digits1 `uc ~T0 @X0 -> 3 `i e ]
+"35
+[; ;main.c: 35: char digits2[3];
+[v _digits2 `uc ~T0 @X0 -> 3 `i e ]
+"36
+[; ;main.c: 36: unsigned char contador=0;
 [v _contador `uc ~T0 @X0 1 e ]
 [i _contador
 -> -> 0 `i `uc
 ]
 [v $root$_myISR `(v ~T0 @X0 0 e ]
-"39
-[; ;main.c: 39: void __attribute__((picinterrupt(("")))) myISR(void){
+"41
+[; ;main.c: 41: void __attribute__((picinterrupt(("")))) myISR(void){
 [v _myISR `(v ~T1 @X0 1 ef ]
 {
 [e :U _myISR ]
 [f ]
-"42
-[; ;main.c: 42:     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
+"44
+[; ;main.c: 44:     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
 [e $ ! && == -> . . _PIR1bits 0 6 `i -> 1 `i == -> . . _ADCON0bits 0 1 `i -> 0 `i 140  ]
 {
-"43
-[; ;main.c: 43:         voltage = ADRESH;
-[e = _voltage -> _ADRESH `f ]
-"44
-[; ;main.c: 44:         adc_channel_pointer++;
-[e ++ _adc_channel_pointer -> -> 1 `i `uc ]
 "45
-[; ;main.c: 45:         do{ PIR1bits.ADIF = 0; } while(0);
+[; ;main.c: 45:         voltage = ADRESH;
+[e = _voltage -> _ADRESH `f ]
+"46
+[; ;main.c: 46:         adc_channel_pointer++;
+[e ++ _adc_channel_pointer -> -> 1 `i `uc ]
+"47
+[; ;main.c: 47:         do{ PIR1bits.ADIF = 0; } while(0);
 [e :U 143 ]
 {
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 142 ]
-"46
-[; ;main.c: 46:     }
+"48
+[; ;main.c: 48:     }
 }
 [e :U 140 ]
-"48
-[; ;main.c: 48:     if(PIR1bits.RCIF == 1){
+"50
+[; ;main.c: 50:     if(PIR1bits.RCIF == 1){
 [e $ ! == -> . . _PIR1bits 0 5 `i -> 1 `i 144  ]
 {
-"49
-[; ;main.c: 49:         read_value = RCREG;
+"51
+[; ;main.c: 51:         read_value = RCREG;
 [e = _read_value -> _RCREG `uc ]
-"50
-[; ;main.c: 50:         if(read_value == '+'){
+"52
+[; ;main.c: 52:         if(read_value == '+'){
 [e $ ! == -> _read_value `ui -> 43 `ui 145  ]
 {
-"51
-[; ;main.c: 51:             contador++;
+"53
+[; ;main.c: 53:             contador++;
 [e ++ _contador -> -> 1 `i `uc ]
-"52
-[; ;main.c: 52:         }
+"54
+[; ;main.c: 54:         }
 }
 [e $U 146  ]
-"53
-[; ;main.c: 53:         else if(read_value == '-'){
+"55
+[; ;main.c: 55:         else if(read_value == '-'){
 [e :U 145 ]
 [e $ ! == -> _read_value `ui -> 45 `ui 147  ]
 {
-"54
-[; ;main.c: 54:             contador--;
+"56
+[; ;main.c: 56:             contador--;
 [e -- _contador -> -> 1 `i `uc ]
-"55
-[; ;main.c: 55:         }
+"57
+[; ;main.c: 57:         }
 }
 [e :U 147 ]
 [e :U 146 ]
-"56
-[; ;main.c: 56:     }
+"58
+[; ;main.c: 58:     }
 }
 [e :U 144 ]
-"58
-[; ;main.c: 58:     if(PIR1bits.TXIF == 1){
+"60
+[; ;main.c: 60:     if(PIR1bits.TXIF == 1){
 [e $ ! == -> . . _PIR1bits 0 4 `i -> 1 `i 148  ]
 {
-"59
-[; ;main.c: 59:         TXREG = Buffer2[cont];
+"61
+[; ;main.c: 61:         TXREG = Buffer2[cont];
 [e = _TXREG -> *U + &U _Buffer2 * -> -> _cont `ui `ux -> -> # *U &U _Buffer2 `ui `ux `uc ]
-"60
-[; ;main.c: 60:         if (cont == 16){
+"62
+[; ;main.c: 62:         if (cont == 16){
 [e $ ! == _cont -> 16 `i 149  ]
 {
-"61
-[; ;main.c: 61:             cont = 0;
+"63
+[; ;main.c: 63:             cont = 0;
 [e = _cont -> 0 `i ]
-"62
-[; ;main.c: 62:         }
+"64
+[; ;main.c: 64:         }
 }
 [e $U 150  ]
-"63
-[; ;main.c: 63:         else{
+"65
+[; ;main.c: 65:         else{
 [e :U 149 ]
 {
-"64
-[; ;main.c: 64:             cont++;
+"66
+[; ;main.c: 66:             cont++;
 [e ++ _cont -> 1 `i ]
-"65
-[; ;main.c: 65:         }
+"67
+[; ;main.c: 67:         }
 }
 [e :U 150 ]
-"66
-[; ;main.c: 66:     }
+"68
+[; ;main.c: 68:     }
 }
 [e :U 148 ]
-"67
-[; ;main.c: 67: }
+"69
+[; ;main.c: 69: }
 [e :UE 139 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"76
-[; ;main.c: 76: void main(void) {
+"78
+[; ;main.c: 78: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"77
-[; ;main.c: 77:     SYSTEM_Initialize();
+"79
+[; ;main.c: 79:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"78
-[; ;main.c: 78:     do{ ADCON0bits.GO_nDONE = 1; } while(0);
+"80
+[; ;main.c: 80:     do{ ADCON0bits.GO_nDONE = 1; } while(0);
 [e :U 154 ]
 {
 [e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
 }
 [e :U 153 ]
-"80
-[; ;main.c: 80:     LCDGoto(0,0);
+"82
+[; ;main.c: 82:     LCDGoto(0,0);
 [e ( _LCDGoto (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-"81
-[; ;main.c: 81:     LCDPutStr(" S1    S2    S3 ");
-[e ( _LCDPutStr (1 :s 1C ]
 "83
-[; ;main.c: 83:     while(1){
+[; ;main.c: 83:     LCDPutStr(" S1    S2    S3 ");
+[e ( _LCDPutStr (1 :s 1C ]
+"85
+[; ;main.c: 85:     while(1){
 [e :U 156 ]
 {
-"84
-[; ;main.c: 84:         voltage_int = (uint16_t)(((voltage*500)/255));
-[e = _voltage_int -> / * _voltage -> -> 500 `i `f -> -> 255 `i `f `ui ]
 "86
-[; ;main.c: 86:         if (!adc_channel_pointer){
+[; ;main.c: 86:         voltage_int = (uint16_t)(((voltage*500)/255));
+[e = _voltage_int -> / * _voltage -> -> 500 `i `f -> -> 255 `i `f `ui ]
+"88
+[; ;main.c: 88:         if (!adc_channel_pointer){
 [e $ ! ! != -> _adc_channel_pointer `i -> 0 `i 158  ]
 {
-"87
-[; ;main.c: 87:             for (i = 0; i < 3; i++)
+"89
+[; ;main.c: 89:             for (i = 0; i < 3; i++)
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 3 `i 159  ]
 [e $U 160  ]
 [e :U 159 ]
-"88
-[; ;main.c: 88:             {
-{
-"89
-[; ;main.c: 89:                digits1[i] = (char)(voltage_int % 10);
-[e = *U + &U _digits1 * -> _i `ux -> -> # *U &U _digits1 `ui `ux -> % _voltage_int -> -> 10 `i `ui `uc ]
 "90
-[; ;main.c: 90:                voltage_int /= 10;
-[e =/ _voltage_int -> -> 10 `i `ui ]
+[; ;main.c: 90:             {
+{
 "91
-[; ;main.c: 91:             }
+[; ;main.c: 91:                digits1[i] = (char)(voltage_int % 10);
+[e = *U + &U _digits1 * -> _i `ux -> -> # *U &U _digits1 `ui `ux -> % _voltage_int -> -> 10 `i `ui `uc ]
+"92
+[; ;main.c: 92:                voltage_int /= 10;
+[e =/ _voltage_int -> -> 10 `i `ui ]
+"93
+[; ;main.c: 93:             }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 3 `i 159  ]
 [e :U 160 ]
 }
-"92
-[; ;main.c: 92:             sprintf(Buffer, "%i.%i%iV", digits1[2],digits1[1],digits1[0]);
-[e ( _sprintf (1 , , , (. , &U _Buffer :s 2C -> *U + &U _digits1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _digits1 `ui `ux `i -> *U + &U _digits1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _digits1 `ui `ux `i -> *U + &U _digits1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _digits1 `ui `ux `i ]
-"93
-[; ;main.c: 93:             LCDGoto(0,1);
-[e ( _LCDGoto (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "94
-[; ;main.c: 94:             LCDPutStr(Buffer);
-[e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
+[; ;main.c: 94:             sprintf(Buffer, "%i.%i%iV", digits1[2],digits1[1],digits1[0]);
+[e ( _sprintf (1 , , , (. , &U _Buffer :s 2C -> *U + &U _digits1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _digits1 `ui `ux `i -> *U + &U _digits1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _digits1 `ui `ux `i -> *U + &U _digits1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _digits1 `ui `ux `i ]
+"95
+[; ;main.c: 95:             LCDGoto(0,1);
+[e ( _LCDGoto (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 "96
-[; ;main.c: 96:         }
+[; ;main.c: 96:             LCDPutStr(Buffer);
+[e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
+"98
+[; ;main.c: 98:         }
 }
 [e :U 158 ]
-"98
-[; ;main.c: 98:         if (adc_channel_pointer){
+"100
+[; ;main.c: 100:         if (adc_channel_pointer){
 [e $ ! != -> _adc_channel_pointer `i -> 0 `i 162  ]
 {
-"99
-[; ;main.c: 99:             for (i = 0; i < 3; i++)
+"101
+[; ;main.c: 101:             for (i = 0; i < 3; i++)
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 3 `i 163  ]
 [e $U 164  ]
 [e :U 163 ]
-"100
-[; ;main.c: 100:             {
-{
-"101
-[; ;main.c: 101:                digits2[i] = (char)(voltage_int % 10);
-[e = *U + &U _digits2 * -> _i `ux -> -> # *U &U _digits2 `ui `ux -> % _voltage_int -> -> 10 `i `ui `uc ]
 "102
-[; ;main.c: 102:                voltage_int /= 10;
-[e =/ _voltage_int -> -> 10 `i `ui ]
+[; ;main.c: 102:             {
+{
 "103
-[; ;main.c: 103:             }
+[; ;main.c: 103:                digits2[i] = (char)(voltage_int % 10);
+[e = *U + &U _digits2 * -> _i `ux -> -> # *U &U _digits2 `ui `ux -> % _voltage_int -> -> 10 `i `ui `uc ]
+"104
+[; ;main.c: 104:                voltage_int /= 10;
+[e =/ _voltage_int -> -> 10 `i `ui ]
+"105
+[; ;main.c: 105:             }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 3 `i 163  ]
 [e :U 164 ]
 }
-"104
-[; ;main.c: 104:             sprintf(Buffer, "%i.%i%iV", digits2[2],digits2[1],digits2[0]);
-[e ( _sprintf (1 , , , (. , &U _Buffer :s 3C -> *U + &U _digits2 * -> -> -> 2 `i `ui `ux -> -> # *U &U _digits2 `ui `ux `i -> *U + &U _digits2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _digits2 `ui `ux `i -> *U + &U _digits2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _digits2 `ui `ux `i ]
-"105
-[; ;main.c: 105:             LCDGoto(6,1);
-[e ( _LCDGoto (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
 "106
-[; ;main.c: 106:             LCDPutStr(Buffer);
-[e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
+[; ;main.c: 106:             sprintf(Buffer, "%i.%i%iV", digits2[2],digits2[1],digits2[0]);
+[e ( _sprintf (1 , , , (. , &U _Buffer :s 3C -> *U + &U _digits2 * -> -> -> 2 `i `ui `ux -> -> # *U &U _digits2 `ui `ux `i -> *U + &U _digits2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _digits2 `ui `ux `i -> *U + &U _digits2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _digits2 `ui `ux `i ]
+"107
+[; ;main.c: 107:             LCDGoto(6,1);
+[e ( _LCDGoto (2 , -> -> 6 `i `uc -> -> 1 `i `uc ]
 "108
-[; ;main.c: 108:         }
+[; ;main.c: 108:             LCDPutStr(Buffer);
+[e ( _LCDPutStr (1 -> &U _Buffer `*Cuc ]
+"110
+[; ;main.c: 110:         }
 }
 [e :U 162 ]
-"109
-[; ;main.c: 109:         sprintf(Buffer1, "%3i", contador);
-[e ( _sprintf (1 , (. , &U _Buffer1 :s 4C -> _contador `i ]
-"110
-[; ;main.c: 110:         LCDGoto(12,1);
-[e ( _LCDGoto (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
 "111
-[; ;main.c: 111:         LCDPutStr(Buffer1);
-[e ( _LCDPutStr (1 -> &U _Buffer1 `*Cuc ]
+[; ;main.c: 111:         sprintf(Buffer1, "%3i", contador);
+[e ( _sprintf (1 , (. , &U _Buffer1 :s 4C -> _contador `i ]
+"112
+[; ;main.c: 112:         LCDGoto(12,1);
+[e ( _LCDGoto (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
 "113
-[; ;main.c: 113:         sprintf(Buffer2, "%i.%i%iV %i.%i%iV %iC\r\n",digits1[2],digits1[1],
+[; ;main.c: 113:         LCDPutStr(Buffer1);
+[e ( _LCDPutStr (1 -> &U _Buffer1 `*Cuc ]
+"115
+[; ;main.c: 115:         sprintf(Buffer2, "%i.%i%iV %i.%i%iV %iC\r\n",digits1[2],digits1[1],
 [e ( _sprintf (1 , , , , , , , (. , &U _Buffer2 :s 5C -> *U + &U _digits1 * -> -> -> 2 `i `ui `ux -> -> # *U &U _digits1 `ui `ux `i -> *U + &U _digits1 * -> -> -> 1 `i `ui `ux -> -> # *U &U _digits1 `ui `ux `i -> *U + &U _digits1 * -> -> -> 0 `i `ui `ux -> -> # *U &U _digits1 `ui `ux `i -> *U + &U _digits2 * -> -> -> 2 `i `ui `ux -> -> # *U &U _digits2 `ui `ux `i -> *U + &U _digits2 * -> -> -> 1 `i `ui `ux -> -> # *U &U _digits2 `ui `ux `i -> *U + &U _digits2 * -> -> -> 0 `i `ui `ux -> -> # *U &U _digits2 `ui `ux `i -> _contador `i ]
-"116
-[; ;main.c: 116:         if( !ADCON0bits.GO_nDONE ){
+"118
+[; ;main.c: 118:         if( !ADCON0bits.GO_nDONE ){
 [e $ ! ! != -> . . _ADCON0bits 0 1 `i -> 0 `i 166  ]
 {
-"117
-[; ;main.c: 117:             ADCON0bits.CHS = adc_channel_pointer;
+"119
+[; ;main.c: 119:             ADCON0bits.CHS = adc_channel_pointer;
 [e = . . _ADCON0bits 0 2 _adc_channel_pointer ]
-"118
-[; ;main.c: 118:             if(adc_channel_pointer){
+"120
+[; ;main.c: 120:             if(adc_channel_pointer){
 [e $ ! != -> _adc_channel_pointer `i -> 0 `i 167  ]
 {
-"119
-[; ;main.c: 119:                 adc_channel_pointer = 255;
+"121
+[; ;main.c: 121:                 adc_channel_pointer = 255;
 [e = _adc_channel_pointer -> -> 255 `i `uc ]
-"120
-[; ;main.c: 120:             }
+"122
+[; ;main.c: 122:             }
 }
 [e :U 167 ]
-"121
-[; ;main.c: 121:             _delay((unsigned long)((25)*(8000000/4000000.0)));
+"123
+[; ;main.c: 123:             _delay((unsigned long)((25)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 25 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"122
-[; ;main.c: 122:             do{ ADCON0bits.GO_nDONE = 1; } while(0);
+"124
+[; ;main.c: 124:             do{ ADCON0bits.GO_nDONE = 1; } while(0);
 [e :U 170 ]
 {
 [e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
 }
 [e :U 169 ]
-"123
-[; ;main.c: 123:         }
+"125
+[; ;main.c: 125:         }
 }
 [e :U 166 ]
-"124
-[; ;main.c: 124:     }
+"126
+[; ;main.c: 126:     }
 }
 [e :U 155 ]
 [e $U 156  ]
 [e :U 157 ]
-"125
-[; ;main.c: 125: }
+"127
+[; ;main.c: 127: }
 [e :UE 151 ]
 }
 [p f _sprintf 8421504 ]

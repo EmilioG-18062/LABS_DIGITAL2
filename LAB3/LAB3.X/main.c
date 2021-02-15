@@ -28,7 +28,9 @@ float voltage = 0.00;
 char read_value;
 char Buffer[20];
 char Buffer1[20];
+
 char Buffer2[20];
+
 char digits1[3];
 char digits2[3];
 unsigned char contador=0;
@@ -45,7 +47,7 @@ void __interrupt () myISR(void){
         ADC_FLAG_SetLow();
     }
     
-    if(PIR1bits.RCIF == 1){
+    if(PIR1bits.RCIF == HIGH){
         read_value = RCREG;
         if(read_value == '+'){
             contador++;
@@ -55,7 +57,7 @@ void __interrupt () myISR(void){
         }
     }
     
-    if(PIR1bits.TXIF == 1){
+    if(PIR1bits.TXIF == HIGH){
         TXREG = Buffer2[cont];
         if (cont == 16){
             cont = 0;

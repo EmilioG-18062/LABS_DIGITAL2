@@ -2789,7 +2789,9 @@ float voltage = 0.00;
 char read_value;
 char Buffer[20];
 char Buffer1[20];
+
 char Buffer2[20];
+
 char digits1[3];
 char digits2[3];
 unsigned char contador=0;
@@ -2826,7 +2828,7 @@ void __attribute__((picinterrupt(("")))) myISR(void){
         }
     }
 }
-# 76 "main.c"
+# 78 "main.c"
 void main(void) {
     SYSTEM_Initialize();
     do{ ADCON0bits.GO_nDONE = 1; } while(0);
