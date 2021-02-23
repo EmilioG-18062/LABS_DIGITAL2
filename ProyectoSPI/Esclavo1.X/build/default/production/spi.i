@@ -1,4 +1,4 @@
-# 1 "../Esclavo2.X/ports_manager.c"
+# 1 "spi.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../Esclavo2.X/ports_manager.c" 2
+# 1 "spi.c" 2
 
 
 
@@ -15,8 +15,8 @@
 
 
 
-# 1 "../Esclavo2.X/ports_manager.h" 1
-# 12 "../Esclavo2.X/ports_manager.h"
+# 1 "./spi.h" 1
+# 13 "./spi.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2497,28 +2497,20 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 12 "../Esclavo2.X/ports_manager.h" 2
-# 25 "../Esclavo2.X/ports_manager.h"
-void PORTS_MANAGER_Initialize(void);
-# 9 "../Esclavo2.X/ports_manager.c" 2
+# 13 "./spi.h" 2
+
+void SPI_MANAGER_Initialize(void);
+# 9 "spi.c" 2
 
 
-void PORTS_MANAGER_Initialize(void) {
+void SPI_MANAGER_Initialize(void) {
 
-    ANSEL = 0b00000001;
-    TRISAbits.TRISA0 = 1;
-    PORTA = 0;
+    TRISCbits.TRISC3 = 1;
+    TRISCbits.TRISC5 = 0;
+    TRISAbits.TRISA5 = 1;
+    SSPCON = 0b00100100;
+    SSPSTAT = 0;
 
-
-    ANSELH = 0;
-    TRISB = 0;
-    PORTB = 0;
-    IOCB = 0;
-
-    TRISD = 0;
-    PORTD = 0;
-
-    TRISE = 0;
-    PORTE = 0;
-
+    PIR1bits.SSPIF = 0;
+    PIE1bits.SSPIE = 1;
 }

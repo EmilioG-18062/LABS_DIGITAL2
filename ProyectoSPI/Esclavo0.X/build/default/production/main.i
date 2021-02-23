@@ -2750,14 +2750,9 @@ void SPI_MANAGER_Initialize(void);
 
 void SYSTEM_Initialize(void);
 # 12 "main.c" 2
-# 22 "main.c"
-uint16_t voltage_int = 0;
-uint16_t i = 0;
+# 21 "main.c"
 uint8_t voltage1 = 0;
 
-float voltage = 0.00;
-
-char digits[3];
 
 
 
@@ -2765,27 +2760,26 @@ char digits[3];
 void __attribute__((picinterrupt(("")))) myISR(void){
 
     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
-        voltage = ADRESH;
-        _delay((unsigned long)((25)*(8000000/4000000.0)));
-        do{ ADCON0bits.GO_nDONE = 1; } while(0);
+        voltage1 = ADRESH;
+        _delay((unsigned long)((35)*(8000000/4000000.0)));
         do{ PIR1bits.ADIF = 0; } while(0);
+        do{ ADCON0bits.GO_nDONE = 1; } while(0);
+    }
+
+    if(PIR1bits.SSPIF){
+        if(!SSPSTATbits.BF){
+            PORTD = SSPBUF;
+        }
+        SSPBUF = voltage1;
+        PIR1bits.SSPIF = 0;
     }
 }
-# 50 "main.c"
+# 52 "main.c"
 void main(void) {
 
     SYSTEM_Initialize();
     do{ ADCON0bits.GO_nDONE = 1; } while(0);
 
     while(1){
-        voltage_int = (uint16_t)(((voltage*500)/255));
-        for (i = 0; i < 3; i++)
-            {
-               digits[i] = (char)(voltage_int % 10);
-               voltage_int /= 10;
-            }
-
-        PORTD = SSPBUF;
-        _delay((unsigned long)((10)*(8000000/4000.0)));
     }
 }

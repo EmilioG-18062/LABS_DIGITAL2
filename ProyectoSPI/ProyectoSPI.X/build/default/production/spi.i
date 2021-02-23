@@ -2509,5 +2509,4 @@ void SPI_MANAGER_Initialize(void) {
     TRISCbits.TRISC5 = 0;
     SSPCON = 0b00100000;
     SSPSTAT = 0;
-
 }

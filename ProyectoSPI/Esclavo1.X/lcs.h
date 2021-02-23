@@ -3,7 +3,7 @@
  * Author: Emilio Gordillo 18062
  *
  * Proyecto SPI - DIGITAL 2
- * PIC Esclavo 2
+ * PIC Esclavo 1
  */
 
 
@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include "device_config.h"
 #include "ports_manager.h"
+#include "spi.h"
 
 void SYSTEM_Initialize(void);
 

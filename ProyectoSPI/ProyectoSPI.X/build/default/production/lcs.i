@@ -2746,6 +2746,24 @@ void PORTS_MANAGER_Initialize(void);
 void SPI_MANAGER_Initialize(void);
 # 16 "./lcs.h" 2
 
+# 1 "./lcd.h" 1
+# 46 "./lcd.h"
+# 1 "./lcs.h" 1
+# 47 "./lcd.h" 2
+# 116 "./lcd.h"
+void LCD_Initialize(void);
+# 134 "./lcd.h"
+void LCDPutChar(uint8_t ch);
+# 152 "./lcd.h"
+void LCDPutCmd(uint8_t ch);
+# 170 "./lcd.h"
+void LCDPutStr(const char *);
+# 188 "./lcd.h"
+void LCDWrite(uint8_t ch,uint8_t rs);
+# 210 "./lcd.h"
+void LCDGoto(uint8_t pos, uint8_t ln);
+# 17 "./lcs.h" 2
+
 
 void SYSTEM_Initialize(void);
 # 9 "lcs.c" 2
@@ -2753,5 +2771,6 @@ void SYSTEM_Initialize(void);
 
 void SYSTEM_Initialize(void) {
     PORTS_MANAGER_Initialize();
+    LCD_Initialize();
     SPI_MANAGER_Initialize();
 }

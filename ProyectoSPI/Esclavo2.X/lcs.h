@@ -1,8 +1,9 @@
 /*//////////////////////////////////////////////////////////////////////////////
- * File:   lcs.c
+ * File:   lcs.h
  * Author: Emilio Gordillo 18062
  *
- * LABORATORIO 3 - DIGITAL 2
+ * Proyecto SPI - DIGITAL 2
+ * PIC Esclavo 2
  */
 
 #ifndef LCS_H
@@ -13,7 +14,8 @@
 #include <stdio.h>
 #include "device_config.h"
 #include "ports_manager.h"
-#include "usart.h"
+#include "spi.h"
+#include "adc.h"
 
 void SYSTEM_Initialize(void);
 

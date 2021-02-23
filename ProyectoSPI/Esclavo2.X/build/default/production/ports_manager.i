@@ -14,8 +14,9 @@
 
 
 
+
 # 1 "./ports_manager.h" 1
-# 11 "./ports_manager.h"
+# 12 "./ports_manager.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2496,18 +2497,17 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./ports_manager.h" 2
+# 12 "./ports_manager.h" 2
 # 25 "./ports_manager.h"
 void PORTS_MANAGER_Initialize(void);
-# 8 "ports_manager.c" 2
+# 9 "ports_manager.c" 2
 
 
 void PORTS_MANAGER_Initialize(void) {
 
-    ANSEL = 0b00000011;
-    TRISA = 0b00000011;
+    ANSEL = 0b00000001;
+    TRISAbits.TRISA0 = 1;
     PORTA = 0;
-
 
     ANSELH = 0;
     TRISB = 0;

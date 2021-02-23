@@ -1,7 +1,13 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"25 ../Esclavo1.X/ports_manager.h
-[; ;../Esclavo1.X/ports_manager.h: 25: void PORTS_MANAGER_Initialize(void);
+"25 ./ports_manager.h
+[; ;./ports_manager.h: 25: void PORTS_MANAGER_Initialize(void);
 [v _PORTS_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
+"26 ./adc.h
+[; ;./adc.h: 26: void ADC_Initialize(void);
+[v _ADC_Initialize `(v ~T0 @X0 0 ef ]
+"14 ./spi.h
+[; ;./spi.h: 14: void SPI_MANAGER_Initialize(void);
+[v _SPI_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -236,16 +242,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"10 ../Esclavo1.X/lcs.c
-[; ;../Esclavo1.X/lcs.c: 10: void SYSTEM_Initialize(void) {
+"12 lcs.c
+[; ;lcs.c: 12: void SYSTEM_Initialize(void) {
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _SYSTEM_Initialize ]
 [f ]
-"11
-[; ;../Esclavo1.X/lcs.c: 11:     PORTS_MANAGER_Initialize();
+"13
+[; ;lcs.c: 13:     PORTS_MANAGER_Initialize();
 [e ( _PORTS_MANAGER_Initialize ..  ]
-"12
-[; ;../Esclavo1.X/lcs.c: 12: }
+"14
+[; ;lcs.c: 14:     ADC_Initialize();
+[e ( _ADC_Initialize ..  ]
+"15
+[; ;lcs.c: 15:     SPI_MANAGER_Initialize();
+[e ( _SPI_MANAGER_Initialize ..  ]
+"16
+[; ;lcs.c: 16: }
 [e :UE 139 ]
 }

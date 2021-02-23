@@ -3,4 +3,5 @@ lcs.c  \
 lcs.h  \
 device_config.h  \
 ports_manager.h  \
-spi.h 
+spi.h  \
+lcd.h 

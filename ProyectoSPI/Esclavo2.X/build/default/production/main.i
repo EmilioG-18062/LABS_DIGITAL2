@@ -9,7 +9,7 @@
 # 1 "main.c" 2
 # 12 "main.c"
 # 1 "./lcs.h" 1
-# 11 "./lcs.h"
+# 12 "./lcs.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2490,7 +2490,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./lcs.h" 2
+# 12 "./lcs.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2625,7 +2625,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 12 "./lcs.h" 2
+# 13 "./lcs.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2724,43 +2724,75 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 13 "./lcs.h" 2
+# 14 "./lcs.h" 2
 
 # 1 "./device_config.h" 1
-# 14 "./lcs.h" 2
+# 15 "./lcs.h" 2
 
 # 1 "./ports_manager.h" 1
 # 25 "./ports_manager.h"
 void PORTS_MANAGER_Initialize(void);
-# 15 "./lcs.h" 2
-
-# 1 "./usart.h" 1
-# 13 "./usart.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "./usart.h" 2
-
-
-void USART_Initialize(const long int baudrate);
 # 16 "./lcs.h" 2
+
+# 1 "./spi.h" 1
+# 14 "./spi.h"
+void SPI_MANAGER_Initialize(void);
+# 17 "./lcs.h" 2
+
+# 1 "./adc.h" 1
+# 13 "./adc.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "./adc.h" 2
+# 26 "./adc.h"
+void ADC_Initialize(void);
+# 18 "./lcs.h" 2
 
 
 void SYSTEM_Initialize(void);
 # 12 "main.c" 2
-# 26 "main.c"
+# 21 "main.c"
+uint16_t temperature = 0;
+float temperature_float = 0.00;
+
+
+
+
+
 void __attribute__((picinterrupt(("")))) myISR(void){
+
+    if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
+        temperature_float = ADRESH;
+        _delay((unsigned long)((35)*(8000000/4000000.0)));
+        do{ PIR1bits.ADIF = 0; } while(0);
+        do{ ADCON0bits.GO_nDONE = 1; } while(0);
+    }
+
+    if(PIR1bits.SSPIF){
+        if(!SSPSTATbits.BF){
+            PORTD = SSPBUF;
+        }
+        SSPBUF = temperature;
+        PIR1bits.SSPIF = 0;
+    }
 }
-# 36 "main.c"
+# 53 "main.c"
 void main(void) {
 
     SYSTEM_Initialize();
-
-    TRISCbits.TRISC3 = 1;
-    TRISCbits.TRISC5 = 0;
-    TRISAbits.TRISA5 = 1;
-    SSPCON = 0b00100100;
-    SSPSTAT = 0;
+    do{ ADCON0bits.GO_nDONE = 1; } while(0);
 
     while(1){
-        PORTB = SSPBUF;
+        temperature = (uint16_t)temperature_float*2;
+
+        if(temperature > 36){
+            PORTD = 4;
+        }
+        if((temperature < 36) && (temperature > 25)){
+            PORTD = 2;
+        }
+        if(temperature < 25){
+            PORTD = 1;
+        }
+
     }
 }

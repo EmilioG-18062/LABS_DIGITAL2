@@ -14,6 +14,7 @@
 #include "device_config.h"
 #include "ports_manager.h"
 #include "spi.h"
+#include "lcd.h"
 
 void SYSTEM_Initialize(void);
 

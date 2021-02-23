@@ -19,9 +19,9 @@
                    projectFiles="true">
       <logicalFolder name="f1" displayName="LCS Files" projectFiles="true">
         <itemPath>adc.c</itemPath>
+        <itemPath>device_config.c</itemPath>
         <itemPath>lcs.c</itemPath>
-        <itemPath>../Esclavo2.X/device_config.c</itemPath>
-        <itemPath>../Esclavo2.X/ports_manager.c</itemPath>
+        <itemPath>ports_manager.c</itemPath>
         <itemPath>spi.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>

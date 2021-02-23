@@ -2739,19 +2739,47 @@ void PORTS_MANAGER_Initialize(void);
 void SPI_MANAGER_Initialize(void);
 # 16 "./lcs.h" 2
 
+# 1 "./lcd.h" 1
+# 46 "./lcd.h"
+# 1 "./lcs.h" 1
+# 47 "./lcd.h" 2
+# 116 "./lcd.h"
+void LCD_Initialize(void);
+# 134 "./lcd.h"
+void LCDPutChar(uint8_t ch);
+# 152 "./lcd.h"
+void LCDPutCmd(uint8_t ch);
+# 170 "./lcd.h"
+void LCDPutStr(const char *);
+# 188 "./lcd.h"
+void LCDWrite(uint8_t ch,uint8_t rs);
+# 210 "./lcd.h"
+void LCDGoto(uint8_t pos, uint8_t ln);
+# 17 "./lcs.h" 2
+
 
 void SYSTEM_Initialize(void);
 # 12 "main.c" 2
 # 21 "main.c"
 uint8_t i = 0;
+uint8_t contador = 0;
+uint16_t voltage_int = 0;
+float voltage = 0.00;
+char digits[3];
+char Buffer[20];
+char Buffer1[20];
+
 
 
 
 void __attribute__((picinterrupt(("")))) myISR(void){
 }
-# 35 "main.c"
+# 43 "main.c"
 void main(void) {
     SYSTEM_Initialize();
+
+    LCDGoto(0,0);
+    LCDPutStr(" S1    S2    S3 ");
 
     TRISCbits.TRISC0 = 0;
     PORTCbits.RC0 = 0;
@@ -2764,9 +2792,35 @@ void main(void) {
 
     while(1){
 
-        SSPBUF = i;
-        i++;
-        _delay((unsigned long)((10)*(8000000/4000.0)));
+        PORTCbits.RC0 = 0;
+        SSPBUF = 1;
+        if(!SSPSTATbits.BF){
+            voltage = SSPBUF;
+        }
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+        PORTCbits.RC0 = 1;
+
+        PORTCbits.RC1 = 0;
+        SSPBUF = 1;
+        if(!SSPSTATbits.BF){
+            contador = SSPBUF;
+        }
+        _delay((unsigned long)((1)*(8000000/4000.0)));
+        PORTCbits.RC1 = 1;
+
+        voltage_int = (uint16_t)(((voltage*500)/255));
+        for (i = 0; i < 3; i++)
+        {
+           digits[i] = (char)(voltage_int % 10);
+           voltage_int /= 10;
+        }
+        sprintf(Buffer, "%i.%i%iV", digits[2],digits[1],digits[0]);
+        LCDGoto(0,1);
+        LCDPutStr(Buffer);
+
+        sprintf(Buffer1, "%3i", contador);
+        LCDGoto(6,1);
+        LCDPutStr(Buffer1);
 
     }
 }

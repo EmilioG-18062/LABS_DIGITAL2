@@ -2,6 +2,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25 ./ports_manager.h
 [; ;./ports_manager.h: 25: void PORTS_MANAGER_Initialize(void);
 [v _PORTS_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
+"116 ./lcd.h
+[; ;./lcd.h: 116: void LCD_Initialize(void);
+[v _LCD_Initialize `(v ~T0 @X0 0 ef ]
 "14 ./spi.h
 [; ;./spi.h: 14: void SPI_MANAGER_Initialize(void);
 [v _SPI_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
@@ -249,9 +252,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lcs.c: 12:     PORTS_MANAGER_Initialize();
 [e ( _PORTS_MANAGER_Initialize ..  ]
 "13
-[; ;lcs.c: 13:     SPI_MANAGER_Initialize();
-[e ( _SPI_MANAGER_Initialize ..  ]
+[; ;lcs.c: 13:     LCD_Initialize();
+[e ( _LCD_Initialize ..  ]
 "14
-[; ;lcs.c: 14: }
+[; ;lcs.c: 14:     SPI_MANAGER_Initialize();
+[e ( _SPI_MANAGER_Initialize ..  ]
+"15
+[; ;lcs.c: 15: }
 [e :UE 139 ]
 }

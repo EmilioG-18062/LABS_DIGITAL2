@@ -19,11 +19,31 @@
 /*//////////////////////////////////////////////////////////////////////////////
  * VARIABLES
  */
+uint8_t reference_count = 0;
+uint8_t read_value;
 
 /*//////////////////////////////////////////////////////////////////////////////
  * INTERRUPCIONES
  */
 void __interrupt () myISR(void){
+    //On-Change Interrupts
+    if (INTCONbits.RBIE == 1 && INTCONbits.RBIF == 1){
+        if (PORTBbits.RB0 == 0){
+            reference_count++;
+        }
+        if (PORTBbits.RB1 == 0){
+            reference_count--;
+        }
+        INTCONbits.RBIF=0;
+    }
+    
+    if(PIR1bits.SSPIF){
+        if(SSPSTATbits.BF){
+            read_value = SSPBUF;
+        }
+        SSPBUF = reference_count;
+        PIR1bits.SSPIF = 0;
+    }
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -36,17 +56,15 @@ void __interrupt () myISR(void){
 void main(void) {
     
     SYSTEM_Initialize();
-    
-    TRISCbits.TRISC3 = 1;
-    TRISCbits.TRISC5 = 0;
-    TRISAbits.TRISA5 = 1;
-    SSPCON  = 0b00100100;
-    SSPSTAT = 0;
+    INTCON  = 0b11001000; // Enable Global Interrupt
+    INTCONbits.RBIF = 1;
     
     while(HIGH){
-        PORTB = SSPBUF; 
+        PORTD = reference_count;
     }
 }
 /*//////////////////////////////////////////////////////////////////////////////
  * END OF THE PROGRAM
  */
+
+

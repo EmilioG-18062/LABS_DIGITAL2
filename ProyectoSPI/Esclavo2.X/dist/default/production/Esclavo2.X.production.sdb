@@ -3,24 +3,30 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
-"10 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI/Esclavo1.X/lcs.c
-[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\aldiv.c
-[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"12 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"26 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\main.c
+"12 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\lcs.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"28 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\main.c
 [v _myISR myISR `II(v  1 e 1 0 ]
-"36
+"53
 [v _main main `(v  1 e 1 0 ]
-"10 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\ports_manager.c
+"11 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\ports_manager.c
 [v _PORTS_MANAGER_Initialize PORTS_MANAGER_Initialize `(v  1 e 1 0 ]
+"11 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\spi.c
+[v _SPI_MANAGER_Initialize SPI_MANAGER_Initialize `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "228
@@ -29,7 +35,7 @@
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "414
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
-[s S142 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S374 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -39,42 +45,56 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S151 . 1 `uc 1 . 1 0 :2:0 
+[s S383 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S156 . 1 `S142 1 . 1 0 `S151 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES156  1 e 1 @11 ]
+[u S388 . 1 `S374 1 . 1 0 `S383 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES388  1 e 1 @11 ]
+[s S97 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"553
+[u S105 . 1 `S97 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES105  1 e 1 @12 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-[s S97 . 1 `uc 1 RX9D 1 0 :1:0 
-`uc 1 OERR 1 0 :1:1 
-`uc 1 FERR 1 0 :1:2 
-`uc 1 ADDEN 1 0 :1:3 
-`uc 1 CREN 1 0 :1:4 
-`uc 1 SREN 1 0 :1:5 
-`uc 1 RX9 1 0 :1:6 
-`uc 1 SPEN 1 0 :1:7 
+"1238
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"1245
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
+[s S178 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+`uc 1 ADCS 1 0 :2:6 
 ]
-"1068
-[s S106 . 1 `uc 1 RCD8 1 0 :1:0 
-`uc 1 . 1 0 :5:1 
-`uc 1 RC9 1 0 :1:6 
+"1276
+[s S183 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 ADCS0 1 0 :1:6 
+`uc 1 ADCS1 1 0 :1:7 
 ]
-[s S110 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 nRC8 1 0 :1:6 
+[s S192 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
 ]
-[s S113 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 RC8_9 1 0 :1:6 
+[s S195 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
 ]
-[u S116 . 1 `S97 1 . 1 0 `S106 1 . 1 0 `S110 1 . 1 0 `S113 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES116  1 e 1 @24 ]
-"1416
-[v _TRISA TRISA `VEuc  1 e 1 @133 ]
-[s S257 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S198 . 1 `S178 1 . 1 0 `S183 1 . 1 0 `S192 1 . 1 0 `S195 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES198  1 e 1 @31 ]
+[s S23 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -84,11 +104,11 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1433
-[u S266 . 1 `S257 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES266  1 e 1 @133 ]
+[u S32 . 1 `S23 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES32  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
-[s S236 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S62 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -98,13 +118,13 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S245 . 1 `S236 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES245  1 e 1 @135 ]
+[u S71 . 1 `S62 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES71  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-[s S174 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S116 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -113,66 +133,119 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S182 . 1 `S174 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES182  1 e 1 @140 ]
+[u S124 . 1 `S116 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES124  1 e 1 @140 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+[s S231 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"2231
+[s S240 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S245 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DATA 1 0 :1:5 
+]
+[s S251 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S256 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S261 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S266 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[u S271 . 1 `S231 1 . 1 0 `S240 1 . 1 0 `S245 1 . 1 0 `S251 1 . 1 0 `S256 1 . 1 0 `S261 1 . 1 0 `S266 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES271  1 e 1 @148 ]
 "2416
 [v _IOCB IOCB `VEuc  1 e 1 @150 ]
-[s S39 . 1 `uc 1 TX9D 1 0 :1:0 
-`uc 1 TRMT 1 0 :1:1 
-`uc 1 BRGH 1 0 :1:2 
-`uc 1 SENDB 1 0 :1:3 
-`uc 1 SYNC 1 0 :1:4 
-`uc 1 TXEN 1 0 :1:5 
-`uc 1 TX9 1 0 :1:6 
-`uc 1 CSRC 1 0 :1:7 
-]
-"2582
-[s S48 . 1 `uc 1 TXD8 1 0 :1:0 
-`uc 1 . 1 0 :5:1 
-`uc 1 nTX8 1 0 :1:6 
-]
-[s S52 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 TX8_9 1 0 :1:6 
-]
-[u S55 . 1 `S39 1 . 1 0 `S48 1 . 1 0 `S52 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES55  1 e 1 @152 ]
-"2642
-[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
-[s S76 . 1 `uc 1 ABDEN 1 0 :1:0 
-`uc 1 WUE 1 0 :1:1 
-`uc 1 . 1 0 :1:2 
-`uc 1 BRG16 1 0 :1:3 
-`uc 1 SCKP 1 0 :1:4 
-`uc 1 . 1 0 :1:5 
-`uc 1 RCIDL 1 0 :1:6 
-`uc 1 ABDOVF 1 0 :1:7 
-]
-"3352
-[u S85 . 1 `S76 1 . 1 0 ]
-[v _BAUDCTLbits BAUDCTLbits `VES85  1 e 1 @391 ]
+"2970
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+"2977
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"36 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\main.c
+"21 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\main.c
+[v _temperature temperature `ui  1 e 2 0 ]
+"22
+[v _temperature_float temperature_float `f  1 e 4 0 ]
+"53
 [v _main main `(v  1 e 1 0 ]
 {
-"49
+"72
 } 0
-"10 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI/Esclavo1.X/lcs.c
+"43 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 16 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 15 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 6 ]
+"70
+} 0
+"12 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\lcs.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"12
+"16
 } 0
-"10 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\ports_manager.c
+"11 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\spi.c
+[v _SPI_MANAGER_Initialize SPI_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"21
+} 0
+"11 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\ports_manager.c
 [v _PORTS_MANAGER_Initialize PORTS_MANAGER_Initialize `(v  1 e 1 0 ]
 {
 "28
 } 0
-"26 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\main.c
+"12 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+{
+"25
+} 0
+"28 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\main.c
 [v _myISR myISR `II(v  1 e 1 0 ]
 {
-"27
+"44
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
+"44
 } 0

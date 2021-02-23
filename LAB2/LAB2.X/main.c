@@ -88,8 +88,8 @@ void __interrupt () myISR(void){
  */
 void setup(void) {
     
-    INTCON  = 0b11101000; // Enable Global Interrupt
-    PIR1    = 0b01000000; // Configuro las interrupciones en los puertos.
+    INTCON  = 0b11001000; // Enable Global Interrupt
+    PIR1    = 0b00000000; // Configuro las interrupciones en los puertos.
     PIE1    = 0b01000000;
     ADCON1  = 0;          // Configuro el ADC
     ADCON0  = 0b10000001;

@@ -3,4 +3,4 @@ main.c  \
 lcs.h  \
 device_config.h  \
 ports_manager.h  \
-usart.h 
+spi.h 

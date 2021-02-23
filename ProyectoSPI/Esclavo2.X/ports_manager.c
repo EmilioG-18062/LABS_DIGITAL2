@@ -14,7 +14,6 @@ void PORTS_MANAGER_Initialize(void) {
     TRISAbits.TRISA0 = 1; //Configuro el PORTA como salida
     PORTA   = 0; //Inicio el PORTA con todos en 0
 
-
     ANSELH  = 0; //Todos los pines B de I/O se configuran como digitales
     TRISB   = 0; ////Configuro el PORTB como salida
     PORTB   = 0; //Inicio el PORTB con todos en 0

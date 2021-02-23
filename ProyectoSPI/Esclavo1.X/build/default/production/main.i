@@ -9,7 +9,7 @@
 # 1 "main.c" 2
 # 12 "main.c"
 # 1 "./lcs.h" 1
-# 11 "./lcs.h"
+# 13 "./lcs.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2490,7 +2490,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./lcs.h" 2
+# 13 "./lcs.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2625,7 +2625,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 12 "./lcs.h" 2
+# 14 "./lcs.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2724,43 +2724,59 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 13 "./lcs.h" 2
+# 15 "./lcs.h" 2
 
 # 1 "./device_config.h" 1
-# 14 "./lcs.h" 2
+# 16 "./lcs.h" 2
 
 # 1 "./ports_manager.h" 1
 # 25 "./ports_manager.h"
 void PORTS_MANAGER_Initialize(void);
-# 15 "./lcs.h" 2
+# 17 "./lcs.h" 2
 
-# 1 "./usart.h" 1
-# 13 "./usart.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "./usart.h" 2
-
-
-void USART_Initialize(const long int baudrate);
-# 16 "./lcs.h" 2
+# 1 "./spi.h" 1
+# 14 "./spi.h"
+void SPI_MANAGER_Initialize(void);
+# 18 "./lcs.h" 2
 
 
 void SYSTEM_Initialize(void);
 # 12 "main.c" 2
-# 26 "main.c"
+# 22 "main.c"
+uint8_t reference_count = 0;
+uint8_t read_value;
+
+
+
+
 void __attribute__((picinterrupt(("")))) myISR(void){
+
+    if (INTCONbits.RBIE == 1 && INTCONbits.RBIF == 1){
+        if (PORTBbits.RB0 == 0){
+            reference_count++;
+        }
+        if (PORTBbits.RB1 == 0){
+            reference_count--;
+        }
+        INTCONbits.RBIF=0;
+    }
+
+    if(PIR1bits.SSPIF){
+        if(SSPSTATbits.BF){
+            read_value = SSPBUF;
+        }
+        SSPBUF = reference_count;
+        PIR1bits.SSPIF = 0;
+    }
 }
-# 36 "main.c"
+# 56 "main.c"
 void main(void) {
 
     SYSTEM_Initialize();
-
-    TRISCbits.TRISC3 = 1;
-    TRISCbits.TRISC5 = 0;
-    TRISAbits.TRISA5 = 1;
-    SSPCON = 0b00100100;
-    SSPSTAT = 0;
+    INTCON = 0b11001000;
+    INTCONbits.RBIF = 1;
 
     while(1){
-        PORTB = SSPBUF;
+        PORTD = reference_count;
     }
 }

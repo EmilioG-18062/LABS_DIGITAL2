@@ -10,7 +10,6 @@
  * LIBRERIAS
  */
 #include "lcs.h"
-#include <xc.h>
 
 /*//////////////////////////////////////////////////////////////////////////////
  * MACROS
@@ -19,11 +18,29 @@
 /*//////////////////////////////////////////////////////////////////////////////
  * VARIABLES
  */
+uint16_t temperature = 0;
+float temperature_float = 0.00;
+
 
 /*//////////////////////////////////////////////////////////////////////////////
  * INTERRUPCIONES
  */
 void __interrupt () myISR(void){
+    //ADC Interrups
+    if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
+        temperature_float = ADRESH;
+        __delay_us(35);
+        ADC_FLAG_SetLow();
+        GOnDONE_SetHigh();
+    }
+    
+    if(PIR1bits.SSPIF){
+        if(!SSPSTATbits.BF){
+            PORTD = SSPBUF;
+        }
+        SSPBUF = temperature;
+        PIR1bits.SSPIF = 0;
+    }
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -36,17 +53,25 @@ void __interrupt () myISR(void){
 void main(void) {
     
     SYSTEM_Initialize();
-    
-    TRISCbits.TRISC3 = 1;
-    TRISCbits.TRISC5 = 0;
-    TRISAbits.TRISA5 = 1;
-    SSPCON  = 0b00100100;
-    SSPSTAT = 0;
+    GOnDONE_SetHigh();
     
     while(HIGH){
-        PORTB = SSPBUF; 
+        temperature = (uint16_t)temperature_float*2;
+  
+        if(temperature > 36){
+            PORTD = 4;
+        }
+        if((temperature < 36) && (temperature > 25)){
+            PORTD = 2;
+        }
+        if(temperature < 25){
+            PORTD = 1;
+        }
+            
     }
 }
 /*//////////////////////////////////////////////////////////////////////////////
  * END OF THE PROGRAM
  */
+
+

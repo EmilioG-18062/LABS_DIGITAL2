@@ -10,5 +10,6 @@
 
 void SYSTEM_Initialize(void) {
     PORTS_MANAGER_Initialize();
+    LCD_Initialize();
     SPI_MANAGER_Initialize();
 }

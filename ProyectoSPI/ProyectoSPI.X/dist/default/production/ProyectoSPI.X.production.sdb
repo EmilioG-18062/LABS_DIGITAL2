@@ -5,25 +5,49 @@
 [d frameptr 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
+"505 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"73 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\lcd.c
+"47 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\lcd.c
+[v _LCD_Initialize LCD_Initialize `(v  1 e 1 0 ]
+"73
 [v _LCDWrite LCDWrite `(v  1 e 1 0 ]
 "94
 [v _LCDPutChar LCDPutChar `(v  1 e 1 0 ]
 "102
 [v _LCDPutCmd LCDPutCmd `(v  1 e 1 0 ]
+"110
+[v _LCDPutStr LCDPutStr `(v  1 e 1 0 ]
+"122
+[v _LCDGoto LCDGoto `(v  1 e 1 0 ]
 "11 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\lcs.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"25 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+"32 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
 [v _myISR myISR `II(v  1 e 1 0 ]
-"35
+"43
 [v _main main `(v  1 e 1 0 ]
 "10 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\ports_manager.c
 [v _PORTS_MANAGER_Initialize PORTS_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -45,7 +69,7 @@
 "245
 [u S137 . 1 `S128 1 . 1 0 ]
 [v _PORTBbits PORTBbits `VES137  1 e 1 @6 ]
-[s S399 . 1 `uc 1 RC0 1 0 :1:0 
+[s S403 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -55,8 +79,8 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "307
-[u S408 . 1 `S399 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES408  1 e 1 @7 ]
+[u S412 . 1 `S403 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES412  1 e 1 @7 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "414
@@ -93,7 +117,7 @@
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-[s S253 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S255 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -103,23 +127,23 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "1068
-[s S262 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S264 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S266 . 1 `uc 1 . 1 0 :6:0 
+[s S268 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S269 . 1 `uc 1 . 1 0 :6:0 
+[s S271 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[u S272 . 1 `S253 1 . 1 0 `S262 1 . 1 0 `S266 1 . 1 0 `S269 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES272  1 e 1 @24 ]
+[u S274 . 1 `S255 1 . 1 0 `S264 1 . 1 0 `S268 1 . 1 0 `S271 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES274  1 e 1 @24 ]
 "1416
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
-[s S354 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S356 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -129,8 +153,8 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S363 . 1 `S354 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES363  1 e 1 @135 ]
+[u S365 . 1 `S356 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES365  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1664
@@ -148,9 +172,52 @@
 [v _PIE1bits PIE1bits `VES62  1 e 1 @140 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+[s S425 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+"2231
+[s S434 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S439 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DATA 1 0 :1:5 
+]
+[s S445 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S450 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S455 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S460 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[u S465 . 1 `S425 1 . 1 0 `S434 1 . 1 0 `S439 1 . 1 0 `S445 1 . 1 0 `S450 1 . 1 0 `S455 1 . 1 0 `S460 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES465  1 e 1 @148 ]
 "2416
 [v _IOCB IOCB `VEuc  1 e 1 @150 ]
-[s S195 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S197 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -160,18 +227,18 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "2582
-[s S204 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S206 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S208 . 1 `uc 1 . 1 0 :6:0 
+[s S210 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[u S211 . 1 `S195 1 . 1 0 `S204 1 . 1 0 `S208 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES211  1 e 1 @152 ]
+[u S213 . 1 `S197 1 . 1 0 `S206 1 . 1 0 `S210 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES213  1 e 1 @152 ]
 "2642
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
-[s S232 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S234 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -181,36 +248,248 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "3352
-[u S241 . 1 `S232 1 . 1 0 ]
-[v _BAUDCTLbits BAUDCTLbits `VES241  1 e 1 @391 ]
+[u S243 . 1 `S234 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES243  1 e 1 @391 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"358 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+[v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
 "21 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
 [v _i i `uc  1 e 1 0 ]
-"35
+"22
+[v _contador contador `uc  1 e 1 0 ]
+"23
+[v _voltage_int voltage_int `ui  1 e 2 0 ]
+"24
+[v _voltage voltage `f  1 e 4 0 ]
+"25
+[v _digits digits `[3]uc  1 e 3 0 ]
+"26
+[v _Buffer Buffer `[20]uc  1 e 20 0 ]
+"27
+[v _Buffer1 Buffer1 `[20]uc  1 e 20 0 ]
+"43
 [v _main main `(v  1 e 1 0 ]
 {
-"54
+"91
+} 0
+"505 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+"514
+[v sprintf@width width `i  1 a 2 19 ]
+"545
+[v sprintf@val val `ui  1 a 2 17 ]
+"512
+[v sprintf@c c `uc  1 a 1 22 ]
+"525
+[v sprintf@flag flag `uc  1 a 1 16 ]
+"521
+[v sprintf@prec prec `c  1 a 1 15 ]
+"507
+[v sprintf@ap ap `[1]*.4v  1 a 1 14 ]
+"505
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
+[v sprintf@f f `*.24DCuc  1 p 1 4 ]
+"550
+[v sprintf@sp sp `*.4uc  1 a 1 21 ]
+"1567
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+{
+[v isdigit@c c `uc  1 a 1 wreg ]
+[v isdigit@c c `uc  1 a 1 wreg ]
+"14
+[v isdigit@c c `uc  1 a 1 3 ]
+"15
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 6 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 2 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 4 ]
+"53
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 11 ]
+"5
+[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
+"25
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 7 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 9 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 4 ]
+"30
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 2 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 1 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 2 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 0 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 62 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 61 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 52 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S865 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S870 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S873 . 4 `l 1 i 4 0 `d 1 f 4 0 `S865 1 fAsBytes 4 0 `S870 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S873  1 a 4 20 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 14 ]
+[s S942 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S945 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S942 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S945  1 a 2 24 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 19 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 18 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 13 ]
+"8
+[v ___flmul@b b `d  1 p 4 0 ]
+[v ___flmul@a a `d  1 p 4 4 ]
+"205
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+{
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v __Umul8_16@word_mpld word_mpld `ui  1 a 2 8 ]
+"5
+[v __Umul8_16@product product `ui  1 a 2 6 ]
+"4
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 wreg ]
+[v __Umul8_16@multiplicand multiplicand `uc  1 p 1 2 ]
+[v __Umul8_16@multiplier multiplier `uc  1 a 1 10 ]
+"60
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 46 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 39 ]
+"20
+[v ___fldiv@new_exp new_exp `i  1 a 2 44 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 51 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 50 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 43 ]
+"8
+[v ___fldiv@a a `d  1 p 4 26 ]
+[v ___fldiv@b b `d  1 p 4 30 ]
+"185
 } 0
 "11 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\lcs.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"14
+"15
 } 0
 "11 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\spi.c
 [v _SPI_MANAGER_Initialize SPI_MANAGER_Initialize `(v  1 e 1 0 ]
 {
-"18
+"17
 } 0
 "10 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\ports_manager.c
 [v _PORTS_MANAGER_Initialize PORTS_MANAGER_Initialize `(v  1 e 1 0 ]
 {
 "27
 } 0
-"25 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+"47 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\lcd.c
+[v _LCD_Initialize LCD_Initialize `(v  1 e 1 0 ]
+{
+"70
+} 0
+"110
+[v _LCDPutStr LCDPutStr `(v  1 e 1 0 ]
+{
+"111
+[v LCDPutStr@i i `uc  1 a 1 10 ]
+"110
+[v LCDPutStr@str str `*.26DCuc  1 p 2 7 ]
+"120
+} 0
+"94
+[v _LCDPutChar LCDPutChar `(v  1 e 1 0 ]
+{
+[v LCDPutChar@ch ch `uc  1 a 1 wreg ]
+[v LCDPutChar@ch ch `uc  1 a 1 wreg ]
+[v LCDPutChar@ch ch `uc  1 a 1 6 ]
+"99
+} 0
+"122
+[v _LCDGoto LCDGoto `(v  1 e 1 0 ]
+{
+[v LCDGoto@pos pos `uc  1 a 1 wreg ]
+[v LCDGoto@pos pos `uc  1 a 1 wreg ]
+[v LCDGoto@ln ln `uc  1 p 1 7 ]
+"124
+[v LCDGoto@pos pos `uc  1 a 1 2 ]
+"135
+} 0
+"102
+[v _LCDPutCmd LCDPutCmd `(v  1 e 1 0 ]
+{
+[v LCDPutCmd@ch ch `uc  1 a 1 wreg ]
+[v LCDPutCmd@ch ch `uc  1 a 1 wreg ]
+[v LCDPutCmd@ch ch `uc  1 a 1 6 ]
+"107
+} 0
+"73
+[v _LCDWrite LCDWrite `(v  1 e 1 0 ]
+{
+[v LCDWrite@ch ch `uc  1 a 1 wreg ]
+[v LCDWrite@ch ch `uc  1 a 1 wreg ]
+[v LCDWrite@rs rs `uc  1 p 1 2 ]
+"76
+[v LCDWrite@ch ch `uc  1 a 1 3 ]
+"92
+} 0
+"32 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
 [v _myISR myISR `II(v  1 e 1 0 ]
 {
-"26
+"33
 } 0

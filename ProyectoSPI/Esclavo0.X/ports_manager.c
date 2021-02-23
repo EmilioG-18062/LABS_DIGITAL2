@@ -2,15 +2,15 @@
  * File:   ports_manager.c
  * Author: Emilio Gordillo 18062
  *
- * LABORATORIO 3 - DIGITAL 2
+ * Proyecto SPI - DIGITAL 2
+ * PIC Esclavo 0
  */
-
 #include "ports_manager.h"    
 
 void PORTS_MANAGER_Initialize(void) {
     
-    ANSEL   = 0b00000011; //Todos los pines A de I/O se configuran como digitales
-    TRISA   = 0b00000011; //Configuro el PORTA como salida
+    ANSEL   = 0b00000001; //Todos los pines A de I/O se configuran como digitales
+    TRISAbits.TRISA0 = 1; //Configuro el PORTA como salida
     PORTA   = 0; //Inicio el PORTA con todos en 0
 
 
