@@ -20,6 +20,7 @@
  */
 uint16_t temperature = 0;
 float temperature_float = 0.00;
+uint8_t read_value = 0;
 
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -36,7 +37,7 @@ void __interrupt () myISR(void){
     
     if(PIR1bits.SSPIF){
         if(!SSPSTATbits.BF){
-            PORTD = SSPBUF;
+            read_value = SSPBUF;
         }
         SSPBUF = temperature;
         PIR1bits.SSPIF = 0;
@@ -56,12 +57,12 @@ void main(void) {
     GOnDONE_SetHigh();
     
     while(HIGH){
-        temperature = (uint16_t)temperature_float*2;
+        temperature = (uint16_t)(temperature_float*2);
   
         if(temperature > 36){
             PORTD = 4;
         }
-        if((temperature < 36) && (temperature > 25)){
+        if((temperature <= 36) && (temperature >= 25)){
             PORTD = 2;
         }
         if(temperature < 25){

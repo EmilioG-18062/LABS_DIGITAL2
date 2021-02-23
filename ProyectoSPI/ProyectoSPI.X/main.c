@@ -20,11 +20,13 @@
  */
 uint8_t i = 0;
 uint8_t contador = 0;
+uint8_t temperature = 0;
 uint16_t voltage_int = 0;
 float voltage = 0.00;
 char digits[3];
 char Buffer[20];
 char Buffer1[20];
+char Buffer2[20];
 
 /*//////////////////////////////////////////////////////////////////////////////
  * INTERRUPCIONES
@@ -73,6 +75,14 @@ void main(void) {
         __delay_ms(1);
         PORTCbits.RC1 = 1;
         
+        PORTCbits.RC2 = 0;
+        SSPBUF = 1;
+        if(!SSPSTATbits.BF){
+            temperature = SSPBUF;
+        }
+        __delay_ms(1);
+        PORTCbits.RC2 = 1;
+        
         voltage_int = (uint16_t)(((voltage*500)/255));
         for (i = 0; i < 3; i++)
         {
@@ -86,6 +96,10 @@ void main(void) {
         sprintf(Buffer1, "%3i", contador);
         LCDGoto(6,1);
         LCDPutStr(Buffer1);
+        
+        sprintf(Buffer2, "%3i", temperature);
+        LCDGoto(12,1);
+        LCDPutStr(Buffer2);
         
     }
 }
