@@ -2775,6 +2775,7 @@ uint8_t cont = 0;
 uint8_t contador = 0;
 uint8_t temperature = 0;
 uint16_t voltage_int = 0;
+
 float voltage = 0.00;
 char digits[3];
 char Buffer[20];
@@ -2793,21 +2794,12 @@ void __attribute__((picinterrupt(("")))) myISR(void){
         }
     }
 }
-# 53 "main.c"
+# 54 "main.c"
 void main(void) {
     SYSTEM_Initialize();
 
     LCDGoto(0,0);
     LCDPutStr(" S1    S2    S3 ");
-
-    TRISCbits.TRISC0 = 0;
-    PORTCbits.RC0 = 0;
-
-    TRISCbits.TRISC1 = 0;
-    PORTCbits.RC1 = 1;
-
-    TRISCbits.TRISC2 = 0;
-    PORTCbits.RC2 = 1;
 
     while(1){
 
@@ -2836,7 +2828,7 @@ void main(void) {
         PORTCbits.RC2 = 1;
 
         voltage_int = (uint16_t)(((voltage*500)/255));
-        for (i = 0; i < 3; i++)
+        for (i=0; i!=3; i++)
         {
            digits[i] = (char)(voltage_int % 10);
            voltage_int /= 10;
