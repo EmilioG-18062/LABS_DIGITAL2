@@ -19,19 +19,27 @@
  * VARIABLES
  */
 uint8_t i = 0;
+uint8_t cont = 0;
 uint8_t contador = 0;
 uint8_t temperature = 0;
 uint16_t voltage_int = 0;
 float voltage = 0.00;
 char digits[3];
 char Buffer[20];
-char Buffer1[20];
-char Buffer2[20];
 
 /*//////////////////////////////////////////////////////////////////////////////
  * INTERRUPCIONES
  */
 void __interrupt() myISR(void){
+    if(PIR1bits.TXIF == HIGH){
+        TXREG = Buffer[cont];
+        if (cont == 16){
+            cont = 0;
+        } 
+        else{
+            cont++;
+        }
+    }
 }
 
 /*//////////////////////////////////////////////////////////////////////////////
@@ -89,18 +97,11 @@ void main(void) {
            digits[i] = (char)(voltage_int % 10);
            voltage_int /= 10;
         }
-        sprintf(Buffer, "%i.%i%iV", digits[2],digits[1],digits[0]);
+        sprintf(Buffer, "%i.%i%iV %3iC %3iT\r\n", digits[2],digits[1],digits[0],
+                contador,temperature);
         LCDGoto(0,1);
         LCDPutStr(Buffer);
-        
-        sprintf(Buffer1, "%3i", contador);
-        LCDGoto(6,1);
-        LCDPutStr(Buffer1);
-        
-        sprintf(Buffer2, "%3i", temperature);
-        LCDGoto(12,1);
-        LCDPutStr(Buffer2);
-        
+    
     }
 }
 /*//////////////////////////////////////////////////////////////////////////////

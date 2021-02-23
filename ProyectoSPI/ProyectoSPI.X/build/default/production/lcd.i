@@ -2744,6 +2744,15 @@ void SPI_MANAGER_Initialize(void);
 # 1 "./lcd.h" 1
 # 17 "./lcs.h" 2
 
+# 1 "./usart.h" 1
+# 13 "./usart.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "./usart.h" 2
+
+
+void USART_Initialize(const long int baudrate);
+# 18 "./lcs.h" 2
+
 
 void SYSTEM_Initialize(void);
 # 47 "./lcd.h" 2

@@ -2757,26 +2757,43 @@ void LCDWrite(uint8_t ch,uint8_t rs);
 void LCDGoto(uint8_t pos, uint8_t ln);
 # 17 "./lcs.h" 2
 
+# 1 "./usart.h" 1
+# 13 "./usart.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "./usart.h" 2
+
+
+void USART_Initialize(const long int baudrate);
+# 18 "./lcs.h" 2
+
 
 void SYSTEM_Initialize(void);
 # 12 "main.c" 2
 # 21 "main.c"
 uint8_t i = 0;
+uint8_t cont = 0;
 uint8_t contador = 0;
 uint8_t temperature = 0;
 uint16_t voltage_int = 0;
 float voltage = 0.00;
 char digits[3];
 char Buffer[20];
-char Buffer1[20];
-char Buffer2[20];
 
 
 
 
 void __attribute__((picinterrupt(("")))) myISR(void){
+    if(PIR1bits.TXIF == 1){
+        TXREG = Buffer[cont];
+        if (cont == 16){
+            cont = 0;
+        }
+        else{
+            cont++;
+        }
+    }
 }
-# 45 "main.c"
+# 53 "main.c"
 void main(void) {
     SYSTEM_Initialize();
 
@@ -2824,17 +2841,10 @@ void main(void) {
            digits[i] = (char)(voltage_int % 10);
            voltage_int /= 10;
         }
-        sprintf(Buffer, "%i.%i%iV", digits[2],digits[1],digits[0]);
+        sprintf(Buffer, "%i.%i%iV %3iC %3iT\r\n", digits[2],digits[1],digits[0],
+                contador,temperature);
         LCDGoto(0,1);
         LCDPutStr(Buffer);
-
-        sprintf(Buffer1, "%3i", contador);
-        LCDGoto(6,1);
-        LCDPutStr(Buffer1);
-
-        sprintf(Buffer2, "%3i", temperature);
-        LCDGoto(12,1);
-        LCDPutStr(Buffer2);
 
     }
 }

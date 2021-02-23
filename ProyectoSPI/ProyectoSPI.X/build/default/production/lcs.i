@@ -2764,6 +2764,15 @@ void LCDWrite(uint8_t ch,uint8_t rs);
 void LCDGoto(uint8_t pos, uint8_t ln);
 # 17 "./lcs.h" 2
 
+# 1 "./usart.h" 1
+# 13 "./usart.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
+# 13 "./usart.h" 2
+
+
+void USART_Initialize(const long int baudrate);
+# 18 "./lcs.h" 2
+
 
 void SYSTEM_Initialize(void);
 # 9 "lcs.c" 2
@@ -2772,5 +2781,6 @@ void SYSTEM_Initialize(void);
 void SYSTEM_Initialize(void) {
     PORTS_MANAGER_Initialize();
     LCD_Initialize();
+    USART_Initialize(9600);
     SPI_MANAGER_Initialize();
 }

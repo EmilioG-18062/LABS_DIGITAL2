@@ -15,6 +15,7 @@
 #include "ports_manager.h"
 #include "spi.h"
 #include "lcd.h"
+#include "usart.h"
 
 void SYSTEM_Initialize(void);
 

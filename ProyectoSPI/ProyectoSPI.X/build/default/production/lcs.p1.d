@@ -4,4 +4,5 @@ lcs.h  \
 device_config.h  \
 ports_manager.h  \
 spi.h  \
-lcd.h 
+lcd.h  \
+usart.h 
