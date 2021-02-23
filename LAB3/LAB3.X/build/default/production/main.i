@@ -2790,7 +2790,7 @@ char read_value;
 char Buffer[20];
 char Buffer1[20];
 
-char Buffer2[20];
+char Buffer2[32];
 
 char digits1[3];
 char digits2[3];

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Sun Feb 14 21:52:55 2021
+                                                                                               Mon Feb 15 11:40:26 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -862,7 +862,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    848  0025  1783               	bsf	3,7	;select IRP bank2
    849  0026  3090               	movlw	low __pbssBANK3
    850  0027  0084               	movwf	4
-   851  0028  30A4               	movlw	low (__pbssBANK3+20)
+   851  0028  30B0               	movlw	low (__pbssBANK3+32)
    852  0029  120A  158A  20DE  120A  118A  	fcall	clear_ram0
    853  002E                     end_of_initialization:	
    854                           ;End of C runtime variable initialization code
@@ -904,7 +904,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    890                           	psect	bssBANK3
    891  0190                     __pbssBANK3:
    892  0190                     _Buffer2:
-   893  0190                     	ds	20
+   893  0190                     	ds	32
    894                           
    895                           	psect	clrtext
    896  08DE                     clear_ram0:	
@@ -2037,7 +2037,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   2020 ;;		line 505 in file "C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c"
   2021 ;; Parameters:    Size  Location     Type
   2022 ;;  sp              2   21[BANK0 ] PTR unsigned char 
-  2023 ;;		 -> Buffer1(20), Buffer(20), Buffer2(20), 
+  2023 ;;		 -> Buffer1(20), Buffer(20), Buffer2(32), 
   2024 ;;  f               1   23[BANK0 ] PTR const unsigned char 
   2025 ;;		 -> STR_5(24), STR_4(4), STR_3(9), STR_2(9), 
   2026 ;; Auto vars:     Size  Location     Type
@@ -7034,7 +7034,7 @@ Data Sizes:
     Strings     54
     Constant    10
     Data        0
-    BSS         79
+    BSS         91
     Persistent  0
     Stack       0
 
@@ -7043,7 +7043,7 @@ Auto Spaces:
     COMMON           14     14      14
     BANK0            80     66      73
     BANK1            80     28      80
-    BANK3            96      0      20
+    BANK3            96      0      32
     BANK2            96      0       0
 
 Pointer List with Targets:
@@ -7051,8 +7051,8 @@ Pointer List with Targets:
     sprintf@f	PTR const unsigned char  size(1) Largest target is 24
 		 -> STR_5(CODE[24]), STR_4(CODE[4]), STR_3(CODE[9]), STR_2(CODE[9]), 
 
-    sprintf@sp	PTR unsigned char  size(2) Largest target is 20
-		 -> Buffer1(BANK1[20]), Buffer(BANK1[20]), Buffer2(BANK3[20]), 
+    sprintf@sp	PTR unsigned char  size(2) Largest target is 32
+		 -> Buffer1(BANK1[20]), Buffer(BANK1[20]), Buffer2(BANK3[32]), 
 
     sprintf@ap	PTR void [1] size(1) Largest target is 2
 		 -> ?_sprintf(BANK0[2]), 
@@ -7279,7 +7279,7 @@ SFR0                 0      0       0       1        0.0%
 BITSFR1              0      0       0       2        0.0%
 SFR1                 0      0       0       2        0.0%
 STACK                0      0       0       2        0.0%
-ABS                  0      0      BB       3        0.0%
+ABS                  0      0      C7       3        0.0%
 BITBANK0            50      0       0       4        0.0%
 BITSFR3              0      0       0       4        0.0%
 SFR3                 0      0       0       4        0.0%
@@ -7289,14 +7289,14 @@ SFR2                 0      0       0       5        0.0%
 BITBANK1            50      0       0       6        0.0%
 BANK1               50     1C      50       7      100.0%
 BITBANK3            60      0       0       8        0.0%
-BANK3               60      0      14       9       20.8%
+BANK3               60      0      20       9       33.3%
 BITBANK2            60      0       0      10        0.0%
 BANK2               60      0       0      11        0.0%
-DATA                 0      0      BB      12        0.0%
+DATA                 0      0      C7      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Sun Feb 14 21:52:55 2021
+Symbol Table                                                                                   Mon Feb 15 11:40:26 2021
 
                          ___fldiv@aexp 00E0                           ___fldiv@bexp 00DF  
                                     _i 0066                         _LCD_Initialize 0A13  

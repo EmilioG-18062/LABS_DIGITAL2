@@ -239,7 +239,7 @@
 "30
 [v _Buffer1 Buffer1 `[20]uc  1 e 20 0 ]
 "32
-[v _Buffer2 Buffer2 `[20]uc  1 e 20 0 ]
+[v _Buffer2 Buffer2 `[32]uc  1 e 32 0 ]
 "34
 [v _digits1 digits1 `[3]uc  1 e 3 0 ]
 "35

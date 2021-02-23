@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\LAB3.X.production.sym \
   --cmf=dist/default/production\LAB3.X.production.cmf -z -Q16F887 \
-  -oC:\Users\emili\AppData\Local\Temp\sdgk.3 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\emili\AppData\Local\Temp\s95g.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/LAB3.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\emili\AppData\Local\Temp\sdgk.o \
+  -pfunctab=ENTRY -k C:\Users\emili\AppData\Local\Temp\s95g.o \
   dist/default/production\LAB3.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\emili\AppData\Local\Temp\sdgk.o
+C:\Users\emili\AppData\Local\Temp\s95g.o
                 end_init                             10       10        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -64,7 +64,7 @@ dist/default/production\LAB3.X.production.o
                 cstackCOMMON                         70       70        E       70       1
                 cstackBANK1                          D4       D4       1C       A0       1
                 clrtext                             8DE      8DE        8     11BC       0
-                bssBANK3                            190      190       14      190       1
+                bssBANK3                            190      190       20      190       1
                 bssBANK1                             A0       A0       34       A0       1
                 bssBANK0                             62       62        7       20       1
                 strings                             800      800       50     1000       0
@@ -126,7 +126,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   BANK2          
 
         CLASS   BANK3          
-                bssBANK3                            190      190       14         1
+                bssBANK3                            190      190       20         1
 
         CLASS   RAM            
 
@@ -157,7 +157,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 cstackBANK0                    000020  000049  000069        20       1  BANK0       1
                 cstackCOMMON                   000070  00000E  00007E        70       1  COMMON      1
                 bssBANK1                       0000A0  000050  0000F0        A0       1  BANK1       1
-                bssBANK3                       000190  000014  0001A4       190       1  BANK3       1
+                bssBANK3                       000190  000020  0001B0       190       1  BANK3       1
                 strings                        000800  000050  000850      1000       0  STRING      2
                 clrtext                        0008DE  000008  0008E6      11BC       0  CODE        2
                 text15                         0008E6  00000B  0008F1      11CC       0  CODE        2
@@ -187,7 +187,7 @@ UNUSED ADDRESS RANGES
         Name                Unused          Largest block    Delta
         BANK0            0069-006F              7           1
         BANK2            0110-016F             60           1
-        BANK3            01A4-01EF             4C           1
+        BANK3            01B0-01EF             40           1
         CODE             0003-0003              1           2
                          07FD-07FF              3
                          0850-08DD             8E
@@ -204,7 +204,7 @@ UNUSED ADDRESS RANGES
         IDLOC            2000-2003              4           2
         RAM              0069-006F              7           1
                          0110-016F             60
-                         01A4-01EF             4C
+                         01B0-01EF             40
         SFR0             0000-001F             20           1
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
@@ -312,7 +312,7 @@ __Hsfr1                                sfr1         0000
 __Hsfr2                                sfr2         0000
 __Hsfr3                                sfr3         0000
 __Hspace_0                             (abs)        1000
-__Hspace_1                             (abs)        01A4
+__Hspace_1                             (abs)        01B0
 __Hspace_2                             (abs)        0000
 __Hspace_3                             (abs)        0000
 __Hspace_4                             (abs)        4010
@@ -357,7 +357,7 @@ __Lstack                               stack        0000
 __Lstrings                             strings      0000
 __Ltext                                text         0000
 __S0                                   (abs)        1000
-__S1                                   (abs)        01A4
+__S1                                   (abs)        01B0
 __S2                                   (abs)        0000
 __S3                                   (abs)        0000
 __Umul8_16                             text8        09BD
@@ -587,7 +587,7 @@ Total ram usage:       15 bytes
 		line 505 in file "C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c"
  Parameters:    Size  Location     Type
   sp              2   21[BANK0 ] PTR unsigned char 
-		 -> Buffer1(20), Buffer(20), Buffer2(20), 
+		 -> Buffer1(20), Buffer(20), Buffer2(32), 
   f               1   23[BANK0 ] PTR const unsigned char 
 		 -> STR_5(24), STR_4(4), STR_3(9), STR_2(9), 
  Auto vars:     Size  Location     Type

@@ -340,8 +340,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 30: char Buffer1[20];
 [v _Buffer1 `uc ~T0 @X0 -> 20 `i e ]
 "32
-[; ;main.c: 32: char Buffer2[20];
-[v _Buffer2 `uc ~T0 @X0 -> 20 `i e ]
+[; ;main.c: 32: char Buffer2[32];
+[v _Buffer2 `uc ~T0 @X0 -> 32 `i e ]
 "34
 [; ;main.c: 34: char digits1[3];
 [v _digits1 `uc ~T0 @X0 -> 3 `i e ]

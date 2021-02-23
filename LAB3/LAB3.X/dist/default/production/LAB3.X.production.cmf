@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\emili\AppData\Local\Temp\sdgk.o
+$C:\Users\emili\AppData\Local\Temp\s95g.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 10 10 3 2
 config CONFIG 4 2007 2007 2 2
@@ -47,7 +47,7 @@ cstackBANK1 BANK1 1 D4 D4 1C 1
 intentry CODE 0 4 4 C 2
 bssBANK0 BANK0 1 62 62 7 1
 bssBANK1 BANK1 1 A0 A0 34 1
-bssBANK3 BANK3 1 190 190 14 1
+bssBANK3 BANK3 1 190 190 20 1
 strings STRING 0 800 800 50 2
 clrtext CODE 0 8DE 8DE 8 2
 config CONFIG 4 2007 2007 2 2
@@ -59,10 +59,10 @@ config CONFIG 4 2007 2007 2 2
 %UNUSED
 RAM 69-6F 1
 RAM 110-16F 1
-RAM 1A4-1EF 1
+RAM 1B0-1EF 1
 BANK0 69-6F 1
 BANK2 110-16F 1
-BANK3 1A4-1EF 1
+BANK3 1B0-1EF 1
 CONST 3-3 2
 CONST 7FD-7FF 2
 CONST 850-8DD 2
@@ -104,30 +104,30 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\LAB3.X.production.o
-13 cinit CODE >1570:C:\Users\emili\AppData\Local\Temp\sdgk.s
-13 cinit CODE >1573:C:\Users\emili\AppData\Local\Temp\sdgk.s
-13 cinit CODE >1641:C:\Users\emili\AppData\Local\Temp\sdgk.s
-14 cinit CODE >1642:C:\Users\emili\AppData\Local\Temp\sdgk.s
-15 cinit CODE >1643:C:\Users\emili\AppData\Local\Temp\sdgk.s
-16 cinit CODE >1644:C:\Users\emili\AppData\Local\Temp\sdgk.s
-17 cinit CODE >1645:C:\Users\emili\AppData\Local\Temp\sdgk.s
-18 cinit CODE >1646:C:\Users\emili\AppData\Local\Temp\sdgk.s
-19 cinit CODE >1647:C:\Users\emili\AppData\Local\Temp\sdgk.s
-1A cinit CODE >1648:C:\Users\emili\AppData\Local\Temp\sdgk.s
-1B cinit CODE >1649:C:\Users\emili\AppData\Local\Temp\sdgk.s
-1C cinit CODE >1652:C:\Users\emili\AppData\Local\Temp\sdgk.s
-1D cinit CODE >1653:C:\Users\emili\AppData\Local\Temp\sdgk.s
-1E cinit CODE >1654:C:\Users\emili\AppData\Local\Temp\sdgk.s
-1F cinit CODE >1655:C:\Users\emili\AppData\Local\Temp\sdgk.s
-20 cinit CODE >1656:C:\Users\emili\AppData\Local\Temp\sdgk.s
-25 cinit CODE >1659:C:\Users\emili\AppData\Local\Temp\sdgk.s
-26 cinit CODE >1660:C:\Users\emili\AppData\Local\Temp\sdgk.s
-27 cinit CODE >1661:C:\Users\emili\AppData\Local\Temp\sdgk.s
-28 cinit CODE >1662:C:\Users\emili\AppData\Local\Temp\sdgk.s
-29 cinit CODE >1663:C:\Users\emili\AppData\Local\Temp\sdgk.s
-2E cinit CODE >1669:C:\Users\emili\AppData\Local\Temp\sdgk.s
-2E cinit CODE >1671:C:\Users\emili\AppData\Local\Temp\sdgk.s
-2F cinit CODE >1672:C:\Users\emili\AppData\Local\Temp\sdgk.s
+13 cinit CODE >1570:C:\Users\emili\AppData\Local\Temp\s95g.s
+13 cinit CODE >1573:C:\Users\emili\AppData\Local\Temp\s95g.s
+13 cinit CODE >1641:C:\Users\emili\AppData\Local\Temp\s95g.s
+14 cinit CODE >1642:C:\Users\emili\AppData\Local\Temp\s95g.s
+15 cinit CODE >1643:C:\Users\emili\AppData\Local\Temp\s95g.s
+16 cinit CODE >1644:C:\Users\emili\AppData\Local\Temp\s95g.s
+17 cinit CODE >1645:C:\Users\emili\AppData\Local\Temp\s95g.s
+18 cinit CODE >1646:C:\Users\emili\AppData\Local\Temp\s95g.s
+19 cinit CODE >1647:C:\Users\emili\AppData\Local\Temp\s95g.s
+1A cinit CODE >1648:C:\Users\emili\AppData\Local\Temp\s95g.s
+1B cinit CODE >1649:C:\Users\emili\AppData\Local\Temp\s95g.s
+1C cinit CODE >1652:C:\Users\emili\AppData\Local\Temp\s95g.s
+1D cinit CODE >1653:C:\Users\emili\AppData\Local\Temp\s95g.s
+1E cinit CODE >1654:C:\Users\emili\AppData\Local\Temp\s95g.s
+1F cinit CODE >1655:C:\Users\emili\AppData\Local\Temp\s95g.s
+20 cinit CODE >1656:C:\Users\emili\AppData\Local\Temp\s95g.s
+25 cinit CODE >1659:C:\Users\emili\AppData\Local\Temp\s95g.s
+26 cinit CODE >1660:C:\Users\emili\AppData\Local\Temp\s95g.s
+27 cinit CODE >1661:C:\Users\emili\AppData\Local\Temp\s95g.s
+28 cinit CODE >1662:C:\Users\emili\AppData\Local\Temp\s95g.s
+29 cinit CODE >1663:C:\Users\emili\AppData\Local\Temp\s95g.s
+2E cinit CODE >1669:C:\Users\emili\AppData\Local\Temp\s95g.s
+2E cinit CODE >1671:C:\Users\emili\AppData\Local\Temp\s95g.s
+2F cinit CODE >1672:C:\Users\emili\AppData\Local\Temp\s95g.s
 4 intentry CODE >41:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB3\LAB3.X\main.c
 CC2 text23 CODE >10:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
 CC3 text23 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
@@ -601,16 +601,16 @@ FEA maintext CODE >121:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB
 FF2 maintext CODE >122:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB3\LAB3.X\main.c
 FF2 maintext CODE >123:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB3\LAB3.X\main.c
 FF9 maintext CODE >124:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\LAB3\LAB3.X\main.c
-8DE clrtext CODE >1628:C:\Users\emili\AppData\Local\Temp\sdgk.s
-8DE clrtext CODE >1629:C:\Users\emili\AppData\Local\Temp\sdgk.s
-8DF clrtext CODE >1630:C:\Users\emili\AppData\Local\Temp\sdgk.s
-8DF clrtext CODE >1631:C:\Users\emili\AppData\Local\Temp\sdgk.s
-8E0 clrtext CODE >1632:C:\Users\emili\AppData\Local\Temp\sdgk.s
-8E1 clrtext CODE >1633:C:\Users\emili\AppData\Local\Temp\sdgk.s
-8E2 clrtext CODE >1634:C:\Users\emili\AppData\Local\Temp\sdgk.s
-8E3 clrtext CODE >1635:C:\Users\emili\AppData\Local\Temp\sdgk.s
-8E4 clrtext CODE >1636:C:\Users\emili\AppData\Local\Temp\sdgk.s
-8E5 clrtext CODE >1637:C:\Users\emili\AppData\Local\Temp\sdgk.s
+8DE clrtext CODE >1628:C:\Users\emili\AppData\Local\Temp\s95g.s
+8DE clrtext CODE >1629:C:\Users\emili\AppData\Local\Temp\s95g.s
+8DF clrtext CODE >1630:C:\Users\emili\AppData\Local\Temp\s95g.s
+8DF clrtext CODE >1631:C:\Users\emili\AppData\Local\Temp\s95g.s
+8E0 clrtext CODE >1632:C:\Users\emili\AppData\Local\Temp\s95g.s
+8E1 clrtext CODE >1633:C:\Users\emili\AppData\Local\Temp\s95g.s
+8E2 clrtext CODE >1634:C:\Users\emili\AppData\Local\Temp\s95g.s
+8E3 clrtext CODE >1635:C:\Users\emili\AppData\Local\Temp\s95g.s
+8E4 clrtext CODE >1636:C:\Users\emili\AppData\Local\Temp\s95g.s
+8E5 clrtext CODE >1637:C:\Users\emili\AppData\Local\Temp\s95g.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -628,7 +628,7 @@ ___latbits 2 0 ABS 0 - dist/default/production\LAB3.X.production.o
 ___lwmod@counter 34 0 BANK0 1 cstackBANK0 dist/default/production\LAB3.X.production.o
 _LCDPutChar 1270 0 CODE 0 text18 dist/default/production\LAB3.X.production.o
 __Hspace_0 1000 0 ABS 0 - -
-__Hspace_1 1A4 0 ABS 0 - -
+__Hspace_1 1B0 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
@@ -637,11 +637,11 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 LCDGoto@ln 2C 0 BANK0 1 cstackBANK0 dist/default/production\LAB3.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\LAB3.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\sdgk.o
+___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\s95g.o
 _cont AA 0 BANK1 1 bssBANK1 dist/default/production\LAB3.X.production.o
 _main 1AF8 0 CODE 0 maintext dist/default/production\LAB3.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\LAB3.X.production.o
-start 20 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\sdgk.o
+start 20 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\s95g.o
 ___flmul@aexp 42 0 BANK0 1 cstackBANK0 dist/default/production\LAB3.X.production.o
 ___flmul@bexp 43 0 BANK0 1 cstackBANK0 dist/default/production\LAB3.X.production.o
 ___flmul@prod 44 0 BANK0 1 cstackBANK0 dist/default/production\LAB3.X.production.o
@@ -668,12 +668,12 @@ USART_Initialize@x 46 0 BANK0 1 cstackBANK0 dist/default/production\LAB3.X.produ
 __end_of_USART_Initialize 1752 0 CODE 0 text11 dist/default/production\LAB3.X.production.o
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\LAB3.X.production.o
 __end_of_LCDWrite 121A 0 CODE 0 text21 dist/default/production\LAB3.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sdgk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sdgk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sdgk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sdgk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sdgk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sdgk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s95g.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s95g.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s95g.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s95g.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s95g.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s95g.o
 __end_of_LCD_Initialize 1486 0 CODE 0 text14 dist/default/production\LAB3.X.production.o
 __end_of_LCDPutChar 12A0 0 CODE 0 text18 dist/default/production\LAB3.X.production.o
 __size_of_ADC_Initialize 0 0 ABS 0 - dist/default/production\LAB3.X.production.o
@@ -711,8 +711,8 @@ __end_of___lwmod 14FE 0 CODE 0 text4 dist/default/production\LAB3.X.production.o
 __size_of_isdigit 0 0 ABS 0 - dist/default/production\LAB3.X.production.o
 _PORTS_MANAGER_Initialize 12A0 0 CODE 0 text13 dist/default/production\LAB3.X.production.o
 __Umul8_16@multiplicand 27 0 BANK0 1 cstackBANK0 dist/default/production\LAB3.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\sdgk.o
-___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\sdgk.o
+___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\s95g.o
+___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\s95g.o
 __end_of_LCDGoto FFA 0 CODE 0 text19 dist/default/production\LAB3.X.production.o
 __end_of_LCDPutCmd 1270 0 CODE 0 text20 dist/default/production\LAB3.X.production.o
 __end_of_LCDPutStr 1426 0 CODE 0 text17 dist/default/production\LAB3.X.production.o
@@ -737,7 +737,7 @@ __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\LAB3.X.productio
 __pcstackBANK1 D4 0 BANK1 1 cstackBANK1 dist/default/production\LAB3.X.production.o
 USART_Initialize@baudrate 36 0 BANK0 1 cstackBANK0 dist/default/production\LAB3.X.production.o
 _isdigit$931 27 0 BANK0 1 cstackBANK0 dist/default/production\LAB3.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\sdgk.o
+___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\s95g.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -786,7 +786,7 @@ __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK1 0 0 ABS 0 cstackBANK1 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __S0 1000 0 ABS 0 - -
-__S1 1A4 0 ABS 0 - -
+__S1 1B0 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 _adc_channel_pointer 67 0 BANK0 1 bssBANK0 dist/default/production\LAB3.X.production.o
@@ -799,7 +799,7 @@ _SYSTEM_Initialize 12E4 0 CODE 0 text10 dist/default/production\LAB3.X.productio
 ___xxtofl 1984 0 CODE 0 text23 dist/default/production\LAB3.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 __stringtab 1000 0 STRING 0 strings dist/default/production\LAB3.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\sdgk.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\s95g.o
 __end_of___xxtofl 1AF8 0 CODE 0 text23 dist/default/production\LAB3.X.production.o
 __size_of_LCD_Initialize 0 0 ABS 0 - dist/default/production\LAB3.X.production.o
 __size_of___wmul 0 0 ABS 0 - dist/default/production\LAB3.X.production.o
@@ -993,7 +993,7 @@ cstackBANK0 1 20 20 49 1
 intentry 0 4 8 7F9 2
 reset_vec 0 0 0 3 2
 bssBANK1 1 A0 A0 50 1
-bssBANK3 1 190 190 14 1
+bssBANK3 1 190 190 20 1
 strings 0 800 1000 50 2
 clrtext 0 8DE 11BC 8 2
 # %NOTES Section

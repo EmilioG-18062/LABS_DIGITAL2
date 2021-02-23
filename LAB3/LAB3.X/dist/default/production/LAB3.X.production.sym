@@ -7,7 +7,7 @@ _adc_channel_pointer 67 0 BANK0 1
 __size_of__Umul8_16 0 0 ABS 0
 ___fldiv@rem D4 0 BANK1 1
 __S0 1000 0 ABS 0
-__S1 1A4 0 ABS 0
+__S1 1B0 0 ABS 0
 __S2 0 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 10 0 CODE 0
@@ -194,7 +194,7 @@ __Hspace_0 1000 0 ABS 0
 __Lspace_0 0 0 ABS 0
 _sprintf 633 0 CODE 0
 _LCDGoto 7CC 0 CODE 0
-__Hspace_1 1A4 0 ABS 0
+__Hspace_1 1B0 0 ABS 0
 __Lspace_1 0 0 ABS 0
 ___fltol BA9 0 CODE 0
 __Hspace_2 0 0 ABS 0
@@ -324,7 +324,7 @@ intentry 8 FF9 CODE 8 0
 cstackCOMMON 70 7D COMMON 70 1
 cstackBANK0 20 68 BANK0 20 1
 bssBANK1 A0 EF BANK1 A0 1
-bssBANK3 190 1A3 BANK3 190 1
+bssBANK3 190 1AF BANK3 190 1
 maintext 1AF8 1FFF CODE 1AF8 0
 text23 1984 1AF7 CODE 1984 0
 text12 184A 1983 CODE 184A 0
@@ -349,7 +349,7 @@ text15 11CC 11E1 CODE 11CC 0
 clrtext 11BC 11CB CODE 11BC 0
 %locals
 dist/default/production\LAB3.X.production.o
-C:\Users\emili\AppData\Local\Temp\sdgk.s
+C:\Users\emili\AppData\Local\Temp\s95g.s
 1570 13 0 CODE 0
 1573 13 0 CODE 0
 1641 13 0 CODE 0
