@@ -2751,7 +2751,7 @@ void ADC_Initialize(void);
 void SYSTEM_Initialize(void);
 # 12 "main.c" 2
 # 21 "main.c"
-uint16_t temperature = 0;
+uint8_t temperature = 0;
 float temperature_float = 0.00;
 uint8_t read_value = 0;
 
@@ -2768,22 +2768,25 @@ void __attribute__((picinterrupt(("")))) myISR(void){
         do{ ADCON0bits.GO_nDONE = 1; } while(0);
     }
 
+
     if(PIR1bits.SSPIF){
-        if(!SSPSTATbits.BF){
+        if(SSPSTATbits.BF){
             read_value = SSPBUF;
         }
         SSPBUF = temperature;
         PIR1bits.SSPIF = 0;
     }
 }
-# 54 "main.c"
+# 55 "main.c"
 void main(void) {
 
     SYSTEM_Initialize();
     do{ ADCON0bits.GO_nDONE = 1; } while(0);
 
     while(1){
-        temperature = (uint16_t)(temperature_float*2);
+
+        temperature = (uint8_t)(temperature_float*2);
+
 
         if(temperature > 36){
             PORTD = 4;

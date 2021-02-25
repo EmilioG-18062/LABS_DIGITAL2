@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\emili\AppData\Local\Temp\sbjk.o
+$C:\Users\emili\AppData\Local\Temp\s8co.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 E E 3 2
 config CONFIG 4 2007 2007 2 2
@@ -106,33 +106,33 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\ProyectoSPI.X.production.o
-11 cinit CODE >1542:C:\Users\emili\AppData\Local\Temp\sbjk.s
-11 cinit CODE >1545:C:\Users\emili\AppData\Local\Temp\sbjk.s
-11 cinit CODE >1598:C:\Users\emili\AppData\Local\Temp\sbjk.s
-12 cinit CODE >1599:C:\Users\emili\AppData\Local\Temp\sbjk.s
-13 cinit CODE >1600:C:\Users\emili\AppData\Local\Temp\sbjk.s
-14 cinit CODE >1603:C:\Users\emili\AppData\Local\Temp\sbjk.s
-15 cinit CODE >1604:C:\Users\emili\AppData\Local\Temp\sbjk.s
-16 cinit CODE >1605:C:\Users\emili\AppData\Local\Temp\sbjk.s
-17 cinit CODE >1606:C:\Users\emili\AppData\Local\Temp\sbjk.s
-18 cinit CODE >1607:C:\Users\emili\AppData\Local\Temp\sbjk.s
-19 cinit CODE >1610:C:\Users\emili\AppData\Local\Temp\sbjk.s
-1A cinit CODE >1611:C:\Users\emili\AppData\Local\Temp\sbjk.s
-1B cinit CODE >1612:C:\Users\emili\AppData\Local\Temp\sbjk.s
-1C cinit CODE >1613:C:\Users\emili\AppData\Local\Temp\sbjk.s
-1D cinit CODE >1614:C:\Users\emili\AppData\Local\Temp\sbjk.s
-22 cinit CODE >1620:C:\Users\emili\AppData\Local\Temp\sbjk.s
-22 cinit CODE >1622:C:\Users\emili\AppData\Local\Temp\sbjk.s
-23 cinit CODE >1623:C:\Users\emili\AppData\Local\Temp\sbjk.s
+11 cinit CODE >1386:C:\Users\emili\AppData\Local\Temp\s8co.s
+11 cinit CODE >1389:C:\Users\emili\AppData\Local\Temp\s8co.s
+11 cinit CODE >1442:C:\Users\emili\AppData\Local\Temp\s8co.s
+12 cinit CODE >1443:C:\Users\emili\AppData\Local\Temp\s8co.s
+13 cinit CODE >1444:C:\Users\emili\AppData\Local\Temp\s8co.s
+14 cinit CODE >1447:C:\Users\emili\AppData\Local\Temp\s8co.s
+15 cinit CODE >1448:C:\Users\emili\AppData\Local\Temp\s8co.s
+16 cinit CODE >1449:C:\Users\emili\AppData\Local\Temp\s8co.s
+17 cinit CODE >1450:C:\Users\emili\AppData\Local\Temp\s8co.s
+18 cinit CODE >1451:C:\Users\emili\AppData\Local\Temp\s8co.s
+19 cinit CODE >1454:C:\Users\emili\AppData\Local\Temp\s8co.s
+1A cinit CODE >1455:C:\Users\emili\AppData\Local\Temp\s8co.s
+1B cinit CODE >1456:C:\Users\emili\AppData\Local\Temp\s8co.s
+1C cinit CODE >1457:C:\Users\emili\AppData\Local\Temp\s8co.s
+1D cinit CODE >1458:C:\Users\emili\AppData\Local\Temp\s8co.s
+22 cinit CODE >1464:C:\Users\emili\AppData\Local\Temp\s8co.s
+22 cinit CODE >1466:C:\Users\emili\AppData\Local\Temp\s8co.s
+23 cinit CODE >1467:C:\Users\emili\AppData\Local\Temp\s8co.s
 4 intentry CODE >34:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
 B98 text22 CODE >34:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-B98 text22 CODE >35:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-B9E text22 CODE >36:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-BA4 text22 CODE >37:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-BAA text22 CODE >38:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-BAB text22 CODE >39:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-BAC text22 CODE >41:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-BB0 text22 CODE >44:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+B98 text22 CODE >37:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+B9E text22 CODE >38:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+BA4 text22 CODE >41:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+BAA text22 CODE >42:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+BAB text22 CODE >43:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+BAC text22 CODE >45:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+BB0 text22 CODE >48:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
 AF4 text21 CODE >73:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\lcd.c
 AF5 text21 CODE >76:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\lcd.c
 AF8 text21 CODE >79:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\lcd.c
@@ -550,48 +550,48 @@ FE0 text1 CODE >1500:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common
 FE9 text1 CODE >553:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 FFB text1 CODE >1564:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 FFF text1 CODE >1567:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
-564 maintext CODE >54:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-564 maintext CODE >55:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-569 maintext CODE >57:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-572 maintext CODE >58:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-57D maintext CODE >62:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-580 maintext CODE >63:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-582 maintext CODE >64:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-588 maintext CODE >65:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5C5 maintext CODE >67:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5CF maintext CODE >68:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5D2 maintext CODE >70:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5D3 maintext CODE >71:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5D5 maintext CODE >72:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5DB maintext CODE >73:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5E5 maintext CODE >74:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5E5 maintext CODE >75:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5EF maintext CODE >76:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5F2 maintext CODE >78:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5F3 maintext CODE >79:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5F5 maintext CODE >80:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-5FB maintext CODE >81:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-605 maintext CODE >82:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-605 maintext CODE >83:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-60F maintext CODE >84:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-612 maintext CODE >86:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-663 maintext CODE >87:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-664 maintext CODE >89:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-681 maintext CODE >90:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-696 maintext CODE >91:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-6A4 maintext CODE >92:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-6FD maintext CODE >94:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-707 maintext CODE >95:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-AEC clrtext CODE >1585:C:\Users\emili\AppData\Local\Temp\sbjk.s
-AEC clrtext CODE >1586:C:\Users\emili\AppData\Local\Temp\sbjk.s
-AED clrtext CODE >1587:C:\Users\emili\AppData\Local\Temp\sbjk.s
-AED clrtext CODE >1588:C:\Users\emili\AppData\Local\Temp\sbjk.s
-AEE clrtext CODE >1589:C:\Users\emili\AppData\Local\Temp\sbjk.s
-AEF clrtext CODE >1590:C:\Users\emili\AppData\Local\Temp\sbjk.s
-AF0 clrtext CODE >1591:C:\Users\emili\AppData\Local\Temp\sbjk.s
-AF1 clrtext CODE >1592:C:\Users\emili\AppData\Local\Temp\sbjk.s
-AF2 clrtext CODE >1593:C:\Users\emili\AppData\Local\Temp\sbjk.s
-AF3 clrtext CODE >1594:C:\Users\emili\AppData\Local\Temp\sbjk.s
+564 maintext CODE >58:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+564 maintext CODE >59:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+569 maintext CODE >61:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+572 maintext CODE >62:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+57D maintext CODE >67:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+580 maintext CODE >68:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+582 maintext CODE >69:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+588 maintext CODE >70:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5C5 maintext CODE >72:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5CF maintext CODE >73:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5D2 maintext CODE >76:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5D3 maintext CODE >77:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5D5 maintext CODE >78:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5DB maintext CODE >79:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5E5 maintext CODE >80:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5E5 maintext CODE >81:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5EF maintext CODE >82:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5F2 maintext CODE >85:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5F3 maintext CODE >86:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5F5 maintext CODE >87:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+5FB maintext CODE >88:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+605 maintext CODE >89:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+605 maintext CODE >90:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+60F maintext CODE >91:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+612 maintext CODE >94:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+663 maintext CODE >97:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+664 maintext CODE >99:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+681 maintext CODE >100:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+696 maintext CODE >101:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+6A4 maintext CODE >104:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+6FD maintext CODE >108:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+707 maintext CODE >109:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
+AEC clrtext CODE >1429:C:\Users\emili\AppData\Local\Temp\s8co.s
+AEC clrtext CODE >1430:C:\Users\emili\AppData\Local\Temp\s8co.s
+AED clrtext CODE >1431:C:\Users\emili\AppData\Local\Temp\s8co.s
+AED clrtext CODE >1432:C:\Users\emili\AppData\Local\Temp\s8co.s
+AEE clrtext CODE >1433:C:\Users\emili\AppData\Local\Temp\s8co.s
+AEF clrtext CODE >1434:C:\Users\emili\AppData\Local\Temp\s8co.s
+AF0 clrtext CODE >1435:C:\Users\emili\AppData\Local\Temp\s8co.s
+AF1 clrtext CODE >1436:C:\Users\emili\AppData\Local\Temp\s8co.s
+AF2 clrtext CODE >1437:C:\Users\emili\AppData\Local\Temp\s8co.s
+AF3 clrtext CODE >1438:C:\Users\emili\AppData\Local\Temp\s8co.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -618,11 +618,11 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 LCDGoto@ln 22 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\sbjk.o
+___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\s8co.o
 _cont 79 0 COMMON 1 bssCOMMON dist/default/production\ProyectoSPI.X.production.o
 _main AC8 0 CODE 0 maintext dist/default/production\ProyectoSPI.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
-start 1C 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\sbjk.o
+start 1C 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\s8co.o
 ___flmul@aexp 35 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 ___flmul@bexp 3A 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 ___flmul@prod 3B 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
@@ -641,19 +641,18 @@ LCDWrite@rs 74 0 COMMON 1 cstackCOMMON dist/default/production\ProyectoSPI.X.pro
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 ?___wmul 20 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 __size_of_LCDGoto 0 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
-_LCDGoto$173 25 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 _LCDWrite 15E8 0 CODE 0 text21 dist/default/production\ProyectoSPI.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 USART_Initialize@x 3E 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 __end_of_USART_Initialize 1ABE 0 CODE 0 text12 dist/default/production\ProyectoSPI.X.production.o
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 __end_of_LCDWrite 1608 0 CODE 0 text21 dist/default/production\ProyectoSPI.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sbjk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sbjk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sbjk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sbjk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sbjk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sbjk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
 __end_of_LCD_Initialize 1872 0 CODE 0 text16 dist/default/production\ProyectoSPI.X.production.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 __end_of_LCDPutChar 167A 0 CODE 0 text18 dist/default/production\ProyectoSPI.X.production.o
@@ -675,6 +674,7 @@ __size_of_sprintf 0 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 ___fldiv@aexp 5A 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 ___fldiv@bexp 59 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 ___fldiv@sign 52 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
+_LCDGoto$80 25 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 ___lwmod@divisor 27 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 __end_of___aldiv 1CF0 0 CODE 0 text13 dist/default/production\ProyectoSPI.X.production.o
 __Umul8_16 17C0 0 CODE 0 text9 dist/default/production\ProyectoSPI.X.production.o
@@ -686,8 +686,8 @@ __end_of___lwmod 194C 0 CODE 0 text4 dist/default/production\ProyectoSPI.X.produ
 __size_of_isdigit 0 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 _PORTS_MANAGER_Initialize 16F0 0 CODE 0 text15 dist/default/production\ProyectoSPI.X.production.o
 __Umul8_16@multiplicand 74 0 COMMON 1 cstackCOMMON dist/default/production\ProyectoSPI.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\sbjk.o
-___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\sbjk.o
+___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\s8co.o
+___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\s8co.o
 __end_of_LCDGoto 18D4 0 CODE 0 text19 dist/default/production\ProyectoSPI.X.production.o
 __end_of_LCDPutCmd 1652 0 CODE 0 text20 dist/default/production\ProyectoSPI.X.production.o
 __end_of_LCDPutStr FFE 0 CODE 0 text17 dist/default/production\ProyectoSPI.X.production.o
@@ -714,7 +714,8 @@ __pcstackBANK1 BB 0 BANK1 1 cstackBANK1 dist/default/production\ProyectoSPI.X.pr
 _SSPBUF 13 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 USART_Initialize@baudrate 2E 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\sbjk.o
+_isdigit$990 74 0 COMMON 1 cstackCOMMON dist/default/production\ProyectoSPI.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\s8co.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -777,7 +778,7 @@ _SYSTEM_Initialize 16B2 0 CODE 0 text11 dist/default/production\ProyectoSPI.X.pr
 ___xxtofl E2C 0 CODE 0 text6 dist/default/production\ProyectoSPI.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 __stringtab 1000 0 STRING 0 strings dist/default/production\ProyectoSPI.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\sbjk.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\s8co.o
 __end_of___xxtofl FA4 0 CODE 0 text6 dist/default/production\ProyectoSPI.X.production.o
 __size_of_LCD_Initialize 0 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 __size_of___wmul 0 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
@@ -887,7 +888,6 @@ isdigit@c 75 0 COMMON 1 cstackCOMMON dist/default/production\ProyectoSPI.X.produ
 _ANSEL 188 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 __end_of_dpowers 1034 0 STRING 0 strings dist/default/production\ProyectoSPI.X.production.o
 ?_sprintf 2B 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
-_isdigit$1031 74 0 COMMON 1 cstackCOMMON dist/default/production\ProyectoSPI.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 _PORTD 8 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o

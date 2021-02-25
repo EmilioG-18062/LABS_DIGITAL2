@@ -2766,6 +2766,7 @@ void __attribute__((picinterrupt(("")))) myISR(void){
         do{ ADCON0bits.GO_nDONE = 1; } while(0);
     }
 
+
     if(PIR1bits.SSPIF){
         if(!SSPSTATbits.BF){
             PORTD = SSPBUF;
@@ -2774,7 +2775,7 @@ void __attribute__((picinterrupt(("")))) myISR(void){
         PIR1bits.SSPIF = 0;
     }
 }
-# 52 "main.c"
+# 53 "main.c"
 void main(void) {
 
     SYSTEM_Initialize();

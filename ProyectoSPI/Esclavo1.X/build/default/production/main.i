@@ -2761,6 +2761,7 @@ void __attribute__((picinterrupt(("")))) myISR(void){
         INTCONbits.RBIF=0;
     }
 
+
     if(PIR1bits.SSPIF){
         if(SSPSTATbits.BF){
             read_value = SSPBUF;
@@ -2769,7 +2770,7 @@ void __attribute__((picinterrupt(("")))) myISR(void){
         PIR1bits.SSPIF = 0;
     }
 }
-# 56 "main.c"
+# 57 "main.c"
 void main(void) {
 
     SYSTEM_Initialize();

@@ -2784,8 +2784,12 @@ char Buffer[20];
 
 
 void __attribute__((picinterrupt(("")))) myISR(void){
+
+
     if(PIR1bits.TXIF == 1){
         TXREG = Buffer[cont];
+
+
         if (cont == 16){
             cont = 0;
         }
@@ -2794,7 +2798,7 @@ void __attribute__((picinterrupt(("")))) myISR(void){
         }
     }
 }
-# 54 "main.c"
+# 58 "main.c"
 void main(void) {
     SYSTEM_Initialize();
 
@@ -2802,6 +2806,7 @@ void main(void) {
     LCDPutStr(" S1    S2    S3 ");
 
     while(1){
+
 
         PORTCbits.RC0 = 0;
         SSPBUF = 1;
@@ -2811,6 +2816,7 @@ void main(void) {
         _delay((unsigned long)((1)*(8000000/4000.0)));
         PORTCbits.RC0 = 1;
 
+
         PORTCbits.RC1 = 0;
         SSPBUF = 1;
         if(!SSPSTATbits.BF){
@@ -2818,6 +2824,7 @@ void main(void) {
         }
         _delay((unsigned long)((1)*(8000000/4000.0)));
         PORTCbits.RC1 = 1;
+
 
         PORTCbits.RC2 = 0;
         SSPBUF = 1;
@@ -2827,14 +2834,21 @@ void main(void) {
         _delay((unsigned long)((1)*(8000000/4000.0)));
         PORTCbits.RC2 = 1;
 
+
         voltage_int = (uint16_t)(((voltage*500)/255));
+
+
         for (i=0; i!=3; i++)
         {
            digits[i] = (char)(voltage_int % 10);
            voltage_int /= 10;
         }
+
+
         sprintf(Buffer, "%i.%i%iV %3iC %3iT\r\n", digits[2],digits[1],digits[0],
                 contador,temperature);
+
+
         LCDGoto(0,1);
         LCDPutStr(Buffer);
 

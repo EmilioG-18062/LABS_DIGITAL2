@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\emili\AppData\Local\Temp\sb9k.o
+$C:\Users\emili\AppData\Local\Temp\s11g.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -73,12 +73,12 @@ STRING A5-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Esclavo0.X.production.o
-F cinit CODE >1103:C:\Users\emili\AppData\Local\Temp\sb9k.s
-F cinit CODE >1106:C:\Users\emili\AppData\Local\Temp\sb9k.s
-F cinit CODE >1117:C:\Users\emili\AppData\Local\Temp\sb9k.s
-10 cinit CODE >1123:C:\Users\emili\AppData\Local\Temp\sb9k.s
-10 cinit CODE >1125:C:\Users\emili\AppData\Local\Temp\sb9k.s
-11 cinit CODE >1126:C:\Users\emili\AppData\Local\Temp\sb9k.s
+F cinit CODE >1103:C:\Users\emili\AppData\Local\Temp\s11g.s
+F cinit CODE >1106:C:\Users\emili\AppData\Local\Temp\s11g.s
+F cinit CODE >1117:C:\Users\emili\AppData\Local\Temp\s11g.s
+10 cinit CODE >1123:C:\Users\emili\AppData\Local\Temp\s11g.s
+10 cinit CODE >1125:C:\Users\emili\AppData\Local\Temp\s11g.s
+11 cinit CODE >1126:C:\Users\emili\AppData\Local\Temp\s11g.s
 4 intentry CODE >27:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
 14 text5 CODE >27:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
 14 text5 CODE >29:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
@@ -86,13 +86,13 @@ F cinit CODE >1117:C:\Users\emili\AppData\Local\Temp\sb9k.s
 22 text5 CODE >31:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
 26 text5 CODE >32:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
 29 text5 CODE >33:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
-2A text5 CODE >36:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
-2E text5 CODE >37:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
-34 text5 CODE >38:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
-38 text5 CODE >39:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
+2A text5 CODE >37:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
+2E text5 CODE >38:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
+34 text5 CODE >39:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
 38 text5 CODE >40:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
-3B text5 CODE >41:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
-3C text5 CODE >43:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
+38 text5 CODE >41:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
+3B text5 CODE >42:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
+3C text5 CODE >44:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
 77 text4 CODE >12:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\adc.c
 77 text4 CODE >14:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\adc.c
 7B text4 CODE >15:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\adc.c
@@ -130,10 +130,10 @@ F cinit CODE >1117:C:\Users\emili\AppData\Local\Temp\sb9k.s
 8E text1 CODE >13:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\lcs.c
 93 text1 CODE >14:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\lcs.c
 98 text1 CODE >15:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\lcs.c
-99 maintext CODE >52:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
-99 maintext CODE >54:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
-9E maintext CODE >55:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
-A1 maintext CODE >57:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
+99 maintext CODE >53:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
+99 maintext CODE >55:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
+9E maintext CODE >56:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
+A1 maintext CODE >58:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo0.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -155,20 +155,20 @@ __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\sb9k.o
+___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\s11g.o
 _main 132 0 CODE 0 maintext dist/default/production\Esclavo0.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
-start 18 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\sb9k.o
+start 18 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\s11g.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sb9k.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sb9k.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sb9k.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sb9k.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sb9k.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sb9k.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s11g.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s11g.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s11g.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s11g.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s11g.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s11g.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of_ADC_Initialize 0 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
@@ -182,8 +182,8 @@ _ADRESL 9E 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
 _ANSELH 189 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _PORTS_MANAGER_Initialize 86 0 CODE 0 text3 dist/default/production\Esclavo0.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\sb9k.o
-___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\sb9k.o
+___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\s11g.o
+___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\s11g.o
 __size_of_myISR 0 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Esclavo0.X.production.o
 _TRISAbits 85 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
@@ -191,7 +191,7 @@ _TRISCbits 87 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
 __end_of_SYSTEM_Initialize 132 0 CODE 0 text1 dist/default/production\Esclavo0.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\sb9k.o
+___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\s11g.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -235,7 +235,7 @@ __size_of_SPI_MANAGER_Initialize 0 0 ABS 0 - dist/default/production\Esclavo0.X.
 saved_w 7E 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
 _SYSTEM_Initialize 112 0 CODE 0 text1 dist/default/production\Esclavo0.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\sb9k.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\s11g.o
 _ADC_Initialize EE 0 CODE 0 text4 dist/default/production\Esclavo0.X.production.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\Esclavo0.X.production.o
 __pmaintext 132 0 CODE 0 maintext dist/default/production\Esclavo0.X.production.o

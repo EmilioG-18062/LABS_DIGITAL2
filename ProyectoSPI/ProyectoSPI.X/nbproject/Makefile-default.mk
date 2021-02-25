@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=device_config.c interrupt_manager.c lcd.c lcs.c ports_manager.c usart.c spi.c main.c
+SOURCEFILES_QUOTED_IF_SPACED=device_config.c lcd.c lcs.c ports_manager.c usart.c spi.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/interrupt_manager.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/lcs.p1 ${OBJECTDIR}/ports_manager.p1 ${OBJECTDIR}/usart.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/main.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/device_config.p1.d ${OBJECTDIR}/interrupt_manager.p1.d ${OBJECTDIR}/lcd.p1.d ${OBJECTDIR}/lcs.p1.d ${OBJECTDIR}/ports_manager.p1.d ${OBJECTDIR}/usart.p1.d ${OBJECTDIR}/spi.p1.d ${OBJECTDIR}/main.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/lcs.p1 ${OBJECTDIR}/ports_manager.p1 ${OBJECTDIR}/usart.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/main.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/device_config.p1.d ${OBJECTDIR}/lcd.p1.d ${OBJECTDIR}/lcs.p1.d ${OBJECTDIR}/ports_manager.p1.d ${OBJECTDIR}/usart.p1.d ${OBJECTDIR}/spi.p1.d ${OBJECTDIR}/main.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/interrupt_manager.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/lcs.p1 ${OBJECTDIR}/ports_manager.p1 ${OBJECTDIR}/usart.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/main.p1
+OBJECTFILES=${OBJECTDIR}/device_config.p1 ${OBJECTDIR}/lcd.p1 ${OBJECTDIR}/lcs.p1 ${OBJECTDIR}/ports_manager.p1 ${OBJECTDIR}/usart.p1 ${OBJECTDIR}/spi.p1 ${OBJECTDIR}/main.p1
 
 # Source Files
-SOURCEFILES=device_config.c interrupt_manager.c lcd.c lcs.c ports_manager.c usart.c spi.c main.c
+SOURCEFILES=device_config.c lcd.c lcs.c ports_manager.c usart.c spi.c main.c
 
 
 
@@ -101,14 +101,6 @@ ${OBJECTDIR}/device_config.p1: device_config.c  nbproject/Makefile-${CND_CONF}.m
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/device_config.p1 device_config.c 
 	@-${MV} ${OBJECTDIR}/device_config.d ${OBJECTDIR}/device_config.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/device_config.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/interrupt_manager.p1: interrupt_manager.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/interrupt_manager.p1.d 
-	@${RM} ${OBJECTDIR}/interrupt_manager.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/interrupt_manager.p1 interrupt_manager.c 
-	@-${MV} ${OBJECTDIR}/interrupt_manager.d ${OBJECTDIR}/interrupt_manager.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/interrupt_manager.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/lcd.p1: lcd.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -166,14 +158,6 @@ ${OBJECTDIR}/device_config.p1: device_config.c  nbproject/Makefile-${CND_CONF}.m
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/device_config.p1 device_config.c 
 	@-${MV} ${OBJECTDIR}/device_config.d ${OBJECTDIR}/device_config.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/device_config.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/interrupt_manager.p1: interrupt_manager.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/interrupt_manager.p1.d 
-	@${RM} ${OBJECTDIR}/interrupt_manager.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/interrupt_manager.p1 interrupt_manager.c 
-	@-${MV} ${OBJECTDIR}/interrupt_manager.d ${OBJECTDIR}/interrupt_manager.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/interrupt_manager.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/lcd.p1: lcd.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 

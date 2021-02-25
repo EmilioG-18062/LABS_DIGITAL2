@@ -18,7 +18,7 @@
 /*//////////////////////////////////////////////////////////////////////////////
  * VARIABLES
  */
-uint16_t temperature = 0;
+uint8_t temperature = 0;
 float temperature_float = 0.00;
 uint8_t read_value = 0;
 
@@ -37,7 +37,7 @@ void __interrupt () myISR(void){
     
     //Interrpcion del SPI
     if(PIR1bits.SSPIF){
-        if(!SSPSTATbits.BF){
+        if(SSPSTATbits.BF){
             read_value = SSPBUF;
         }
         SSPBUF = temperature;
@@ -59,7 +59,7 @@ void main(void) {
     
     while(HIGH){
         //Convierto el valor del ADC en bruto a la temperatura actual
-        temperature = (uint16_t)(temperature_float*2);
+        temperature = (uint8_t)(temperature_float*2);
         
         //Comparo en que posicion se encuenta el semaforo segun la temperatura
         if(temperature > 36){

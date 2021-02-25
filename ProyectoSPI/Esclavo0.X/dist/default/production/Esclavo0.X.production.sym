@@ -147,7 +147,7 @@ intentry 8 149 CODE 8 0
 cstackCOMMON 70 73 COMMON 70 1
 %locals
 dist/default/production\Esclavo0.X.production.o
-C:\Users\emili\AppData\Local\Temp\sb9k.s
+C:\Users\emili\AppData\Local\Temp\s11g.s
 1103 F 0 CODE 0
 1106 F 0 CODE 0
 1117 F 0 CODE 0
@@ -155,10 +155,10 @@ C:\Users\emili\AppData\Local\Temp\sb9k.s
 1125 10 0 CODE 0
 1126 11 0 CODE 0
 main.c
-52 99 0 CODE 0
-54 99 0 CODE 0
-55 9E 0 CODE 0
-57 A1 0 CODE 0
+53 99 0 CODE 0
+55 99 0 CODE 0
+56 9E 0 CODE 0
+58 A1 0 CODE 0
 lcs.c
 11 89 0 CODE 0
 12 89 0 CODE 0
@@ -207,11 +207,11 @@ main.c
 31 22 0 CODE 0
 32 26 0 CODE 0
 33 29 0 CODE 0
-36 2A 0 CODE 0
-37 2E 0 CODE 0
-38 34 0 CODE 0
-39 38 0 CODE 0
+37 2A 0 CODE 0
+38 2E 0 CODE 0
+39 34 0 CODE 0
 40 38 0 CODE 0
-41 3B 0 CODE 0
-43 3C 0 CODE 0
+41 38 0 CODE 0
+42 3B 0 CODE 0
+44 3C 0 CODE 0
 27 4 0 CODE 0

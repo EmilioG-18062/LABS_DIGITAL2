@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Tue Feb 23 08:29:12 2021
+                                                                                               Wed Feb 24 23:11:11 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -536,7 +536,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    522 ;;
    523 ;; *************** function _main *****************
    524 ;; Defined at:
-   525 ;;		line 56 in file "main.c"
+   525 ;;		line 57 in file "main.c"
    526 ;; Parameters:    Size  Location     Type
    527 ;;		None
    528 ;; Auto vars:     Size  Location     Type
@@ -571,20 +571,20 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    557                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
    558                           
    559                           
-   560                           ;main.c: 58:     SYSTEM_Initialize();
+   560                           ;main.c: 59:     SYSTEM_Initialize();
    561  0080  120A  118A  2090  120A  118A  	fcall	_SYSTEM_Initialize
    562  0085                     l729:
    563                           
-   564                           ;main.c: 59:     INTCON = 0b11001000;
+   564                           ;main.c: 60:     INTCON = 0b11001000;
    565  0085  30C8               	movlw	200
    566  0086  008B               	movwf	11	;volatile
    567  0087                     l731:
    568                           
-   569                           ;main.c: 60:     INTCONbits.RBIF = 1;
+   569                           ;main.c: 61:     INTCONbits.RBIF = 1;
    570  0087  140B               	bsf	11,0	;volatile
    571  0088                     l733:
    572                           
-   573                           ;main.c: 63:         PORTD = reference_count;
+   573                           ;main.c: 64:         PORTD = reference_count;
    574  0088  0874               	movf	_reference_count,w
    575  0089  1283               	bcf	3,5	;RP0=0, select bank0
    576  008A  1303               	bcf	3,6	;RP1=0, select bank0
@@ -915,7 +915,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    901  002D  100B               	bcf	11,0	;volatile
    902  002E                     i1l719:
    903                           
-   904                           ;main.c: 40:     if(PIR1bits.SSPIF){
+   904                           ;main.c: 41:     if(PIR1bits.SSPIF){
    905  002E  1283               	bcf	3,5	;RP0=0, select bank0
    906  002F  1303               	bcf	3,6	;RP1=0, select bank0
    907  0030  1D8C               	btfss	12,3	;volatile
@@ -926,7 +926,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    912  0034                     u5_20:
    913  0034                     i1l721:
    914                           
-   915                           ;main.c: 41:         if(SSPSTATbits.BF){
+   915                           ;main.c: 42:         if(SSPSTATbits.BF){
    916  0034  1683               	bsf	3,5	;RP0=1, select bank1
    917  0035  1303               	bcf	3,6	;RP1=0, select bank1
    918  0036  1C14               	btfss	20,0	;volatile
@@ -937,7 +937,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    923  003A                     u6_20:
    924  003A                     i1l723:
    925                           
-   926                           ;main.c: 42:             read_value = SSPBUF;
+   926                           ;main.c: 43:             read_value = SSPBUF;
    927  003A  1283               	bcf	3,5	;RP0=0, select bank0
    928  003B  1303               	bcf	3,6	;RP1=0, select bank0
    929  003C  0813               	movf	19,w	;volatile
@@ -945,16 +945,16 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    931  003E  0870               	movf	??_myISR,w
    932  003F  00F3               	movwf	_read_value
    933  0040                     i1l36:	
-   934                           ;main.c: 43:         }
+   934                           ;main.c: 44:         }
    935                           
    936                           
-   937                           ;main.c: 44:         SSPBUF = reference_count;
+   937                           ;main.c: 45:         SSPBUF = reference_count;
    938  0040  0874               	movf	_reference_count,w
    939  0041  1283               	bcf	3,5	;RP0=0, select bank0
    940  0042  0093               	movwf	19	;volatile
    941  0043                     i1l725:
    942                           
-   943                           ;main.c: 45:         PIR1bits.SSPIF = 0;
+   943                           ;main.c: 46:         PIR1bits.SSPIF = 0;
    944  0043  118C               	bcf	12,3	;volatile
    945  0044                     i1l37:
    946  0044  0872               	movf	??_myISR+2,w
@@ -1142,7 +1142,7 @@ DATA                 0      0       5      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Tue Feb 23 08:29:12 2021
+Symbol Table                                                                                   Wed Feb 24 23:11:11 2021
 
                                 l7 009A                        _SSPSTATbits 0094  
                                l70 006C                                 l85 007F  

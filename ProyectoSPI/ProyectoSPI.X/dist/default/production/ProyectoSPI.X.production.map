@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\ProyectoSPI.X.production.sym \
   --cmf=dist/default/production\ProyectoSPI.X.production.cmf -z -Q16F887 \
-  -oC:\Users\emili\AppData\Local\Temp\sbjk.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\emili\AppData\Local\Temp\s8co.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/ProyectoSPI.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\emili\AppData\Local\Temp\sbjk.o \
+  -pfunctab=ENTRY -k C:\Users\emili\AppData\Local\Temp\s8co.o \
   dist/default/production\ProyectoSPI.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\emili\AppData\Local\Temp\sbjk.o
+C:\Users\emili\AppData\Local\Temp\s8co.o
                 end_init                              E        E        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -246,7 +246,7 @@ _Buffer                            bssBANK1     00A7
 _INTCONbits                        (abs)        000B
 _IOCB                              (abs)        0096
 _LCDGoto                           text19       0C39
-_LCDGoto$173                       cstackBANK0  0025
+_LCDGoto$80                        cstackBANK0  0025
 _LCDPutChar                        text18       0B29
 _LCDPutCmd                         text20       0B16
 _LCDPutStr                         text17       07D2
@@ -500,7 +500,7 @@ _digits                            bssBANK1     00A4
 _dpowers                           strings      0810
 _i                                 bssBANK0     0068
 _isdigit                           text2        0B04
-_isdigit$1031                      cstackCOMMON 0074
+_isdigit$990                       cstackCOMMON 0074
 _main                              maintext     0564
 _myISR                             text22       0B98
 _sprintf                           text1        0E78
@@ -537,7 +537,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 54 in file "main.c"
+		line 58 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
