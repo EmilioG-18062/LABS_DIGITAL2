@@ -33,6 +33,7 @@ void __interrupt () myISR(void){
         GOnDONE_SetHigh();
     }
     
+    //Interruocion del SPI
     if(PIR1bits.SSPIF){
         if(!SSPSTATbits.BF){
             PORTD = SSPBUF;

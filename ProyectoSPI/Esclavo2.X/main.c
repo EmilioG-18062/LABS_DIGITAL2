@@ -35,6 +35,7 @@ void __interrupt () myISR(void){
         GOnDONE_SetHigh();
     }
     
+    //Interrpcion del SPI
     if(PIR1bits.SSPIF){
         if(!SSPSTATbits.BF){
             read_value = SSPBUF;
@@ -57,13 +58,15 @@ void main(void) {
     GOnDONE_SetHigh();
     
     while(HIGH){
+        //Convierto el valor del ADC en bruto a la temperatura actual
         temperature = (uint16_t)(temperature_float*2);
-  
+        
+        //Comparo en que posicion se encuenta el semaforo segun la temperatura
         if(temperature > 36){
             PORTD = 4;
         }
         if((temperature <= 36) && (temperature >= 25)){
-            PORTD = 2;
+            PORTD = 2;  
         }
         if(temperature < 25){
             PORTD = 1;

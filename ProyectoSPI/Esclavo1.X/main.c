@@ -37,6 +37,7 @@ void __interrupt () myISR(void){
         INTCONbits.RBIF=0;
     }
     
+    //Interrupcion del SPI
     if(PIR1bits.SSPIF){
         if(SSPSTATbits.BF){
             read_value = SSPBUF;
