@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\emili\AppData\Local\Temp\s8co.o
+$C:\Users\emili\AppData\Local\Temp\skqc.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 E E 3 2
 config CONFIG 4 2007 2007 2 2
@@ -106,24 +106,24 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\ProyectoSPI.X.production.o
-11 cinit CODE >1386:C:\Users\emili\AppData\Local\Temp\s8co.s
-11 cinit CODE >1389:C:\Users\emili\AppData\Local\Temp\s8co.s
-11 cinit CODE >1442:C:\Users\emili\AppData\Local\Temp\s8co.s
-12 cinit CODE >1443:C:\Users\emili\AppData\Local\Temp\s8co.s
-13 cinit CODE >1444:C:\Users\emili\AppData\Local\Temp\s8co.s
-14 cinit CODE >1447:C:\Users\emili\AppData\Local\Temp\s8co.s
-15 cinit CODE >1448:C:\Users\emili\AppData\Local\Temp\s8co.s
-16 cinit CODE >1449:C:\Users\emili\AppData\Local\Temp\s8co.s
-17 cinit CODE >1450:C:\Users\emili\AppData\Local\Temp\s8co.s
-18 cinit CODE >1451:C:\Users\emili\AppData\Local\Temp\s8co.s
-19 cinit CODE >1454:C:\Users\emili\AppData\Local\Temp\s8co.s
-1A cinit CODE >1455:C:\Users\emili\AppData\Local\Temp\s8co.s
-1B cinit CODE >1456:C:\Users\emili\AppData\Local\Temp\s8co.s
-1C cinit CODE >1457:C:\Users\emili\AppData\Local\Temp\s8co.s
-1D cinit CODE >1458:C:\Users\emili\AppData\Local\Temp\s8co.s
-22 cinit CODE >1464:C:\Users\emili\AppData\Local\Temp\s8co.s
-22 cinit CODE >1466:C:\Users\emili\AppData\Local\Temp\s8co.s
-23 cinit CODE >1467:C:\Users\emili\AppData\Local\Temp\s8co.s
+11 cinit CODE >1386:C:\Users\emili\AppData\Local\Temp\skqc.s
+11 cinit CODE >1389:C:\Users\emili\AppData\Local\Temp\skqc.s
+11 cinit CODE >1442:C:\Users\emili\AppData\Local\Temp\skqc.s
+12 cinit CODE >1443:C:\Users\emili\AppData\Local\Temp\skqc.s
+13 cinit CODE >1444:C:\Users\emili\AppData\Local\Temp\skqc.s
+14 cinit CODE >1447:C:\Users\emili\AppData\Local\Temp\skqc.s
+15 cinit CODE >1448:C:\Users\emili\AppData\Local\Temp\skqc.s
+16 cinit CODE >1449:C:\Users\emili\AppData\Local\Temp\skqc.s
+17 cinit CODE >1450:C:\Users\emili\AppData\Local\Temp\skqc.s
+18 cinit CODE >1451:C:\Users\emili\AppData\Local\Temp\skqc.s
+19 cinit CODE >1454:C:\Users\emili\AppData\Local\Temp\skqc.s
+1A cinit CODE >1455:C:\Users\emili\AppData\Local\Temp\skqc.s
+1B cinit CODE >1456:C:\Users\emili\AppData\Local\Temp\skqc.s
+1C cinit CODE >1457:C:\Users\emili\AppData\Local\Temp\skqc.s
+1D cinit CODE >1458:C:\Users\emili\AppData\Local\Temp\skqc.s
+22 cinit CODE >1464:C:\Users\emili\AppData\Local\Temp\skqc.s
+22 cinit CODE >1466:C:\Users\emili\AppData\Local\Temp\skqc.s
+23 cinit CODE >1467:C:\Users\emili\AppData\Local\Temp\skqc.s
 4 intentry CODE >34:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
 B98 text22 CODE >34:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
 B98 text22 CODE >37:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
@@ -582,16 +582,16 @@ FFF text1 CODE >1567:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common
 6A4 maintext CODE >104:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
 6FD maintext CODE >108:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
 707 maintext CODE >109:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\ProyectoSPI.X\main.c
-AEC clrtext CODE >1429:C:\Users\emili\AppData\Local\Temp\s8co.s
-AEC clrtext CODE >1430:C:\Users\emili\AppData\Local\Temp\s8co.s
-AED clrtext CODE >1431:C:\Users\emili\AppData\Local\Temp\s8co.s
-AED clrtext CODE >1432:C:\Users\emili\AppData\Local\Temp\s8co.s
-AEE clrtext CODE >1433:C:\Users\emili\AppData\Local\Temp\s8co.s
-AEF clrtext CODE >1434:C:\Users\emili\AppData\Local\Temp\s8co.s
-AF0 clrtext CODE >1435:C:\Users\emili\AppData\Local\Temp\s8co.s
-AF1 clrtext CODE >1436:C:\Users\emili\AppData\Local\Temp\s8co.s
-AF2 clrtext CODE >1437:C:\Users\emili\AppData\Local\Temp\s8co.s
-AF3 clrtext CODE >1438:C:\Users\emili\AppData\Local\Temp\s8co.s
+AEC clrtext CODE >1429:C:\Users\emili\AppData\Local\Temp\skqc.s
+AEC clrtext CODE >1430:C:\Users\emili\AppData\Local\Temp\skqc.s
+AED clrtext CODE >1431:C:\Users\emili\AppData\Local\Temp\skqc.s
+AED clrtext CODE >1432:C:\Users\emili\AppData\Local\Temp\skqc.s
+AEE clrtext CODE >1433:C:\Users\emili\AppData\Local\Temp\skqc.s
+AEF clrtext CODE >1434:C:\Users\emili\AppData\Local\Temp\skqc.s
+AF0 clrtext CODE >1435:C:\Users\emili\AppData\Local\Temp\skqc.s
+AF1 clrtext CODE >1436:C:\Users\emili\AppData\Local\Temp\skqc.s
+AF2 clrtext CODE >1437:C:\Users\emili\AppData\Local\Temp\skqc.s
+AF3 clrtext CODE >1438:C:\Users\emili\AppData\Local\Temp\skqc.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -618,11 +618,11 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 LCDGoto@ln 22 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\s8co.o
+___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\skqc.o
 _cont 79 0 COMMON 1 bssCOMMON dist/default/production\ProyectoSPI.X.production.o
 _main AC8 0 CODE 0 maintext dist/default/production\ProyectoSPI.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
-start 1C 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\s8co.o
+start 1C 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\skqc.o
 ___flmul@aexp 35 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 ___flmul@bexp 3A 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 ___flmul@prod 3B 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
@@ -647,12 +647,12 @@ USART_Initialize@x 3E 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.
 __end_of_USART_Initialize 1ABE 0 CODE 0 text12 dist/default/production\ProyectoSPI.X.production.o
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 __end_of_LCDWrite 1608 0 CODE 0 text21 dist/default/production\ProyectoSPI.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s8co.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\skqc.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\skqc.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\skqc.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\skqc.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\skqc.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\skqc.o
 __end_of_LCD_Initialize 1872 0 CODE 0 text16 dist/default/production\ProyectoSPI.X.production.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 __end_of_LCDPutChar 167A 0 CODE 0 text18 dist/default/production\ProyectoSPI.X.production.o
@@ -686,8 +686,8 @@ __end_of___lwmod 194C 0 CODE 0 text4 dist/default/production\ProyectoSPI.X.produ
 __size_of_isdigit 0 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 _PORTS_MANAGER_Initialize 16F0 0 CODE 0 text15 dist/default/production\ProyectoSPI.X.production.o
 __Umul8_16@multiplicand 74 0 COMMON 1 cstackCOMMON dist/default/production\ProyectoSPI.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\s8co.o
-___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\s8co.o
+___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\skqc.o
+___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\skqc.o
 __end_of_LCDGoto 18D4 0 CODE 0 text19 dist/default/production\ProyectoSPI.X.production.o
 __end_of_LCDPutCmd 1652 0 CODE 0 text20 dist/default/production\ProyectoSPI.X.production.o
 __end_of_LCDPutStr FFE 0 CODE 0 text17 dist/default/production\ProyectoSPI.X.production.o
@@ -715,7 +715,7 @@ _SSPBUF 13 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 USART_Initialize@baudrate 2E 0 BANK0 1 cstackBANK0 dist/default/production\ProyectoSPI.X.production.o
 _isdigit$990 74 0 COMMON 1 cstackCOMMON dist/default/production\ProyectoSPI.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\s8co.o
+___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\skqc.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -778,7 +778,7 @@ _SYSTEM_Initialize 16B2 0 CODE 0 text11 dist/default/production\ProyectoSPI.X.pr
 ___xxtofl E2C 0 CODE 0 text6 dist/default/production\ProyectoSPI.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 __stringtab 1000 0 STRING 0 strings dist/default/production\ProyectoSPI.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\s8co.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\skqc.o
 __end_of___xxtofl FA4 0 CODE 0 text6 dist/default/production\ProyectoSPI.X.production.o
 __size_of_LCD_Initialize 0 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o
 __size_of___wmul 0 0 ABS 0 - dist/default/production\ProyectoSPI.X.production.o

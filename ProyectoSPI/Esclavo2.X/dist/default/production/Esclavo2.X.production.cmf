@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\emili\AppData\Local\Temp\sfmo.o
+$C:\Users\emili\AppData\Local\Temp\s86c.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 E E 3 2
 config CONFIG 4 2007 2007 2 2
@@ -78,18 +78,18 @@ STRING 5D1-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Esclavo2.X.production.o
-11 cinit CODE >1115:C:\Users\emili\AppData\Local\Temp\sfmo.s
-11 cinit CODE >1118:C:\Users\emili\AppData\Local\Temp\sfmo.s
-11 cinit CODE >1132:C:\Users\emili\AppData\Local\Temp\sfmo.s
-12 cinit CODE >1133:C:\Users\emili\AppData\Local\Temp\sfmo.s
-13 cinit CODE >1134:C:\Users\emili\AppData\Local\Temp\sfmo.s
-14 cinit CODE >1135:C:\Users\emili\AppData\Local\Temp\sfmo.s
-15 cinit CODE >1136:C:\Users\emili\AppData\Local\Temp\sfmo.s
-16 cinit CODE >1137:C:\Users\emili\AppData\Local\Temp\sfmo.s
-17 cinit CODE >1138:C:\Users\emili\AppData\Local\Temp\sfmo.s
-18 cinit CODE >1144:C:\Users\emili\AppData\Local\Temp\sfmo.s
-18 cinit CODE >1146:C:\Users\emili\AppData\Local\Temp\sfmo.s
-19 cinit CODE >1147:C:\Users\emili\AppData\Local\Temp\sfmo.s
+11 cinit CODE >1115:C:\Users\emili\AppData\Local\Temp\s86c.s
+11 cinit CODE >1118:C:\Users\emili\AppData\Local\Temp\s86c.s
+11 cinit CODE >1132:C:\Users\emili\AppData\Local\Temp\s86c.s
+12 cinit CODE >1133:C:\Users\emili\AppData\Local\Temp\s86c.s
+13 cinit CODE >1134:C:\Users\emili\AppData\Local\Temp\s86c.s
+14 cinit CODE >1135:C:\Users\emili\AppData\Local\Temp\s86c.s
+15 cinit CODE >1136:C:\Users\emili\AppData\Local\Temp\s86c.s
+16 cinit CODE >1137:C:\Users\emili\AppData\Local\Temp\s86c.s
+17 cinit CODE >1138:C:\Users\emili\AppData\Local\Temp\s86c.s
+18 cinit CODE >1144:C:\Users\emili\AppData\Local\Temp\s86c.s
+18 cinit CODE >1146:C:\Users\emili\AppData\Local\Temp\s86c.s
+19 cinit CODE >1147:C:\Users\emili\AppData\Local\Temp\s86c.s
 4 intentry CODE >29:C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoSPI\Esclavo2.X\main.c
 37D text9 CODE >10:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
 37E text9 CODE >15:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\xxtofl.c
@@ -317,10 +317,10 @@ __Hspace_4 4010 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\Esclavo2.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\sfmo.o
+___sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\s86c.o
 _main 966 0 CODE 0 maintext dist/default/production\Esclavo2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Esclavo2.X.production.o
-start 1C 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\sfmo.o
+start 1C 0 CODE 0 init C:\Users\emili\AppData\Local\Temp\s86c.o
 ___flmul@aexp 41 0 BANK0 1 cstackBANK0 dist/default/production\Esclavo2.X.production.o
 ___flmul@bexp 42 0 BANK0 1 cstackBANK0 dist/default/production\Esclavo2.X.production.o
 ___flmul@prod 43 0 BANK0 1 cstackBANK0 dist/default/production\Esclavo2.X.production.o
@@ -331,12 +331,12 @@ __size_of___fltol 0 0 ABS 0 - dist/default/production\Esclavo2.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Esclavo2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\Esclavo2.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sfmo.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sfmo.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sfmo.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sfmo.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sfmo.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\sfmo.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s86c.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s86c.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s86c.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s86c.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s86c.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\emili\AppData\Local\Temp\s86c.o
 __size_of_ADC_Initialize 0 0 ABS 0 - dist/default/production\Esclavo2.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Esclavo2.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -356,8 +356,8 @@ __end_of___flmul 6FA 0 CODE 0 text2 dist/default/production\Esclavo2.X.productio
 __end_of___fltol 966 0 CODE 0 text1 dist/default/production\Esclavo2.X.production.o
 _PORTS_MANAGER_Initialize AF6 0 CODE 0 text6 dist/default/production\Esclavo2.X.production.o
 __Umul8_16@multiplicand 26 0 BANK0 1 cstackBANK0 dist/default/production\Esclavo2.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\sfmo.o
-___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\sfmo.o
+___stackhi 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\s86c.o
+___stacklo 0 0 ABS 0 - C:\Users\emili\AppData\Local\Temp\s86c.o
 __size_of_myISR 0 0 ABS 0 - dist/default/production\Esclavo2.X.production.o
 ___flmul@a 33 0 BANK0 1 cstackBANK0 dist/default/production\Esclavo2.X.production.o
 ___flmul@b 2F 0 BANK0 1 cstackBANK0 dist/default/production\Esclavo2.X.production.o
@@ -368,7 +368,7 @@ __end_of_SYSTEM_Initialize BA2 0 CODE 0 text4 dist/default/production\Esclavo2.X
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Esclavo2.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\Esclavo2.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\Esclavo2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\sfmo.o
+___int_sp 0 0 STACK 2 stack C:\Users\emili\AppData\Local\Temp\s86c.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -420,7 +420,7 @@ _SYSTEM_Initialize B82 0 CODE 0 text4 dist/default/production\Esclavo2.X.product
 ___xxtofl 6FA 0 CODE 0 text9 dist/default/production\Esclavo2.X.production.o
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\sfmo.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\emili\AppData\Local\Temp\s86c.o
 __end_of___xxtofl 86E 0 CODE 0 text9 dist/default/production\Esclavo2.X.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 _ADC_Initialize B5E 0 CODE 0 text7 dist/default/production\Esclavo2.X.production.o

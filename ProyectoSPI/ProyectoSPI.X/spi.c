@@ -12,7 +12,7 @@ void SPI_MANAGER_Initialize(void) {
     
     TRISCbits.TRISC3 = 0;
     TRISCbits.TRISC5 = 0;
-    SSPCON  = 0b00100000;
+    SSPCON  = 0b00100000; //Configuro el PIC como Maestro
     SSPSTAT = 0;
     
     TRISCbits.TRISC0 = 0;

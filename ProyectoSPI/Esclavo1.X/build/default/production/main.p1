@@ -374,8 +374,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 143  ]
 {
 "42
-[; ;main.c: 42:         if(SSPSTATbits.BF){
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 144  ]
+[; ;main.c: 42:         if(!SSPSTATbits.BF){
+[e $ ! ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 144  ]
 {
 "43
 [; ;main.c: 43:             read_value = SSPBUF;

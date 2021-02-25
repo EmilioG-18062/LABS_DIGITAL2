@@ -2763,14 +2763,14 @@ void __attribute__((picinterrupt(("")))) myISR(void){
 
     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
         temperature_float = ADRESH;
-        _delay((unsigned long)((35)*(8000000/4000000.0)));
+        _delay((unsigned long)((40)*(8000000/4000000.0)));
         do{ PIR1bits.ADIF = 0; } while(0);
         do{ ADCON0bits.GO_nDONE = 1; } while(0);
     }
 
 
     if(PIR1bits.SSPIF){
-        if(SSPSTATbits.BF){
+        if(!SSPSTATbits.BF){
             read_value = SSPBUF;
         }
         SSPBUF = temperature;

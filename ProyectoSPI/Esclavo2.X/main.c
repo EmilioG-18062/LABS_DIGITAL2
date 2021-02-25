@@ -30,14 +30,14 @@ void __interrupt () myISR(void){
     //ADC Interrups
     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
         temperature_float = ADRESH;
-        __delay_us(35);
+        __delay_us(40);
         ADC_FLAG_SetLow();
         GOnDONE_SetHigh();
     }
     
     //Interrpcion del SPI
     if(PIR1bits.SSPIF){
-        if(SSPSTATbits.BF){
+        if(!SSPSTATbits.BF){
             read_value = SSPBUF;
         }
         SSPBUF = temperature;

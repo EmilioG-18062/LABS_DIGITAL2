@@ -28,7 +28,7 @@ void __interrupt () myISR(void){
     //ADC Interrups
     if (PIR1bits.ADIF == 1 && ADCON0bits.GO_nDONE == 0){
         voltage1 = ADRESH;
-        __delay_us(35);
+        __delay_us(40);
         ADC_FLAG_SetLow();
         GOnDONE_SetHigh();
     }

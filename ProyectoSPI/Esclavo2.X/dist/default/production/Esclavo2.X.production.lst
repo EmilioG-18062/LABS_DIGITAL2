@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Wed Feb 24 23:11:04 2021
+                                                                                               Wed Feb 24 23:17:22 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -2622,15 +2622,15 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   2608  052B  00D5               	movwf	_temperature_float
   2609  052C                     i1l1315:
   2610                           
-  2611                           ;main.c: 33:         _delay((unsigned long)((35)*(8000000/4000000.0)));
-  2612  052C  3016               	movlw	22
+  2611                           ;main.c: 33:         _delay((unsigned long)((40)*(8000000/4000000.0)));
+  2612  052C  3019               	movlw	25
   2613  052D  1283               	bcf	3,5	;RP0=0, select bank0
   2614  052E  1303               	bcf	3,6	;RP1=0, select bank0
   2615  052F  00A0               	movwf	??_myISR
   2616  0530                     u145_27:
   2617  0530  0BA0               	decfsz	??_myISR,f
   2618  0531  2D30               	goto	u145_27
-  2619  0532  0000               	nop
+  2619  0532  2D33               	nop2
   2620  0533                     i1l1317:
   2621  0533  1283               	bcf	3,5	;RP0=0, select bank0
   2622  0534  1303               	bcf	3,6	;RP1=0, select bank0
@@ -2648,10 +2648,10 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   2634  053B                     u139_20:
   2635  053B                     i1l1323:
   2636                           
-  2637                           ;main.c: 40:         if(SSPSTATbits.BF){
+  2637                           ;main.c: 40:         if(!SSPSTATbits.BF){
   2638  053B  1683               	bsf	3,5	;RP0=1, select bank1
   2639  053C  1303               	bcf	3,6	;RP1=0, select bank1
-  2640  053D  1C14               	btfss	20,0	;volatile
+  2640  053D  1814               	btfsc	20,0	;volatile
   2641  053E  2D40               	goto	u140_21
   2642  053F  2D41               	goto	u140_20
   2643  0540                     u140_21:
@@ -3175,7 +3175,7 @@ DATA                 0      0      49      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Wed Feb 24 23:11:04 2021
+Symbol Table                                                                                   Wed Feb 24 23:17:22 2021
 
                       _SSPSTATbits 0094                                 l40 05AE  
                                l25 059B                                 l49 05D0  

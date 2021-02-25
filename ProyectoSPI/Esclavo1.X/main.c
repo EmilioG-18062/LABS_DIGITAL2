@@ -39,7 +39,7 @@ void __interrupt () myISR(void){
     
     //Interrupcion del SPI
     if(PIR1bits.SSPIF){
-        if(SSPSTATbits.BF){
+        if(!SSPSTATbits.BF){
             read_value = SSPBUF;
         }
         SSPBUF = reference_count;

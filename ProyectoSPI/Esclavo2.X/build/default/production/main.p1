@@ -354,8 +354,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 32:         temperature_float = ADRESH;
 [e = _temperature_float -> _ADRESH `f ]
 "33
-[; ;main.c: 33:         _delay((unsigned long)((35)*(8000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 35 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;main.c: 33:         _delay((unsigned long)((40)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
 "34
 [; ;main.c: 34:         do{ PIR1bits.ADIF = 0; } while(0);
 [e :U 143 ]
@@ -379,8 +379,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 147  ]
 {
 "40
-[; ;main.c: 40:         if(SSPSTATbits.BF){
-[e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 148  ]
+[; ;main.c: 40:         if(!SSPSTATbits.BF){
+[e $ ! ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 148  ]
 {
 "41
 [; ;main.c: 41:             read_value = SSPBUF;
