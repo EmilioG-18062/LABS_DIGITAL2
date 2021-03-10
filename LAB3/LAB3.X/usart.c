@@ -2,7 +2,8 @@
  * File:   usart.c
  * Author: Emilio Gordillo 18062
  *
- * LABORATORIO 3 - DIGITAL 2
+ * Proyecto I2C - DIGITAL 2
+ * PIC Maestro
  */
 
 //Libreria basada en Using UART of PIC Microcontroller BY LIGO GEORGE
