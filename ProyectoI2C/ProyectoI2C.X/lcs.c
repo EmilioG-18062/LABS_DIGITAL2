@@ -11,4 +11,5 @@
 void SYSTEM_Initialize(void) {
     PORTS_MANAGER_Initialize();
     USART_Initialize(9600);
+    I2C_Master_Init(100000);
 }

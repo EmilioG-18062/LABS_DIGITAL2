@@ -14,6 +14,8 @@
 #include "device_config.h"
 #include "ports_manager.h"
 #include "usart.h"
+#include "i2c.h"
+#include "adxl345.h"
 
 void SYSTEM_Initialize(void);
 

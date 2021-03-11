@@ -8,6 +8,8 @@
       <itemPath>lcs.h</itemPath>
       <itemPath>device_config.h</itemPath>
       <itemPath>ports_manager.h</itemPath>
+      <itemPath>i2c.h</itemPath>
+      <itemPath>adxl345.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -22,6 +24,7 @@
         <itemPath>lcs.c</itemPath>
         <itemPath>device_config.c</itemPath>
         <itemPath>ports_manager.c</itemPath>
+        <itemPath>i2c.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>

@@ -1,4 +1,4 @@
-# 1 "lcs.c"
+# 1 "i2c.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,17 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "lcs.c" 2
+# 1 "i2c.c" 2
 
 
 
-
-
-
-
-
-# 1 "./lcs.h" 1
-# 11 "./lcs.h"
+# 1 "./i2c.h" 1
+# 11 "./i2c.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2497,7 +2492,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./lcs.h" 2
+# 11 "./i2c.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 3
@@ -2632,7 +2627,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 12 "./lcs.h" 2
+# 12 "./i2c.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2731,30 +2726,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 13 "./lcs.h" 2
-
-# 1 "./device_config.h" 1
-# 14 "./lcs.h" 2
-
-# 1 "./ports_manager.h" 1
-# 25 "./ports_manager.h"
-void PORTS_MANAGER_Initialize(void);
-# 15 "./lcs.h" 2
-
-# 1 "./usart.h" 1
-# 13 "./usart.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 13 "./usart.h" 2
-
-
-void USART_Initialize(const long int baudrate);
-# 16 "./lcs.h" 2
-
-# 1 "./i2c.h" 1
-# 12 "./i2c.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdint.h" 1 3
-# 12 "./i2c.h" 2
-
+# 13 "./i2c.h" 2
 
 
 void I2C_Master_Init(const unsigned long c);
@@ -2764,22 +2736,59 @@ void I2C_Master_RepeatedStart(void);
 void I2C_Master_Stop(void);
 void I2C_Master_Write(unsigned d);
 unsigned short I2C_Master_Read(unsigned short a);
-# 17 "./lcs.h" 2
-
-# 1 "./adxl345.h" 1
-# 13 "./adxl345.h"
-void adxl345_write(int add, int data);
-int adxl345_read(int add);
-void adxl345_init();
-# 18 "./lcs.h" 2
+# 4 "i2c.c" 2
 
 
-void SYSTEM_Initialize(void);
-# 9 "lcs.c" 2
 
 
-void SYSTEM_Initialize(void) {
-    PORTS_MANAGER_Initialize();
-    USART_Initialize(9600);
-    I2C_Master_Init(100000);
+
+void I2C_Master_Init(const unsigned long c)
+{
+  SSPCON = 0b00101000;
+  SSPCON2 = 0;
+  SSPADD = (8000000/(4*c))-1;
+  SSPSTAT = 0;
+  TRISC3 = 1;
+  TRISC4 = 1;
+}
+
+
+void I2C_Master_Wait()
+{
+  while ((SSPSTAT & 0x04) || (SSPCON2 & 0x1F));
+}
+
+
+void I2C_Master_Start()
+{
+  I2C_Master_Wait();
+  SEN = 1;
+}
+
+
+void I2C_Master_Stop()
+{
+  I2C_Master_Wait();
+  PEN = 1;
+}
+
+
+void I2C_Master_Write(unsigned d)
+{
+  I2C_Master_Wait();
+  SSPBUF = d;
+}
+
+
+unsigned short I2C_Master_Read(unsigned short a)
+{
+  unsigned short temp;
+  I2C_Master_Wait();
+  RCEN = 1;
+  I2C_Master_Wait();
+  temp = SSPBUF;
+  I2C_Master_Wait();
+  ACKDT = (a)?0:1;
+  ACKEN = 1;
+  return temp;
 }
