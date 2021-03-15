@@ -72,6 +72,7 @@ void loop() {
   if (millis() > (lastUpdate + IO_LOOP_DELAY)) {
     io.run();
 
+    //Envio los datos del sensor al servidor en adafruit
     Serial.println(data_sen[0], DEC);
     xaxis->save(data_sen[0]);
 
@@ -81,10 +82,11 @@ void loop() {
     Serial.println(data_sen[4], DEC);
     zaxis->save(data_sen[4]);
 
-    //Tomo el dato actualizado
+    //Obtengo los datos de los botones del servidor en adafruit
     boton1->get();
     boton2->get();
-    
+
+    //Le envio los nuevos datos al PIC
     boton1->onMessage(Boton1);
     boton2->onMessage(Boton2);
     
