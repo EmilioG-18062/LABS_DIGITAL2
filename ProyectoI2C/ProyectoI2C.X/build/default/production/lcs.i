@@ -2762,15 +2762,15 @@ void I2C_Master_Wait(void);
 void I2C_Master_Start(void);
 void I2C_Master_RepeatedStart(void);
 void I2C_Master_Stop(void);
-void I2C_Master_Write(unsigned d);
-unsigned short I2C_Master_Read(unsigned short a);
+void I2C_Master_Write(int d);
+char I2C_Master_Read(int a);
 # 17 "./lcs.h" 2
 
 # 1 "./adxl345.h" 1
 # 13 "./adxl345.h"
 void adxl345_write(int add, int data);
-int adxl345_read(int add);
-void adxl345_init();
+char adxl345_read(int add);
+void adxl345_init(void);
 # 18 "./lcs.h" 2
 
 
@@ -2782,4 +2782,5 @@ void SYSTEM_Initialize(void) {
     PORTS_MANAGER_Initialize();
     USART_Initialize(9600);
     I2C_Master_Init(100000);
+    adxl345_init();
 }

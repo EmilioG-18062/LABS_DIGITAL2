@@ -8,6 +8,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15 ./i2c.h
 [; ;./i2c.h: 15: void I2C_Master_Init(const unsigned long c);
 [v _I2C_Master_Init `(v ~T0 @X0 0 ef1`Cul ]
+"15 ./adxl345.h
+[; ;./adxl345.h: 15: void adxl345_init(void);
+[v _adxl345_init `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -258,6 +261,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;lcs.c: 14:     I2C_Master_Init(100000);
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
 "15
-[; ;lcs.c: 15: }
+[; ;lcs.c: 15:     adxl345_init();
+[e ( _adxl345_init ..  ]
+"16
+[; ;lcs.c: 16: }
 [e :UE 139 ]
 }

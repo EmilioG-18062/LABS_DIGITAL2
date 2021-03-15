@@ -3,11 +3,11 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
-"18 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\adxl345.c
+"22 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\adxl345.c
 [v _adxl345_write adxl345_write `(v  1 e 1 0 ]
-"28
-[v _adxl345_read adxl345_read `(i  1 e 2 0 ]
-"40
+"31
+[v _adxl345_read adxl345_read `(uc  1 e 1 0 ]
+"43
 [v _adxl345_init adxl345_init `(v  1 e 1 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
@@ -32,12 +32,12 @@
 "40
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 "47
-[v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
+[v _I2C_Master_Read I2C_Master_Read `(uc  1 e 1 0 ]
 "11 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\lcs.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"27 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\main.c
+"28 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\main.c
 [v _myISR myISR `II(v  1 e 1 0 ]
-"55
+"51
 [v _main main `(v  1 e 1 0 ]
 "10 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\ports_manager.c
 [v _PORTS_MANAGER_Initialize PORTS_MANAGER_Initialize `(v  1 e 1 0 ]
@@ -49,6 +49,18 @@
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
+[s S347 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"369
+[u S356 . 1 `S347 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES356  1 e 1 @8 ]
 "414
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
 [s S157 . 1 `uc 1 RBIF 1 0 :1:0 
@@ -68,7 +80,7 @@
 ]
 [u S171 . 1 `S157 1 . 1 0 `S166 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES171  1 e 1 @11 ]
-[s S274 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S299 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -77,8 +89,8 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S282 . 1 `S274 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES282  1 e 1 @12 ]
+[u S307 . 1 `S299 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES307  1 e 1 @12 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
@@ -128,20 +140,20 @@
 "1718
 [u S197 . 1 `S189 1 . 1 0 ]
 [v _PIE1bits PIE1bits `VES197  1 e 1 @140 ]
-[s S297 . 1 `uc 1 SCS 1 0 :1:0 
+[s S321 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S303 . 1 `uc 1 . 1 0 :4:0 
+[s S327 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S308 . 1 `S297 1 . 1 0 `S303 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES308  1 e 1 @143 ]
+[u S332 . 1 `S321 1 . 1 0 `S327 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES332  1 e 1 @143 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
 "2048
@@ -203,51 +215,54 @@
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
 "18 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\main.c
 [v _cont cont `i  1 e 2 0 ]
-"19
-[v _handshake handshake `i  1 e 2 0 ]
-"20
-[v _sensor_value sensor_value `[9]uc  1 e 9 0 ]
+"21
+[v _sensor_value sensor_value `[6]uc  1 e 6 0 ]
 "22
 [v _read_value read_value `uc  1 e 1 0 ]
-"55
+"51
 [v _main main `(v  1 e 1 0 ]
 {
-"80
+"79
 } 0
-"28 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\adxl345.c
-[v _adxl345_read adxl345_read `(i  1 e 2 0 ]
+"31 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\adxl345.c
+[v _adxl345_read adxl345_read `(uc  1 e 1 0 ]
 {
-"29
-[v adxl345_read@retval retval `i  1 a 2 4 ]
-"28
-[v adxl345_read@add add `i  1 p 2 2 ]
-"38
+"32
+[v adxl345_read@retval retval `i  1 a 2 5 ]
+"31
+[v adxl345_read@add add `i  1 p 2 1 ]
+"41
 } 0
 "47 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\i2c.c
-[v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
+[v _I2C_Master_Read I2C_Master_Read `(uc  1 e 1 0 ]
 {
 "49
-[v I2C_Master_Read@temp temp `us  1 a 2 0 ]
+[v I2C_Master_Read@temp temp `uc  1 a 1 0 ]
 "47
-[v I2C_Master_Read@a a `us  1 p 2 4 ]
+[v I2C_Master_Read@a a `i  1 p 2 4 ]
 "58
 } 0
-"40 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\adxl345.c
+"11 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\lcs.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"16
+} 0
+"43 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\adxl345.c
 [v _adxl345_init adxl345_init `(v  1 e 1 0 ]
 {
-"45
+"48
 } 0
-"18
+"22
 [v _adxl345_write adxl345_write `(v  1 e 1 0 ]
 {
 [v adxl345_write@add add `i  1 p 2 0 ]
 [v adxl345_write@data data `i  1 p 2 2 ]
-"26
+"29
 } 0
 "40 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\i2c.c
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 {
-[v I2C_Master_Write@d d `ui  1 p 2 4 ]
+[v I2C_Master_Write@d d `i  1 p 2 4 ]
 "44
 } 0
 "33
@@ -264,11 +279,6 @@
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
 {
 "23
-} 0
-"11 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\lcs.c
-[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-{
-"15
 } 0
 "16 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\usart.c
 [v _USART_Initialize USART_Initialize `(v  1 e 1 0 ]
@@ -315,8 +325,8 @@
 [v ___lldiv@dividend dividend `ul  1 p 4 4 ]
 "30
 } 0
-"27 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\main.c
+"28 C:\Users\emili\OneDrive\Documents\GitHub\LABS_DIGITAL\ProyectoI2C\ProyectoI2C.X\main.c
 [v _myISR myISR `II(v  1 e 1 0 ]
 {
-"46
+"42
 } 0

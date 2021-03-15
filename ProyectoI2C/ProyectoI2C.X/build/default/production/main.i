@@ -2755,15 +2755,15 @@ void I2C_Master_Wait(void);
 void I2C_Master_Start(void);
 void I2C_Master_RepeatedStart(void);
 void I2C_Master_Stop(void);
-void I2C_Master_Write(unsigned d);
-unsigned short I2C_Master_Read(unsigned short a);
+void I2C_Master_Write(int d);
+char I2C_Master_Read(int a);
 # 17 "./lcs.h" 2
 
 # 1 "./adxl345.h" 1
 # 13 "./adxl345.h"
 void adxl345_write(int add, int data);
-int adxl345_read(int add);
-void adxl345_init();
+char adxl345_read(int add);
+void adxl345_init(void);
 # 18 "./lcs.h" 2
 
 
@@ -2774,11 +2774,12 @@ void SYSTEM_Initialize(void);
 
 
 
-int cont = 0;
-int handshake = 0;
-char sensor_value[9];
+int cont;
+int handshake;
 
+char sensor_value[6];
 char read_value;
+
 
 
 
@@ -2789,44 +2790,42 @@ void __attribute__((picinterrupt(("")))) myISR(void){
     }
 
     if(PIR1bits.TXIF == 1){
-        if (handshake == 0){
-            TXREG = 65;
+        TXREG = sensor_value[cont];
+        if (cont == 5){
+            cont = 0;
         }
         else{
-            TXREG = sensor_value[cont];
-            if (cont == 5){
-                cont = 0;
-            }
-            else{
-                cont++;
-            }
+            cont++;
         }
     }
 }
-# 55 "main.c"
+# 51 "main.c"
 void main(void) {
     SYSTEM_Initialize();
-    adxl345_init();
     OSCCONbits.IRCF = 0b111;
 
     while(1){
-
-        if(read_value == 65){
-            handshake = 1;
+        if(read_value == 1){
+            PORTDbits.RD0 = 1;
+        }
+        else if(read_value == 2){
+            PORTDbits.RD0 = 0;
+        }
+        else if(read_value == 3){
+            PORTDbits.RD1 = 1;
+        }
+        else if(read_value == 4){
+            PORTDbits.RD1 = 0;
         }
 
-        if(read_value == 66){
-            handshake = 0;
-        }
+        sensor_value[0] = adxl345_read(0x32);
+        sensor_value[1] = adxl345_read(0x33);
 
-        sensor_value[0]=adxl345_read(0x32);
-        sensor_value[1]=adxl345_read(0x33);
+        sensor_value[2] = adxl345_read(0x34);
+        sensor_value[3] = adxl345_read(0x35);
 
-        sensor_value[2]=adxl345_read(0x34);
-        sensor_value[3]=adxl345_read(0x35);
-
-        sensor_value[4]=adxl345_read(0x36);
-        sensor_value[5]=adxl345_read(0x37);
+        sensor_value[4] = adxl345_read(0x36);
+        sensor_value[5] = adxl345_read(0x37);
 
     }
 }

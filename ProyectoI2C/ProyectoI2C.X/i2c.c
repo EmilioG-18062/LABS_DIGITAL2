@@ -6,6 +6,7 @@
 //MASTER FUNCTIONS
 #define _XTAL_FREQ 8000000
 
+//Configuracion inicial del I2C en el PIC
 void I2C_Master_Init(const unsigned long c)
 {
   SSPCON = 0b00101000;            //SSP Module as Master
@@ -37,16 +38,16 @@ void I2C_Master_Stop()
 }
 
 //WRITE DATA
-void I2C_Master_Write(unsigned d)
+void I2C_Master_Write(int d)
 {
   I2C_Master_Wait();
   SSPBUF = d;         //Write data to SSPBUF
 }
 
 //READ DATA
-unsigned short I2C_Master_Read(unsigned short a)
+char I2C_Master_Read(int a)
 {
-  unsigned short temp;
+  char temp;
   I2C_Master_Wait();
   RCEN = 1;
   I2C_Master_Wait();

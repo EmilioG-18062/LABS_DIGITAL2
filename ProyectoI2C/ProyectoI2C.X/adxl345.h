@@ -11,8 +11,8 @@
 #include "i2c.h"
 
 void adxl345_write(int add, int data);
-int adxl345_read(int add);
-void adxl345_init();
+char adxl345_read(int add);
+void adxl345_init(void);
 
 #endif	/* ADXL345_H */
 

@@ -360,15 +360,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 145 ]
 }
 "40
-[; ;i2c.c: 40: void I2C_Master_Write(unsigned d)
-[v _I2C_Master_Write `(v ~T0 @X0 1 ef1`ui ]
+[; ;i2c.c: 40: void I2C_Master_Write(int d)
+[v _I2C_Master_Write `(v ~T0 @X0 1 ef1`i ]
 "41
 [; ;i2c.c: 41: {
 {
 [e :U _I2C_Master_Write ]
 "40
-[; ;i2c.c: 40: void I2C_Master_Write(unsigned d)
-[v _d `ui ~T0 @X0 1 r1 ]
+[; ;i2c.c: 40: void I2C_Master_Write(int d)
+[v _d `i ~T0 @X0 1 r1 ]
 "41
 [; ;i2c.c: 41: {
 [f ]
@@ -383,21 +383,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 146 ]
 }
 "47
-[; ;i2c.c: 47: unsigned short I2C_Master_Read(unsigned short a)
-[v _I2C_Master_Read `(us ~T0 @X0 1 ef1`us ]
+[; ;i2c.c: 47: char I2C_Master_Read(int a)
+[v _I2C_Master_Read `(uc ~T0 @X0 1 ef1`i ]
 "48
 [; ;i2c.c: 48: {
 {
 [e :U _I2C_Master_Read ]
 "47
-[; ;i2c.c: 47: unsigned short I2C_Master_Read(unsigned short a)
-[v _a `us ~T0 @X0 1 r1 ]
+[; ;i2c.c: 47: char I2C_Master_Read(int a)
+[v _a `i ~T0 @X0 1 r1 ]
 "48
 [; ;i2c.c: 48: {
 [f ]
 "49
-[; ;i2c.c: 49:   unsigned short temp;
-[v _temp `us ~T0 @X0 1 a ]
+[; ;i2c.c: 49:   char temp;
+[v _temp `uc ~T0 @X0 1 a ]
 "50
 [; ;i2c.c: 50:   I2C_Master_Wait();
 [e ( _I2C_Master_Wait ..  ]
@@ -409,13 +409,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _I2C_Master_Wait ..  ]
 "53
 [; ;i2c.c: 53:   temp = SSPBUF;
-[e = _temp -> _SSPBUF `us ]
+[e = _temp -> _SSPBUF `uc ]
 "54
 [; ;i2c.c: 54:   I2C_Master_Wait();
 [e ( _I2C_Master_Wait ..  ]
 "55
 [; ;i2c.c: 55:   ACKDT = (a)?0:1;
-[e = _ACKDT -> ? != -> _a `ui -> -> 0 `i `ui : -> 0 `i -> 1 `i `b ]
+[e = _ACKDT -> ? != _a -> 0 `i : -> 0 `i -> 1 `i `b ]
 "56
 [; ;i2c.c: 56:   ACKEN = 1;
 [e = _ACKEN -> -> 1 `i `b ]

@@ -7,6 +7,10 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "adxl345.c" 2
+
+
+
+
 # 1 "./adxl345.h" 1
 # 11 "./adxl345.h"
 # 1 "./i2c.h" 1
@@ -2733,16 +2737,16 @@ void I2C_Master_Wait(void);
 void I2C_Master_Start(void);
 void I2C_Master_RepeatedStart(void);
 void I2C_Master_Stop(void);
-void I2C_Master_Write(unsigned d);
-unsigned short I2C_Master_Read(unsigned short a);
+void I2C_Master_Write(int d);
+char I2C_Master_Read(int a);
 # 11 "./adxl345.h" 2
 
 
 void adxl345_write(int add, int data);
-int adxl345_read(int add);
-void adxl345_init();
-# 1 "adxl345.c" 2
-# 18 "adxl345.c"
+char adxl345_read(int add);
+void adxl345_init(void);
+# 5 "adxl345.c" 2
+# 22 "adxl345.c"
 void adxl345_write(int add, int data)
 {
          I2C_Master_Start();
@@ -2750,10 +2754,9 @@ void adxl345_write(int add, int data)
          I2C_Master_Write(add);
          I2C_Master_Write(data);
          I2C_Master_Stop();
-
 }
 
-int adxl345_read(int add){
+char adxl345_read(int add){
          int retval;
          I2C_Master_Start();
          I2C_Master_Write(0xA6);
@@ -2765,9 +2768,9 @@ int adxl345_read(int add){
          return retval;
 }
 
-void adxl345_init(void){
-         adxl345_write(0x31,0x0B);
-         _delay((unsigned long)((2)*(8000000/4000.0)));
-         adxl345_write(0x2D,0x08);
-         _delay((unsigned long)((2)*(8000000/4000.0)));
+void adxl345_init(void) {
+    adxl345_write(0x31,0x0B);
+    _delay((unsigned long)((2)*(8000000/4000.0)));
+    adxl345_write(0x2D,0x08);
+    _delay((unsigned long)((2)*(8000000/4000.0)));
 }

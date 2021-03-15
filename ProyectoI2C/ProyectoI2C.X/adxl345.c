@@ -1,3 +1,7 @@
+/*
+ * LIBRERIA EXTRAIDA DE http://www.sonsivri.to/forum/index.php?topic=59736.0
+ */
+
 #include "adxl345.h"
 
 // ADXL345  Registers
@@ -15,6 +19,7 @@
 #define Z_MSB       0x37    //Read Register, Output of Y MSB 8-bit value.
 #define _XTAL_FREQ 8000000
  
+//Rutina para escribir en el acelerometro
 void adxl345_write(int add, int data)
 {
          I2C_Master_Start();
@@ -22,10 +27,10 @@ void adxl345_write(int add, int data)
          I2C_Master_Write(add);
          I2C_Master_Write(data);
          I2C_Master_Stop();
- 
 }
-      
-int adxl345_read(int add){
+
+//Rutina para leer en el acelerometro
+char adxl345_read(int add){
          int retval;
          I2C_Master_Start();
          I2C_Master_Write(W_DATA);
@@ -36,10 +41,11 @@ int adxl345_read(int add){
          I2C_Master_Stop();
          return retval;
 }
- 
-void adxl345_init(void){
-         adxl345_write(D_FRM,0x0B);
-         __delay_ms(2);
-         adxl345_write(P_CTL,0x08);
-         __delay_ms(2);
+
+//Rutina para iniciar el acelerometro
+void adxl345_init(void) {
+    adxl345_write(D_FRM,0x0B);
+    __delay_ms(2);
+    adxl345_write(P_CTL,0x08);
+    __delay_ms(2);
 }
