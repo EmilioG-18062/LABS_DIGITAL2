@@ -18,6 +18,8 @@ int Reproducir_Disparo = 0;
 int Reproducir_Choque = 0;
 int Flip_Player = 0;
 int Disparos_Enemigos[] = {0,0,0,0,0};
+int Actualizar_Contador = 0;
+int Start = 0;
 //=========================================================================================================
 
 //================================================ Objetos ================================================
@@ -28,7 +30,7 @@ int Disparos_Enemigos[] = {0,0,0,0,0};
   String Player0_nombre = "JE";
   int Player0_sprite_size[3] = {20,20,7};
   unsigned char *Player0_sprite = Nave_Jugador;
-  int Player0_vidas;
+  int Player0_vidas = 2;
   
   unsigned char *EProyectil_sprite = Proyectil_Player;
   int EProyectil_sprite_size[3] = {12,6,1};
@@ -88,14 +90,22 @@ void setup(){
   LCD_Print(text4, 120,1,1,0xFFFFF, 0x00000);
 
   String text5 = "Vidas:";
-  LCD_Print(text5, 200,1,1,0xFFFFF, 0x00000);
+  LCD_Print(text5, 220,1,1,0xFFFFF, 0x00000);
   
   String text6 = String(Player0_vidas);
-  LCD_Print(text6, 240,1,1,0xFFFFF, 0x00000);
+  LCD_Print(text6, 280,1,1,0xFFFFF, 0x00000);
+
+  String text8 = "Galaga!";
+  LCD_Print(text8, 85,90,2,0xFFFFF, 0x00000);
+  String text9 = "Presione un boton para comenzar";
+  LCD_Print(text9, 25,130,1,0xFFFFF, 0x00000);
 
 }
 
 void loop(){
+
+  Menu();
+  
   //Revisamos los botones para comprabar si hay que mover la nave
   if(digitalRead(PUSH1) == 0){
     if (Player0_coordenadas[1] > 210){
@@ -114,18 +124,44 @@ void loop(){
 
   //Hacemos los calculos para el siguiente frame
   if(Frame_Update == 1){
-    //Revisamos si hay un choque entre las naves y el proyectil
+    if(Flag_New_Position == 150){
+      for(int i; i<5; i++){
+        if(Disparos_Enemigos[i] == 0){
+          EProyectil_coordenadas[2*i] = Bees_coordenadas[2*i];
+          EProyectil_coordenadas[2*i+1] = Bees_coordenadas[2*i+1]+10;
+          EProyectil_destinos[2*i] = Player0_coordenadas[0]+1;
+          EProyectil_destinos[2*i+1] = Bees_coordenadas[2*i+1];
+          Disparos_Enemigos[i] = 1;
+        }
+      }
+    }
+
+    if(Flag_New_Position == 300){
+      //Hacemos los calculos de posiciones para los enemigos
+      for(int i; i<10; i++){
+        aleatorio = rand()%(200-21+1)+21;        
+        Bees_destinos[i] = aleatorio;
+      }
+      Flag_New_Position = 0;
+    }
+    
     for(int i; i<5; i++){
+      //Revisamos si hay un choque entre las naves y el proyectil
       if(((PProyectil_coordenadas[0]+3) < (Bees_coordenadas[2*i]+Bees_sprite_size[0])) && ((PProyectil_coordenadas[1]) < (Bees_coordenadas[2*i+1]+Bees_sprite_size[1])) && ((PProyectil_coordenadas[0]+3) > Bees_coordenadas[2*i]) && ((PProyectil_coordenadas[1]) > Bees_coordenadas[2*i+1])){
         Golpe = 1;
         Nave_Golpeada = 2*i;
-      } 
-    }
-
-     //Revisamos si hay un choque entre las naves y el proyectil
-    for(int i; i<5; i++){
-      if(((EProyectil_coordenadas[2*i]+6) > (Player0_coordenadas[0])) && ((EProyectil_coordenadas[2*i+1]+3) > (Player0_coordenadas[1]+5))){
-        Player0_vidas++;
+      }
+      //Revisamos si hay un choque entre las nave del jugador y los proyectiles
+      if(((EProyectil_coordenadas[2*i]+12) > (Player0_coordenadas[0])) && ((EProyectil_coordenadas[2*i+1]+3) > Player0_coordenadas[1]) && ((EProyectil_coordenadas[2*i]+12) < (Player0_coordenadas[0]+20)) && ((EProyectil_coordenadas[2*i+1]+3) < (Player0_coordenadas[1]+20))){
+          Player0_vidas--;
+          Actualizar_Contador = 1;
+          FillRect(EProyectil_coordenadas[2*i], EProyectil_coordenadas[2*i+1], EProyectil_sprite_size[0], EProyectil_sprite_size[1], 0x0000);
+          EProyectil_coordenadas[2*i+1] = Bees_coordenadas[2*i+1]+5;
+          EProyectil_coordenadas[2*i] = Bees_coordenadas[2*i]+20;      
+          Disparos_Enemigos[i] = 0;
+        }
+      //Revisamos si el Proyectil enemigo llego al limite del mapa
+      if(EProyectil_coordenadas[2*i] == Player0_coordenadas[0]){
         FillRect(EProyectil_coordenadas[2*i], EProyectil_coordenadas[2*i+1], EProyectil_sprite_size[0], EProyectil_sprite_size[1], 0x0000);
         EProyectil_coordenadas[2*i+1] = Bees_coordenadas[2*i+1]+5;
         EProyectil_coordenadas[2*i] = Bees_coordenadas[2*i]+20;       
@@ -136,12 +172,7 @@ void loop(){
     //Revisamos si el proyectil impacta para regresarlo a su posicion inicial
     if(Golpe == 1){
       Player0_puntaje++;
-      
-      String text2 = String(Player0_puntaje);
-      LCD_Print(text2, 60,1,1,0xFFFFF, 0x00000);
-      String text6 = String(Player0_vidas);
-      LCD_Print(text6, 240,1,1,0xFFFFF, 0x00000);
-  
+      Actualizar_Contador = 1;
       FillRect(PProyectil_coordenadas[0], PProyectil_coordenadas[1], PProyectil_sprite_size[0], PProyectil_sprite_size[1], 0x00000);
       FillRect(Bees_coordenadas[Nave_Golpeada], Bees_coordenadas[Nave_Golpeada+1], Bees_sprite_size[0], Bees_sprite_size[1], 0x00000);
       Bees_coordenadas[Nave_Golpeada] = 8;
@@ -154,25 +185,6 @@ void loop(){
       Reproducir_Choque = 1;
       First_shot = 1;
       Golpe = 0;
-    }
-    if(Flag_New_Position == 150){
-      for(int i; i<5; i++){
-        if(Disparos_Enemigos[i] == 0){
-          EProyectil_coordenadas[2*i] = Bees_coordenadas[2*i];
-          EProyectil_coordenadas[2*i+1] = Bees_coordenadas[2*i+1]+10;
-          EProyectil_destinos[2*i] = Player0_coordenadas[0]+1;
-          EProyectil_destinos[2*i+1] = Bees_coordenadas[2*i+1];
-          Disparos_Enemigos[i] = 1;
-        }
-      }
-    }
-    if(Flag_New_Position == 300){
-      //Hacemos los calculos de posiciones para los enemigos
-      for(int i; i<10; i++){
-        aleatorio = rand()%(200-21+1)+21;        
-        Bees_destinos[i] = aleatorio;
-      }
-      Flag_New_Position = 0;
     }
 
     //Movemos a los enemigos
@@ -189,9 +201,10 @@ void loop(){
 
     //Movemos el proyectil enemigo
     for(int i; i<5; i++){
-      EProyectil_coordenadas[2*i] = Mover_Sprite(EProyectil_coordenadas[2*i], EProyectil_destinos[2*i]);
+      if( Disparos_Enemigos[i] == 1){
+        EProyectil_coordenadas[2*i] = Mover_Sprite(EProyectil_coordenadas[2*i], EProyectil_destinos[2*i]);
+      }
     }
-    
 
     //Revisamos si el Proyectil llego al limite del mapa
     if(PProyectil_coordenadas[0]<11){
@@ -202,15 +215,7 @@ void loop(){
       
     }
 
-    //Revisamos si el Proyectil enemigo llego al limite del mapa
-    for(int i; i<5; i++){
-      if(EProyectil_coordenadas[2*i] == Player0_coordenadas[0]){
-        FillRect(EProyectil_coordenadas[2*i], EProyectil_coordenadas[2*i+1], EProyectil_sprite_size[0], EProyectil_sprite_size[1], 0x0000);
-        EProyectil_coordenadas[2*i] = Bees_coordenadas[2*i]+20;
-        EProyectil_coordenadas[2*i+1] = Bees_coordenadas[2*i+1]+5;
-        Disparos_Enemigos[i] = 0;
-      }
-    }
+    
     
     //Revisamos si el proyectil esta en la posicion inicial
     if(First_shot == 0){
@@ -241,9 +246,18 @@ void loop(){
         }
       }
     }
+
+    if(Actualizar_Contador == 1){
+      String text6 = String(Player0_vidas);
+      LCD_Print(text6, 280,1,1,0xFFFFF, 0x00000); 
+
+      String text2 = String(Player0_puntaje);
+      LCD_Print(text2, 60,1,1,0xFFFFF, 0x00000);
+      Actualizar_Contador = 0;
+    }
     
     Frame_Update = 0;
-    }
+  }
   
   currentFrame = millis();
   if (currentFrame - previousFrame >= interval) {
@@ -278,6 +292,8 @@ void loop(){
     Flag_New_Position++;
     Frame_Update = 1;
   }
+
+  Terminar_Juego();
 }
 
 //=============================================== Funciones ===============================================
@@ -298,4 +314,26 @@ void start_music(int melody1[], int durations1[], int songLength1){
   //delay(100);
 };
 
+void Menu(){
+  while(Start == 0){
+    //Revisamos los botones para comprabar si hay que mover la nave
+    if(digitalRead(PUSH1) == 0){
+      Start = 1;
+      FillRect(15, 30, 300, 180, 0x00000);
+      break;
+    }
+    if(digitalRead(PUSH2) == 0){
+      Start = 1;
+      FillRect(15, 30, 300, 180, 0x00000);
+      break;
+    }
+  }
+}
+
+void Terminar_Juego(){
+  while( Player0_vidas == 0){
+    String text7 = "Has Muerto";
+    LCD_Print(text7, 80,100,2,0xFFFFF, 0x00000);
+  }
+}
 //=========================================================================================================
