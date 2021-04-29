@@ -28,6 +28,7 @@ int Disparos_Enemigos[] = {0,0,0,0,0};
   String Player0_nombre = "JE";
   int Player0_sprite_size[3] = {20,20,7};
   unsigned char *Player0_sprite = Nave_Jugador;
+  int Player0_vidas;
   
   unsigned char *EProyectil_sprite = Proyectil_Player;
   int EProyectil_sprite_size[3] = {12,6,1};
@@ -86,6 +87,12 @@ void setup(){
   String text4 = String("Player:");
   LCD_Print(text4, 120,1,1,0xFFFFF, 0x00000);
 
+  String text5 = "Vidas:";
+  LCD_Print(text5, 200,1,1,0xFFFFF, 0x00000);
+  
+  String text6 = String(Player0_vidas);
+  LCD_Print(text6, 240,1,1,0xFFFFF, 0x00000);
+
 }
 
 void loop(){
@@ -112,14 +119,29 @@ void loop(){
       if(((PProyectil_coordenadas[0]+3) < (Bees_coordenadas[2*i]+Bees_sprite_size[0])) && ((PProyectil_coordenadas[1]) < (Bees_coordenadas[2*i+1]+Bees_sprite_size[1])) && ((PProyectil_coordenadas[0]+3) > Bees_coordenadas[2*i]) && ((PProyectil_coordenadas[1]) > Bees_coordenadas[2*i+1])){
         Golpe = 1;
         Nave_Golpeada = 2*i;
-      }
-      
+      } 
     }
+
+     //Revisamos si hay un choque entre las naves y el proyectil
+    for(int i; i<5; i++){
+      if(((EProyectil_coordenadas[2*i]+6) > (Player0_coordenadas[0])) && ((EProyectil_coordenadas[2*i+1]+3) > (Player0_coordenadas[1]+5))){
+        Player0_vidas++;
+        FillRect(EProyectil_coordenadas[2*i], EProyectil_coordenadas[2*i+1], EProyectil_sprite_size[0], EProyectil_sprite_size[1], 0x0000);
+        EProyectil_coordenadas[2*i+1] = Bees_coordenadas[2*i+1]+5;
+        EProyectil_coordenadas[2*i] = Bees_coordenadas[2*i]+20;       
+        Disparos_Enemigos[i] = 0;
+      }
+    }
+    
     //Revisamos si el proyectil impacta para regresarlo a su posicion inicial
     if(Golpe == 1){
       Player0_puntaje++;
+      
       String text2 = String(Player0_puntaje);
       LCD_Print(text2, 60,1,1,0xFFFFF, 0x00000);
+      String text6 = String(Player0_vidas);
+      LCD_Print(text6, 240,1,1,0xFFFFF, 0x00000);
+  
       FillRect(PProyectil_coordenadas[0], PProyectil_coordenadas[1], PProyectil_sprite_size[0], PProyectil_sprite_size[1], 0x00000);
       FillRect(Bees_coordenadas[Nave_Golpeada], Bees_coordenadas[Nave_Golpeada+1], Bees_sprite_size[0], Bees_sprite_size[1], 0x00000);
       Bees_coordenadas[Nave_Golpeada] = 8;
@@ -135,12 +157,12 @@ void loop(){
     }
     if(Flag_New_Position == 150){
       for(int i; i<5; i++){
-        if(Disparos_Enemigos[2*i] == 0){
+        if(Disparos_Enemigos[i] == 0){
           EProyectil_coordenadas[2*i] = Bees_coordenadas[2*i];
           EProyectil_coordenadas[2*i+1] = Bees_coordenadas[2*i+1]+10;
           EProyectil_destinos[2*i] = Player0_coordenadas[0]+1;
           EProyectil_destinos[2*i+1] = Bees_coordenadas[2*i+1];
-          Disparos_Enemigos[2*i] = 1;
+          Disparos_Enemigos[i] = 1;
         }
       }
     }
@@ -181,13 +203,12 @@ void loop(){
     }
 
     //Revisamos si el Proyectil enemigo llego al limite del mapa
-    
     for(int i; i<5; i++){
       if(EProyectil_coordenadas[2*i] == Player0_coordenadas[0]){
         FillRect(EProyectil_coordenadas[2*i], EProyectil_coordenadas[2*i+1], EProyectil_sprite_size[0], EProyectil_sprite_size[1], 0x0000);
         EProyectil_coordenadas[2*i] = Bees_coordenadas[2*i]+20;
         EProyectil_coordenadas[2*i+1] = Bees_coordenadas[2*i+1]+5;
-        Disparos_Enemigos[2*i] = 0;
+        Disparos_Enemigos[i] = 0;
       }
     }
     
@@ -246,7 +267,7 @@ void loop(){
 
     //Movemos el sprite del proyectil del enemigo
     for(int i; i<5; i++){
-      if(Disparos_Enemigos[2*i] == 1){
+      if(Disparos_Enemigos[i] == 1){
         LCD_Sprite(EProyectil_coordenadas[2*i], EProyectil_coordenadas[2*i+1], EProyectil_sprite_size[0], EProyectil_sprite_size[1], EProyectil_sprite, EProyectil_sprite_size[2], 0,1, 0);
       }
     }
