@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <TM4C123GH6PM.h>
-#include "inc/hw_ints.h"
+//#include "inc/hw_ints.h"
 #include "inc/hw_memmap.h"
 #include "inc/hw_types.h"
 #include "driverlib/debug.h"
@@ -28,6 +28,7 @@
 #include "lcd_registers.h"
 #include "lcd_commands.h"
 #include "graphics_commands.h"
+#include "sonidos.h"
 
 #endif
 /*********************************************************************************************************
