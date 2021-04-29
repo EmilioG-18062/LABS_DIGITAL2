@@ -1,165 +1,233 @@
 
 #include "libs.h"
 
-//La posicion de la nave menos el tamaño de la bala menos 1
-int x_proyectil = 294;
-int x_proyectil_pasado;
+//=============================================== Variables ===============================================
+unsigned long currentFrame;
+unsigned long previousFrame;
+const long interval = 16; //30ms para 30FPS, 16ms para 60FPS, 8ms para 120FPS 
+int Frame_Update = 1;
+int Mover_Derecha;
+int Mover_Izquierda;
+int Disparar_proyectil = 0;
+int First_shot = 0;
+int Flag_New_Position = 0;
+//=========================================================================================================
 
-// Crear clase de Proyectil con sus coordenadas
-class Proyectil {
-  public:
-    int coordenada_x;
-    int coordenada_y;     
-};
+//================================================ Objetos ================================================
+  //Declaramos a los objetos a utilizar
+  int Player0_coordenadas[2] = {290,100};
+  int Player0_puntaje = 0;
+  String Player0_nombre = "JE";
+  int Player0_sprite_size[3] = {20,20,1};
+  unsigned char *Player0_sprite = Nave_Jugador;
+  
+  unsigned char *PProyectil_sprite = Proyectil_Player;
+  int PProyectil_sprite_size[3] = {12,6,1};
+  int PProyectil_coordenadas[2] = {280,100};
 
-int jugador_y = 100;
-int jugador_y_anterior;
-int Mover_Derecha = 0;
-int Mover_Izquierda = 0;
-int delay_Proyectil = 0;
-int Mover_Proyectil = 0;
-int proyectil_x = 294;
-int proyectil_x_pasado = 294;
-int proyectil_y = 0;
-int Puntaje = 0;
-int Nave_Golpeada = 0;
-int Enemigo_x = 25;
-int Enemigo_y = 120;
-int Enemigo_x_anterior = 100;
-int Enemigo_y_anterior = 100;
+  int Bee1_coordenadas[2] = {200, 100};
+  int Bee1_destino[2] = {9,9};
+  int Bee1_sprite_size[3] = {19,18,1};
+  unsigned char *Bee1_sprite = Enemigo1;
 
-//***************************************************************************************************************************************
-// Functions Prototypes
-//***************************************************************************************************************************************
-void Proyectil_Movimiento();
+  int Bee2_coordenadas[2] = {200, 100};
+  int Bee2_destino[2] = {9,136};
+  int Bee2_sprite_size[3] = {19,18,1};
+  unsigned char *Bee2_sprite = Enemigo1;
+  
+  int Bee3_coordenadas[2] = {200, 100};
+  int Bee3_destino[2] = {9,200};
+  int Bee3_sprite_size[3] = {19,18,1};
+  unsigned char *Bee3_sprite = Enemigo1;
 
-//***************************************************************************************************************************************
-// Inicialización
-//***************************************************************************************************************************************
-void setup() {
-  SysCtlClockSet(SYSCTL_SYSDIV_2_5|SYSCTL_USE_PLL|SYSCTL_OSC_MAIN|SYSCTL_XTAL_16MHZ);
+  int Bee4_coordenadas[2] = {200,100};
+  int Bee4_destino[2] = {9, 72};
+  int Bee4_sprite_size[3] = {19,18,1};
+  unsigned char *Bee4_sprite = Enemigo1;
+
+  int Bee5_coordenadas[2] = {200, 100};
+  int Bee5_destino[2] = {24,40};
+  int Bee5_sprite_size[3] = {19,18,1};
+  unsigned char *Bee5_sprite = Enemigo1;
+
+  int Bee6_coordenadas[2] = {200, 100};
+  int Bee6_destino[2] = {24,104};
+  int Bee6_sprite_size[3] = {19,18,1};
+  unsigned char *Bee6_sprite = Enemigo1;
+  
+  int Bee7_coordenadas[2] = {200, 100};
+  int Bee7_destino[2] = {220,168};
+  int Bee7_sprite_size[3] = {19,18,1};
+  unsigned char *Bee7_sprite = Enemigo1;
+
+
+
+  //=========================================================================================================
+  
+void setup(){
+  SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
   Serial.begin(9600);
   GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
-  Serial.println("Inicio");
-
+  
   pinMode(PUSH1, INPUT_PULLUP);
   pinMode(PUSH2, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(PUSH1), BT1, FALLING);
-  attachInterrupt(digitalPinToInterrupt(PUSH2), BT2, FALLING); 
-
+  attachInterrupt(digitalPinToInterrupt(PUSH2), BT2, FALLING);
+  
   LCD_Init();
   LCD_Clear(0x00);
 
   // Función para dibujar un rectángulo relleno - parámetros ( coordenada x, cordenada y, ancho, alto, color)
-  FillRect(0, 0, 319, 206, 0x0000);
-  
-  // Función para dibujar texto - parámetros ( texto, coordenada x, cordenada y, fontsize, color, background) 
-  String text1 = "Galaga!";
-  LCD_Print(text1, 100, 100, 2, 0xffff, 0x0000);
-  String text2 = "Points";
-  LCD_Print(text2, 4, 0, 1, 0xffff, 0x0000);
-  String text3 = String(Puntaje, DEC);
-  LCD_Print(text3, 10, 10, 1, 0xffff, 0x0000);
+  FillRect(0, 0, 320, 240, 0xF4F5F);
+  FillRect(8, 8, 304, 224, 0x00000);
+  //for(int i; i<19; i++){
+    //V_line(8+(16*i), 8, 224, 0xF4F5F);
+  //}
+  //for(int i; i<7; i++){
+    //H_line(8, 8+(32*i), 304, 0xF4F55);
+  //}
 
-  LCD_Sprite(300, jugador_y, 16, 32, mario,8, 1,0, 1);   
+  LCD_Sprite(Player0_coordenadas[0], Player0_coordenadas[1], Player0_sprite_size[0], Player0_sprite_size[1], Player0_sprite, Player0_sprite_size[2], 0, 0, 0);
+
 }
 
-//***************************************************************************************************************************************
-// Loop Infinito
-//***************************************************************************************************************************************
-void loop() {
-  
-  if(Mover_Derecha == 1){
-    for (int i = 0; i<16; i++){
-      LCD_Sprite(300, jugador_y+i, 16, 32, mario,8, 1,0, 1);
-      H_line(300, jugador_y_anterior+i, 16, 0x00000);
-    }
-    jugador_y_anterior = jugador_y;
-    jugador_y = jugador_y + 16;
-    Mover_Derecha = 0;
-  }
-  if(Mover_Izquierda == 1){
-    for (int i = 0; i<16; i++){
-      LCD_Sprite(300, jugador_y-i, 16, 32, mario,8, 1,0, 1);
-      H_line(300, jugador_y_anterior-i, 16, 0x00000);
-    }
-    jugador_y_anterior = jugador_y;
-    jugador_y = jugador_y - 16;
-    Mover_Izquierda = 0;
-  }
-  
-  if(Nave_Golpeada == 1){
-    FillRect(Enemigo_x, Enemigo_y, 32, 32, 0x00000);
-    Nave_Golpeada = 12;
-    Enemigo_y = 300;
-    Enemigo_x = 206;
-  }
-  if(Nave_Golpeada == 0){
-    Enemigo_y = random(40,200);
-    Enemigo_x = random(1,200);
-    LCD_Bitmap(Enemigo_x, Enemigo_y, 32, 32, prueba); 
-    FillRect(Enemigo_x_anterior, Enemigo_y_anterior, 32, 32, 0x00000);
-    Enemigo_x_anterior = Enemigo_x; 
-    Enemigo_y_anterior = Enemigo_y;
-  }
-  
-  if(Mover_Proyectil == 1){
-    if (proyectil_x == 294){
-      FillRect(proyectil_x, proyectil_y, 4, 4, 0xfffff);
-      x_proyectil_pasado = proyectil_x;
-      proyectil_x = x_proyectil_pasado - 4;
-    }
-    else if (proyectil_x < 294 && proyectil_x > 20){
-      FillRect(proyectil_x, proyectil_y, 4, 4, 0xfffff);
-      FillRect(x_proyectil_pasado, proyectil_y, 4, 4, 0x00000);
-      x_proyectil_pasado = proyectil_x;
-      proyectil_x = x_proyectil_pasado - 4;
-    }
-    else{
-      FillRect(proyectil_x+4, proyectil_y, 4, 4, 0x00000);
-      Mover_Proyectil = 0;
-      proyectil_x = 294;
-    }
-  }
+void loop(){
 
-  if(proyectil_x>=Enemigo_x && proyectil_x<=Enemigo_x+32){
-    if(proyectil_y>=Enemigo_y && proyectil_y<=Enemigo_y+32){
-      Puntaje++;
-      String text3 = String(Puntaje, DEC);
-      LCD_Print(text3, 10, 10, 1, 0xffff, 0x0000);
-      FillRect(proyectil_x+4, proyectil_y, 4, 4, 0x00000);
-      Mover_Proyectil = 0;
-      proyectil_x = 294;
-      Nave_Golpeada = 1;
+  if(Frame_Update == 1){
+    if(Flag_New_Position == 110){
+      Bee1_destino[0] = Bee1_sprite_size[0]*random(2,(280/Bee1_sprite_size[0]));
+      Bee1_destino[1] = Bee1_sprite_size[1]*random(2,(220/Bee1_sprite_size[1]));
+      Bee2_destino[0] = Bee2_sprite_size[0]*random(2,(280/Bee2_sprite_size[0]));
+      Bee2_destino[1] = Bee2_sprite_size[1]*random(2,(220/Bee2_sprite_size[1]));
+      Bee3_destino[0] = Bee3_sprite_size[0]*random(2,(280/Bee3_sprite_size[0]));
+      Bee3_destino[1] = Bee3_sprite_size[1]*random(2,(220/Bee3_sprite_size[1]));
+      Bee4_destino[0] = Bee4_sprite_size[0]*random(2,(280/Bee4_sprite_size[0]));
+      Bee4_destino[1] = Bee4_sprite_size[1]*random(2,(220/Bee4_sprite_size[1]));
+      Bee5_destino[0] = Bee5_sprite_size[0]*random(2,(280/Bee5_sprite_size[0]));
+      Bee5_destino[1] = Bee5_sprite_size[1]*random(2,(220/Bee5_sprite_size[1]));
+      Bee6_destino[0] = Bee6_sprite_size[0]*random(2,(280/Bee6_sprite_size[0]));
+      Bee6_destino[1] = Bee6_sprite_size[1]*random(2,(220/Bee6_sprite_size[1]));
+      Bee7_destino[0] = Bee7_sprite_size[0]*random(2,(280/Bee7_sprite_size[0]));
+      Bee7_destino[1] = Bee7_sprite_size[1]*random(2,(220/Bee7_sprite_size[1]));
+      Flag_New_Position = 0;
     }
+    //Hacemos los calculos de posiciones
+    Bee1_coordenadas[0] = Mover_Sprite_X(Bee1_coordenadas[0],Bee1_destino[0]);
+    Bee1_coordenadas[1] = Mover_Sprite_Y(Bee1_coordenadas[1],Bee1_destino[1]);
+    Bee2_coordenadas[0] = Mover_Sprite_X(Bee2_coordenadas[0],Bee2_destino[0]);
+    Bee2_coordenadas[1] = Mover_Sprite_Y(Bee2_coordenadas[1],Bee2_destino[1]);
+    Bee3_coordenadas[0] = Mover_Sprite_X(Bee3_coordenadas[0],Bee3_destino[0]);
+    Bee3_coordenadas[1] = Mover_Sprite_Y(Bee3_coordenadas[1],Bee3_destino[1]);
+    Bee4_coordenadas[0] = Mover_Sprite_X(Bee4_coordenadas[0],Bee4_destino[0]);
+    Bee4_coordenadas[1] = Mover_Sprite_Y(Bee4_coordenadas[1],Bee4_destino[1]);
+    Bee5_coordenadas[0] = Mover_Sprite_X(Bee5_coordenadas[0],Bee5_destino[0]);
+    Bee5_coordenadas[1] = Mover_Sprite_Y(Bee5_coordenadas[1],Bee5_destino[1]);
+    Bee6_coordenadas[0] = Mover_Sprite_X(Bee6_coordenadas[0],Bee6_destino[0]);
+    Bee6_coordenadas[1] = Mover_Sprite_Y(Bee6_coordenadas[1],Bee6_destino[1]);
+    Bee7_coordenadas[0] = Mover_Sprite_X(Bee7_coordenadas[0],Bee7_destino[0]);
+    Bee7_coordenadas[1] = Mover_Sprite_Y(Bee7_coordenadas[1],Bee7_destino[1]);
+    
+    Frame_Update = 0;
   }
-  
-  
+  currentFrame = millis();
+  if (currentFrame - previousFrame >= interval) {  
+    // Guardamos el tiempo de la ultima actualizacion de frames
+    previousFrame = currentFrame;
+ 
+    //Mandamos todos los Sprites a sus posciones
+    LCD_Sprite(Bee1_coordenadas[0],Bee1_coordenadas[1], Bee1_sprite_size[0], Bee1_sprite_size[1], Bee1_sprite, Bee1_sprite_size[2], 1,0, 0);
+    LCD_Sprite(Bee2_coordenadas[0],Bee2_coordenadas[1], Bee2_sprite_size[0], Bee2_sprite_size[1], Bee2_sprite, Bee2_sprite_size[2], 1,0, 0);
+    LCD_Sprite(Bee3_coordenadas[0],Bee3_coordenadas[1], Bee3_sprite_size[0], Bee3_sprite_size[1], Bee3_sprite, Bee3_sprite_size[2], 1,0, 0);
+    LCD_Sprite(Bee4_coordenadas[0],Bee4_coordenadas[1], Bee4_sprite_size[0], Bee4_sprite_size[1], Bee4_sprite, Bee4_sprite_size[2], 1,0, 0);
+    LCD_Sprite(Bee5_coordenadas[0],Bee5_coordenadas[1], Bee5_sprite_size[0], Bee5_sprite_size[1], Bee5_sprite, Bee5_sprite_size[2], 1,0, 0);
+    LCD_Sprite(Bee6_coordenadas[0],Bee6_coordenadas[1], Bee6_sprite_size[0], Bee6_sprite_size[1], Bee6_sprite, Bee6_sprite_size[2], 1,0, 0);
+    LCD_Sprite(Bee7_coordenadas[0],Bee7_coordenadas[1], Bee7_sprite_size[0], Bee7_sprite_size[1], Bee7_sprite, Bee7_sprite_size[2], 1,0, 0);
+
+    if(Mover_Derecha == 1){
+      //for(int frame; frame <8; frame++){
+        //LCD_Sprite(Player0_coordenadas[0], Player0_coordenadas[1]-frame, Player0_sprite_size[0], Player0_sprite_size[1], Player0_sprite, Player0_sprite_size[2], 0,0, 0);
+      //}
+      Player0_coordenadas[1]= Player0_coordenadas[1] - 8;
+      Mover_Derecha = 0;
+    }
+
+    if(Mover_Izquierda == 1){
+      //for(int frame; frame <8; frame++){
+        //LCD_Sprite(Player0_coordenadas[0], Player0_coordenadas[1]+frame, Player0_sprite_size[0], Player0_sprite_size[1], Player0_sprite, Player0_sprite_size[2], 0,0, 0);
+      //}
+      Player0_coordenadas[1]= Player0_coordenadas[1] + 8;
+      Mover_Izquierda = 0;
+    }
+
+    if(Disparar_proyectil == 1){
+      if(First_shot == 0){
+        PProyectil_coordenadas[1] = Player0_coordenadas[1]+(Player0_sprite_size[0]/2)-1;
+      }
+      for(int frame; frame<8; frame++){
+        LCD_Sprite(PProyectil_coordenadas[0]-frame, PProyectil_coordenadas[1], PProyectil_sprite_size[0], PProyectil_sprite_size[1], PProyectil_sprite, PProyectil_sprite_size[2], 0,0, 0);
+      }
+      PProyectil_coordenadas[0] = PProyectil_coordenadas[0]-8;
+      First_shot = 1;
+      if(PProyectil_coordenadas[0]<16){
+        PProyectil_coordenadas[0] = PProyectil_coordenadas[0]+PProyectil_sprite_size[0];
+        for(int frame; frame<PProyectil_sprite_size[0]; frame++){
+          V_line(PProyectil_coordenadas[0]-frame, PProyectil_coordenadas[1], PProyectil_sprite_size[0], 0x00000);
+        }
+        Disparar_proyectil = 0;
+        First_shot = 0;
+        PProyectil_coordenadas[0] = 278;
+        PProyectil_coordenadas[1] = 100;
+      }
+    }
+    Flag_New_Position++;
+    Frame_Update = 1;
+  }
 }
+
+//=============================================== Funciones ===============================================
+
+int Mover_Sprite_X(int x_inicial, int x_final){
+
+  if(x_inicial < x_final){
+    x_inicial++;
+  }
+  if(x_inicial > x_final){
+    x_inicial--;
+  }
+  return x_inicial;
+}
+
+int Mover_Sprite_Y(int y_inicial, int y_final){
+
+  if(y_inicial < y_final){
+    y_inicial++;
+  }
+  if(y_inicial > y_final){
+    y_inicial--;
+  }
+  return y_inicial;
+}
+
+//=========================================================================================================
+
+
+//============================================ Interrupciones =============================================
 //Funciones de los botones
 void BT1() {
-  if(jugador_y > 200){
+  if (Player0_coordenadas[1] > 210){
+  }
+  else {
+    Mover_Izquierda = 1;
+  }
+  Disparar_proyectil = 1;
+}
+
+void BT2() {
+  if(Player0_coordenadas[1] < 13){
   }
   else{
     Mover_Derecha = 1;
-  }  
-}
-
-void BT2(){
-  //if(jugador_y < 10){
-  //}
-  //else{
-    //Mover_Izquierda = 1;
-  //}
-  if(Mover_Proyectil == 0){
-    proyectil_y = jugador_y;
   }
-  Mover_Proyectil = 1;
+  Disparar_proyectil = 1;
 }
-
-//***************************************************************************************************************************************
-// Función para mover los proyectiles
-//***************************************************************************************************************************************
-void Proyectil_Movimiento(int proyectil_x, int proyectil_y){
-  
-}
+//=========================================================================================================
