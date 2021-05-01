@@ -13,14 +13,12 @@ int Inicio_Fila1 = 176;
 int aleatorio;
 int Golpe;
 int Nave_Golpeada;
-int anim;
 int Reproducir_Disparo = 0;
 int Reproducir_Choque = 0;
-int Flip_Player = 0;
 int Disparos_Enemigos[] = {0,0,0,0,0};
 int Actualizar_Contador = 0;
 int Start = 0;
-//=========================================================================================================
+//=========================================================================================================   
 
 //================================================ Objetos ================================================
   //Declaramos a los objetos a utilizar
@@ -72,11 +70,14 @@ void setup(){
   //for(int i; i<7; i++){
     //H_line(8, 8+(32*i), 304, 0xF4F55);
   //}
-  
+
+  //Reproducimos la musica que indica el inicio del juego
   start_music(melody1, durations1, songLength1);
-  
+
+  //Colocamos a la nave del jugador en la posicion inicial
   LCD_Sprite(Player0_coordenadas[0], Player0_coordenadas[1], Player0_sprite_size[0], Player0_sprite_size[1], Player0_sprite, Player0_sprite_size[2], 0, 0, 0);
-  
+
+  //Mostramos la informacion del juego
   String text1 = "Score:";
   LCD_Print(text1, 5,1,1,0xFFFFF, 0x00000);
 
@@ -106,7 +107,7 @@ void loop(){
 
   Menu();
   
-  //Revisamos los botones para comprabar si hay que mover la nave
+  //Revisamos los botones para comprabar si hay que comenzar el juego
   if(digitalRead(PUSH1) == 0){
     if (Player0_coordenadas[1] > 210){
     }
